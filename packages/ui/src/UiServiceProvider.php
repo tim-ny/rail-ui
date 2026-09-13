@@ -41,6 +41,7 @@ class UiServiceProvider extends ServiceProvider
             'alert'          => \Aegis\Ui\Components\Alert::class,
             'banner'         => \Aegis\Ui\Components\Banner::class,
             'button'         => \Aegis\Ui\Components\Button::class,
+            'card'           => \Aegis\Ui\Components\Card::class,
             'checkbox'       => \Aegis\Ui\Components\Checkbox::class,
             'datepicker'     => \Aegis\Ui\Components\DatePicker::class,
             'spinner'        => \Aegis\Ui\Components\Spinner::class,

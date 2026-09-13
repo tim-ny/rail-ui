@@ -43,6 +43,11 @@ return [
             'size' => 'md',
             'color' => 'primary',
         ],
+        'card' => [
+            'padding' => 'md',
+            'shadow' => 'sm',
+            'border' => true,
+        ],
         'input' => [
             'size' => 'md',
             'variant' => 'outline',

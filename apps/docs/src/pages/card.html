@@ -1,0 +1,304 @@
+<section>
+
+          <div class="flex items-center gap-3">
+            <h1 class="text-3xl font-extrabold tracking-tight">Card</h1>
+            <span class="inline-code">&lt;x-card /&gt;</span>
+          </div>
+          <p class="mt-2 text-muted-foreground">
+            Flexible content container with slots for media, header, body, footer, and avatar overlays.
+          </p>
+
+          <h2 class="mt-10 text-xl font-bold tracking-tight">Usage</h2>
+          <pre
+            class="code-block mt-3"
+          ><code x-text="uiDocs.cardUsage"></code></pre>
+
+          <h2 class="mt-10 text-xl font-bold tracking-tight">Props</h2>
+          <table class="prop-table mt-3">
+            <thead>
+              <tr>
+                <th>Prop</th>
+                <th>Type / Options</th>
+                <th>Default</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>padding</td>
+                <td>none, sm, md, lg</td>
+                <td>md</td>
+                <td>Inner body padding.</td>
+              </tr>
+              <tr>
+                <td>shadow</td>
+                <td>none, sm, md, lg</td>
+                <td>sm</td>
+                <td>Box shadow level.</td>
+              </tr>
+              <tr>
+                <td>border</td>
+                <td>bool</td>
+                <td>true</td>
+                <td>Shows a 1px border.</td>
+              </tr>
+              <tr>
+                <td>href</td>
+                <td>string</td>
+                <td>null</td>
+                <td>Makes the entire card a link.</td>
+              </tr>
+              <tr>
+                <td>overflow</td>
+                <td>bool</td>
+                <td>false</td>
+                <td>Hides overflow (for full-bleed media).</td>
+              </tr>
+              <tr>
+                <td>unstyled</td>
+                <td>bool</td>
+                <td>false</td>
+                <td>Removes all wrapper styles.</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h2 class="mt-10 text-xl font-bold tracking-tight">Slots</h2>
+          <table class="prop-table mt-3">
+            <thead>
+              <tr>
+                <th>Slot</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>default</td>
+                <td>Main card content (description, text, etc).</td>
+              </tr>
+              <tr>
+                <td>media</td>
+                <td>Image or video rendered at the top of the card.</td>
+              </tr>
+              <tr>
+                <td>header</td>
+                <td>Title, subtitle, or heading content.</td>
+              </tr>
+              <tr>
+                <td>footer</td>
+                <td>Actions, buttons, or links at the bottom.</td>
+              </tr>
+              <tr>
+                <td>avatar</td>
+                <td>Overlapping avatar for profile cards.</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h2 class="mt-10 text-xl font-bold tracking-tight">Basic card</h2>
+          <div class="docs-card mt-4">
+            <div class="max-w-sm">
+              <div class="ui-card ui-card--padding-md ui-card--shadow-sm ui-card--border">
+                <div class="ui-card__body">
+                  <div class="ui-card__header">
+                    <h5 class="text-xl font-bold leading-none tracking-tight">Card Title</h5>
+                  </div>
+                  <div class="ui-card__content">
+                    <p>Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
+                  </div>
+                  <div class="ui-card__footer">
+                    <button class="ui-btn ui-btn--solid ui-btn--primary ui-btn--md">Card Button</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <pre
+            class="code-block mt-3"
+          ><code x-text="uiDocs.cardBasic"></code></pre>
+
+          <h2 class="mt-10 text-xl font-bold tracking-tight">Card with media</h2>
+          <div class="docs-card mt-4">
+            <div class="max-w-sm">
+              <div class="ui-card ui-card--padding-none ui-card--shadow-sm ui-card--border ui-card--overflow">
+                <div class="ui-card__media">
+                  <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Product" class="w-full h-auto" />
+                </div>
+                <div class="ui-card__body" style="padding: var(--ui-space-lg);">
+                  <div class="ui-card__header">
+                    <h2 class="text-lg font-bold leading-none tracking-tight">Product Name</h2>
+                  </div>
+                  <div class="ui-card__content">
+                    <p>This card element can be used to display a product, post, or any other type of data.</p>
+                  </div>
+                  <div class="ui-card__footer">
+                    <button class="ui-btn ui-btn--solid ui-btn--primary ui-btn--md ui-btn--block">View Product</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <pre
+            class="code-block mt-3"
+          ><code x-text="uiDocs.cardMedia"></code></pre>
+
+          <h2 class="mt-10 text-xl font-bold tracking-tight">Horizontal card</h2>
+          <div class="docs-card mt-4">
+            <div class="max-w-2xl">
+              <div class="flex items-center overflow-hidden bg-white border rounded-lg shadow-sm border-neutral-200/60">
+                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="object-cover w-auto h-48 aspect-video" alt="Product" />
+                <div class="p-8">
+                  <div class="ui-card__header">
+                    <h5 class="text-xl font-bold leading-none tracking-tight">Card Title</h5>
+                  </div>
+                  <div class="ui-card__content">
+                    <p class="text-sm">This card element can be used to display a product, post, or any other type of data.</p>
+                  </div>
+                  <div class="ui-card__footer">
+                    <button class="ui-btn ui-btn--solid ui-btn--primary ui-btn--md">Card Button</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <pre
+            class="code-block mt-3"
+          ><code x-text="uiDocs.cardHorizontal"></code></pre>
+
+          <h2 class="mt-10 text-xl font-bold tracking-tight">Link card</h2>
+          <div class="docs-card mt-4">
+            <div class="max-w-sm">
+              <a href="#" class="ui-card ui-card--padding-md ui-card--shadow-sm ui-card--border ui-card--link">
+                <div class="ui-card__body">
+                  <div class="ui-card__header">
+                    <h5 class="text-lg font-bold leading-none tracking-tight">Clickable Card</h5>
+                  </div>
+                  <div class="ui-card__content">
+                    <p>The entire card is wrapped in an anchor tag. Hover to see the shadow elevation.</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+          <pre
+            class="code-block mt-3"
+          ><code x-text="uiDocs.cardLink"></code></pre>
+
+          <h2 class="mt-10 text-xl font-bold tracking-tight">Shadow levels</h2>
+          <div class="docs-card mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <div class="ui-card ui-card--padding-md ui-card--shadow-none ui-card--border">
+              <div class="ui-card__body">
+                <p class="text-sm font-medium">shadow-none</p>
+              </div>
+            </div>
+            <div class="ui-card ui-card--padding-md ui-card--shadow-sm ui-card--border">
+              <div class="ui-card__body">
+                <p class="text-sm font-medium">shadow-sm</p>
+              </div>
+            </div>
+            <div class="ui-card ui-card--padding-md ui-card--shadow-md ui-card--border">
+              <div class="ui-card__body">
+                <p class="text-sm font-medium">shadow-md</p>
+              </div>
+            </div>
+            <div class="ui-card ui-card--padding-md ui-card--shadow-lg ui-card--border">
+              <div class="ui-card__body">
+                <p class="text-sm font-medium">shadow-lg</p>
+              </div>
+            </div>
+          </div>
+          <pre
+            class="code-block mt-3"
+          ><code x-text="uiDocs.cardShadows"></code></pre>
+
+</section>
+
+<script>
+      window.uiDocs = {
+        cardUsage: [
+          '<!-- Basic card -->',
+          '<x-card>',
+          '    <x-slot:header>',
+          '        <h3 class="text-lg font-bold">Title</h3>',
+          '    </x-slot:header>',
+          '    <p>Card description goes here.</p>',
+          '    <x-slot:footer>',
+          '        <x-button variant="solid">Action</x-button>',
+          '    </x-slot:footer>',
+          '</x-card>',
+          '',
+          '<!-- Card with media -->',
+          '<x-card padding="none" overflow>',
+          '    <x-slot:media>',
+          '        <img src="/hero.jpg" alt="Hero" />',
+          '    </x-slot:media>',
+          '    <div style="padding: 1rem;">',
+          '        <h3>Product Name</h3>',
+          '        <p>Description here.</p>',
+          '    </div>',
+          '</x-card>',
+          '',
+          '<!-- Link card -->',
+          '<x-card href="/product/1">',
+          '    <p>Entire card is clickable.</p>',
+          '</x-card>',
+        ].join('\n'),
+
+        cardBasic: [
+          '<x-card>',
+          '    <x-slot:header>',
+          '        <h5 class="text-xl font-bold">Card Title</h5>',
+          '    </x-slot:header>',
+          '    <p>Here are the biggest enterprise technology acquisitions of 2021.</p>',
+          '    <x-slot:footer>',
+          '        <x-button>Card Button</x-button>',
+          '    </x-slot:footer>',
+          '</x-card>',
+        ].join('\n'),
+
+        cardMedia: [
+          '<x-card padding="none" overflow>',
+          '    <x-slot:media>',
+          '        <img src="/product.jpg" alt="Product" />',
+          '    </x-slot:media>',
+          '    <x-slot:header>',
+          '        <h2 class="text-lg font-bold">Product Name</h2>',
+          '    </x-slot:header>',
+          '    <p>This card displays a product with an image on top.</p>',
+          '    <x-slot:footer>',
+          '        <x-button block>View Product</x-button>',
+          '    </x-slot:footer>',
+          '</x-card>',
+        ].join('\n'),
+
+        cardHorizontal: [
+          '<!-- Use flex utilities for horizontal layout -->',
+          '<div class="flex items-center">',
+          '    <x-card padding="none" overflow class="flex items-center">',
+          '        <img src="/product.jpg" class="w-auto h-48 object-cover" />',
+          '        <div class="p-8">',
+          '            <h5 class="text-xl font-bold">Card Title</h5>',
+          '            <p class="text-sm">Horizontal card with image on the left.</p>',
+          '            <x-button>Card Button</x-button>',
+          '        </div>',
+          '    </x-card>',
+          '</div>',
+        ].join('\n'),
+
+        cardLink: [
+          '<x-card href="/product/1">',
+          '    <x-slot:header>',
+          '        <h5 class="text-lg font-bold">Clickable Card</h5>',
+          '    </x-slot:header>',
+          '    <p>The entire card is wrapped in an anchor tag.</p>',
+          '</x-card>',
+        ].join('\n'),
+
+        cardShadows: [
+          '<x-card shadow="none">No shadow</x-card>',
+          '<x-card shadow="sm">Small shadow</x-card>',
+          '<x-card shadow="md">Medium shadow</x-card>',
+          '<x-card shadow="lg">Large shadow</x-card>',
+        ].join('\n'),
+      }
+    </script>

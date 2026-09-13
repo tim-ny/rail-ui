@@ -149,6 +149,118 @@
 
 @layer components {
 
+    /* ── Card ── */
+    .ui-card {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        font-family: var(--ui-font-sans);
+        background-color: var(--ui-color-surface);
+        border-radius: var(--ui-radius-lg);
+        transition: box-shadow var(--ui-transition-fast),
+                    border-color var(--ui-transition-fast);
+    }
+
+    .ui-card--border {
+        border: 1px solid var(--ui-color-border);
+    }
+
+    /* Shadows */
+    .ui-card--shadow-none { box-shadow: none; }
+    .ui-card--shadow-sm   { box-shadow: var(--ui-shadow-sm); }
+    .ui-card--shadow-md   { box-shadow: var(--ui-shadow-md); }
+    .ui-card--shadow-lg   { box-shadow: var(--ui-shadow-lg); }
+
+    /* Padding */
+    .ui-card--padding-none .ui-card__body { padding: 0; }
+    .ui-card--padding-sm .ui-card__body   { padding: var(--ui-space-sm); }
+    .ui-card--padding-md .ui-card__body   { padding: var(--ui-space-lg); }
+    .ui-card--padding-lg .ui-card__body   { padding: var(--ui-space-xl); }
+
+    /* Overflow */
+    .ui-card--overflow {
+        overflow: hidden;
+    }
+    .ui-card--overflow .ui-card__media {
+        overflow: hidden;
+    }
+
+    /* Link card */
+    .ui-card--link {
+        text-decoration: none;
+        color: inherit;
+        cursor: pointer;
+    }
+    .ui-card--link:hover {
+        box-shadow: var(--ui-shadow-md);
+    }
+
+    /* Media */
+    .ui-card__media {
+        display: flex;
+        width: 100%;
+    }
+
+    .ui-card__media img,
+    .ui-card__media video {
+        width: 100%;
+        height: auto;
+        display: block;
+        object-fit: cover;
+    }
+
+    /* Avatar (profile card overlay) */
+    .ui-card__avatar {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 50;
+        width: 100%;
+        display: flex;
+        align-items: flex-end;
+        padding: var(--ui-space-lg);
+        transform: translateY(50%);
+    }
+
+    /* Body */
+    .ui-card__body {
+        display: flex;
+        flex-direction: column;
+        gap: var(--ui-space-sm);
+    }
+
+    /* Header */
+    .ui-card__header {
+        display: flex;
+        flex-direction: column;
+        gap: var(--ui-space-xs);
+    }
+
+    .ui-card__header h2,
+    .ui-card__header h3,
+    .ui-card__header h4,
+    .ui-card__header h5,
+    .ui-card__header h6 {
+        margin: 0;
+        font-weight: 600;
+        line-height: 1.25;
+        color: var(--ui-color-text);
+    }
+
+    /* Content */
+    .ui-card__content {
+        color: var(--ui-color-text-muted);
+        line-height: 1.5;
+    }
+
+    /* Footer */
+    .ui-card__footer {
+        display: flex;
+        align-items: center;
+        gap: var(--ui-space-sm);
+        margin-top: var(--ui-space-sm);
+    }
+
     /* ── Banner ── */
     .ui-banner {
         width: 100%;
