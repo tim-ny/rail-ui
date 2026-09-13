@@ -15,16 +15,25 @@ use Aegis\Ui\Concerns\HasSize;
 use Aegis\Ui\Concerns\HasVariant;
 use Aegis\Ui\Concerns\HasColor;
 use Aegis\Ui\Concerns\HasIcon;
+use Aegis\Ui\Concerns\HasDisabled;
+use Aegis\Ui\Concerns\HasLoading;
+use Aegis\Ui\Concerns\HasBlock;
+use Aegis\Ui\Concerns\HasUnstyled;
 use Aegis\Ui\Concerns\HasValidation;
 use Aegis\Ui\Concerns\InteractsWithWire;
 
 class Input extends BaseComponent
 {
-    use HasSize, HasVariant, HasColor, HasIcon, HasValidation, InteractsWithWire;
+    use HasSize, HasVariant, HasColor, HasIcon, HasDisabled, HasLoading, HasBlock, HasUnstyled, HasValidation, InteractsWithWire;
 
     protected static function componentConfigKey(): string
     {
         return 'input';
+    }
+
+    protected static function viewName(): string
+    {
+        return 'ui::components.input';
     }
 
     public function __construct(
@@ -40,16 +49,16 @@ class Input extends BaseComponent
         bool            $valid        = false,
         bool            $required     = false,
         bool            $readonly     = false,
-        public bool     $disabled     = false,
-        public bool     $loading      = false,
-        public bool     $block        = false,
+        bool            $disabled     = false,
+        bool            $loading      = false,
+        bool            $block        = false,
         ?string         $id           = null,
         ?string         $name         = null,
         public ?string  $placeholder  = null,
         public ?string  $autocomplete = null,
         public bool     $autofocus    = false,
         public ?int     $maxlength    = null,
-        public bool     $unstyled     = false,
+        bool            $unstyled     = false,
         ?string         $wireModel        = null,
         ?string         $wireModelModifier = null,
     ) {
@@ -58,6 +67,10 @@ class Input extends BaseComponent
         $this->size              = $this->resolveDefault('input', 'size', $size, 'md');
         $this->variant           = $this->resolveDefault('input', 'variant', $variant, 'outline');
         $this->color             = $this->resolveDefault('input', 'color', $color, 'primary');
+        $this->disabled          = $disabled;
+        $this->loading           = $loading;
+        $this->block             = $block;
+        $this->unstyled          = $unstyled;
         $this->leadingIcon       = $leadingIcon;
         $this->trailingIcon      = $trailingIcon;
         $this->hint              = $hint;
@@ -74,6 +87,8 @@ class Input extends BaseComponent
 
     public function classes(): string
     {
+        if ($this->unstyled) return '';
+
         $this->validate();
 
         return $this->classNames(
@@ -86,10 +101,5 @@ class Input extends BaseComponent
             $this->readonly ? 'ui-input--readonly' : null,
             $this->loading  ? 'ui-input--loading'  : null,
         );
-    }
-
-    public function render(): \Illuminate\Contracts\View\View
-    {
-        return view('ui::components.input');
     }
 }

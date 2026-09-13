@@ -747,6 +747,151 @@
     .ui-input__trailing-icon--error { color: var(--ui-color-error); }
     .ui-input__trailing-icon--valid { color: var(--ui-color-valid); }
 
+    /* ── Textarea ── */
+    .ui-textarea {
+        display: flex;
+        width: 100%;
+        font-family: var(--ui-font-sans);
+        border-radius: var(--ui-radius-md);
+        transition: background-color var(--ui-transition-fast),
+                    border-color var(--ui-transition-fast),
+                    color var(--ui-transition-fast),
+                    outline-color var(--ui-transition-fast);
+        color: var(--ui-color-text);
+        background-color: var(--ui-color-surface);
+        border: 1px solid var(--ui-color-border);
+        resize: vertical;
+        min-height: calc(var(--ui-input-height-md) * 4);
+    }
+
+    .ui-textarea::placeholder {
+        color: var(--ui-color-text-subtle);
+    }
+
+    /* Sizes — min-height based, not fixed height */
+    .ui-textarea--xs {
+        min-height: calc(var(--ui-input-height-xs) * 4);
+        padding: var(--ui-space-xs);
+        font-size: var(--ui-font-size-xs);
+    }
+    .ui-textarea--sm {
+        min-height: calc(var(--ui-input-height-sm) * 4);
+        padding: var(--ui-space-sm);
+        font-size: var(--ui-font-size-xs);
+    }
+    .ui-textarea--md {
+        min-height: calc(var(--ui-input-height-md) * 4);
+        padding: var(--ui-space-md);
+        font-size: var(--ui-font-size-sm);
+    }
+    .ui-textarea--lg {
+        min-height: calc(var(--ui-input-height-lg) * 4);
+        padding: var(--ui-space-lg);
+        font-size: var(--ui-font-size-base);
+    }
+    .ui-textarea--xl {
+        min-height: calc(var(--ui-input-height-xl) * 4);
+        padding: var(--ui-space-xl);
+        font-size: var(--ui-font-size-lg);
+    }
+
+    /* Variants */
+    .ui-textarea--outline {
+        border: 1px solid var(--ui-color-border);
+        background-color: var(--ui-color-surface);
+    }
+
+    .ui-textarea--soft {
+        border: 1px solid transparent;
+        background-color: var(--ui-color-neutral-soft);
+    }
+
+    .ui-textarea--subtle {
+        border: 1px solid var(--ui-color-border);
+        background-color: var(--ui-color-surface-raised);
+    }
+
+    .ui-textarea--ghost {
+        border: 1px solid transparent;
+        background-color: transparent;
+    }
+
+    .ui-textarea--none {
+        border: none;
+        background-color: transparent;
+        border-radius: 0;
+        padding-inline: 0;
+    }
+
+    .ui-textarea--block {
+        width: 100%;
+    }
+
+    /* Auto-resize mode */
+    .ui-textarea--auto-resize {
+        overflow: hidden;
+        resize: none;
+    }
+
+    /* Focus ring — outline pattern */
+    .ui-textarea:focus {
+        outline: 2px solid var(--ui-color-primary);
+        outline-offset: 1px;
+    }
+
+    .ui-textarea--primary:focus { outline-color: var(--ui-color-primary); }
+    .ui-textarea--danger:focus  { outline-color: var(--ui-color-danger); }
+    .ui-textarea--success:focus { outline-color: var(--ui-color-success); }
+    .ui-textarea--warning:focus { outline-color: var(--ui-color-warning); }
+    .ui-textarea--neutral:focus { outline-color: var(--ui-color-neutral); }
+
+    /* Disabled & Readonly states */
+    .ui-textarea--disabled,
+    .ui-textarea[disabled] {
+        opacity: 0.5;
+        cursor: not-allowed;
+        background-color: var(--ui-color-neutral-soft);
+    }
+
+    .ui-field--error textarea {
+        border-color: var(--ui-color-error-border);
+        background-color: var(--ui-color-error-soft);
+    }
+
+    .ui-field--error textarea:focus {
+        outline-color: var(--ui-color-error-border);
+    }
+
+    .ui-field--valid textarea {
+        border-color: var(--ui-color-valid-border);
+    }
+
+    .ui-field--readonly textarea {
+        background-color: var(--ui-color-surface);
+        color: var(--ui-color-text-muted);
+        cursor: default;
+        border-color: var(--ui-color-border);
+    }
+
+    .ui-textarea__loading {
+        position: absolute;
+        right: var(--ui-space-sm);
+        bottom: var(--ui-space-sm);
+        pointer-events: none;
+    }
+
+    .ui-textarea {
+        position: relative;
+    }
+
+    /* Character count */
+    .ui-form-field__charcount {
+        font-size: var(--ui-font-size-xs);
+        color: var(--ui-color-text-subtle);
+        text-align: right;
+        margin-top: calc(var(--ui-space-xs) * -1);
+    }
+
     /* ── Checkbox ── */
     .ui-checkbox__wrapper {
         display: flex;
@@ -991,7 +1136,8 @@
 
     .ui-datepicker__trigger:focus-within {
         border-color: var(--ui-color-primary);
-        box-shadow: 0 0 0 2px var(--ui-color-primary-soft);
+        outline: 2px solid var(--ui-color-primary);
+        outline-offset: 1px;
     }
 
     .ui-datepicker__input {
@@ -1235,31 +1381,31 @@
     .ui-datepicker--xl .ui-datepicker__cell { width: var(--ui-datepicker-cell-xl); height: var(--ui-datepicker-cell-xl); font-size: var(--ui-font-size-base); }
 
     /* Color themes */
-    .ui-datepicker--primary .ui-datepicker__trigger:focus-within { border-color: var(--ui-color-primary); box-shadow: 0 0 0 2px var(--ui-color-primary-soft); }
+    .ui-datepicker--primary .ui-datepicker__trigger:focus-within { border-color: var(--ui-color-primary); outline: 2px solid var(--ui-color-primary); outline-offset: 1px; }
     .ui-datepicker--primary .ui-datepicker__cell--selected { background-color: var(--ui-color-primary); }
     .ui-datepicker--primary .ui-datepicker__cell--in-range { background-color: var(--ui-color-primary-soft); }
     .ui-datepicker--primary .ui-datepicker__cell--today { box-shadow: inset 0 0 0 1px var(--ui-color-primary); }
     .ui-datepicker--primary .ui-datepicker__preset--active { background-color: var(--ui-color-primary-soft); color: var(--ui-color-primary); }
 
-    .ui-datepicker--danger .ui-datepicker__trigger:focus-within { border-color: var(--ui-color-danger); box-shadow: 0 0 0 2px var(--ui-color-danger-soft); }
+    .ui-datepicker--danger .ui-datepicker__trigger:focus-within { border-color: var(--ui-color-danger); outline: 2px solid var(--ui-color-danger); outline-offset: 1px; }
     .ui-datepicker--danger .ui-datepicker__cell--selected { background-color: var(--ui-color-danger); }
     .ui-datepicker--danger .ui-datepicker__cell--in-range { background-color: var(--ui-color-danger-soft); }
     .ui-datepicker--danger .ui-datepicker__cell--today { box-shadow: inset 0 0 0 1px var(--ui-color-danger); }
     .ui-datepicker--danger .ui-datepicker__preset--active { background-color: var(--ui-color-danger-soft); color: var(--ui-color-danger); }
 
-    .ui-datepicker--success .ui-datepicker__trigger:focus-within { border-color: var(--ui-color-success); box-shadow: 0 0 0 2px var(--ui-color-success-soft); }
+    .ui-datepicker--success .ui-datepicker__trigger:focus-within { border-color: var(--ui-color-success); outline: 2px solid var(--ui-color-success); outline-offset: 1px; }
     .ui-datepicker--success .ui-datepicker__cell--selected { background-color: var(--ui-color-success); }
     .ui-datepicker--success .ui-datepicker__cell--in-range { background-color: var(--ui-color-success-soft); }
     .ui-datepicker--success .ui-datepicker__cell--today { box-shadow: inset 0 0 0 1px var(--ui-color-success); }
     .ui-datepicker--success .ui-datepicker__preset--active { background-color: var(--ui-color-success-soft); color: var(--ui-color-success); }
 
-    .ui-datepicker--warning .ui-datepicker__trigger:focus-within { border-color: var(--ui-color-warning); box-shadow: 0 0 0 2px var(--ui-color-warning-soft); }
+    .ui-datepicker--warning .ui-datepicker__trigger:focus-within { border-color: var(--ui-color-warning); outline: 2px solid var(--ui-color-warning); outline-offset: 1px; }
     .ui-datepicker--warning .ui-datepicker__cell--selected { background-color: var(--ui-color-warning); }
     .ui-datepicker--warning .ui-datepicker__cell--in-range { background-color: var(--ui-color-warning-soft); }
     .ui-datepicker--warning .ui-datepicker__cell--today { box-shadow: inset 0 0 0 1px var(--ui-color-warning); }
     .ui-datepicker--warning .ui-datepicker__preset--active { background-color: var(--ui-color-warning-soft); color: var(--ui-color-warning); }
 
-    .ui-datepicker--neutral .ui-datepicker__trigger:focus-within { border-color: var(--ui-color-neutral); box-shadow: 0 0 0 2px var(--ui-color-neutral-soft); }
+    .ui-datepicker--neutral .ui-datepicker__trigger:focus-within { border-color: var(--ui-color-neutral); outline: 2px solid var(--ui-color-neutral); outline-offset: 1px; }
     .ui-datepicker--neutral .ui-datepicker__cell--selected { background-color: var(--ui-color-neutral); }
     .ui-datepicker--neutral .ui-datepicker__cell--in-range { background-color: var(--ui-color-neutral-soft); }
     .ui-datepicker--neutral .ui-datepicker__cell--today { box-shadow: inset 0 0 0 1px var(--ui-color-neutral); }

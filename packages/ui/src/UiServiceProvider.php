@@ -46,6 +46,7 @@ class UiServiceProvider extends ServiceProvider
             'icon'           => \Aegis\Ui\Components\Icon::class,
             'form-field'     => \Aegis\Ui\Components\FormField::class,
             'input'          => \Aegis\Ui\Components\Input::class,
+            'textarea'       => \Aegis\Ui\Components\Textarea::class,
         ];
 
         foreach ($bladeComponents as $alias => $class) {

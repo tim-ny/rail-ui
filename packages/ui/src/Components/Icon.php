@@ -18,11 +18,16 @@ class Icon extends BaseComponent
         return 'icon';
     }
 
+    protected static function viewName(): string
+    {
+        return 'ui::components.icon';
+    }
+
     public function __construct(
         public string  $name,
         public string  $size  = 'md',
         public ?string $color = null,
-        public ?string $label = null,   // null = decorative (aria-hidden); string = aria-label
+        public ?string $label = null,
     ) {
         $this->name = $this->normaliseName($name);
     }
@@ -47,10 +52,5 @@ class Icon extends BaseComponent
     public function isDecorative(): bool
     {
         return $this->label === null;
-    }
-
-    public function render(): \Illuminate\Contracts\View\View
-    {
-        return view('ui::components.icon');
     }
 }

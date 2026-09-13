@@ -36,7 +36,7 @@
         }
     }"
     {{ $attributes->merge([
-        'class' => $unstyled ? '' : $component->classes(),
+        'class' => ($component ?? null) ? $component->classes() : ($unstyled ? '' : 'ui-accordion ui-accordion--outline ui-accordion--md ui-accordion--neutral'),
     ]) }}
 >
     {{ $slot }}

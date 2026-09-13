@@ -15,15 +15,24 @@ use Aegis\Ui\Concerns\HasSize;
 use Aegis\Ui\Concerns\HasVariant;
 use Aegis\Ui\Concerns\HasColor;
 use Aegis\Ui\Concerns\HasIcon;
+use Aegis\Ui\Concerns\HasDisabled;
+use Aegis\Ui\Concerns\HasLoading;
+use Aegis\Ui\Concerns\HasBlock;
+use Aegis\Ui\Concerns\HasUnstyled;
 use Aegis\Ui\Concerns\InteractsWithWire;
 
 class Button extends BaseComponent
 {
-    use HasSize, HasVariant, HasColor, HasIcon, InteractsWithWire;
+    use HasSize, HasVariant, HasColor, HasIcon, HasDisabled, HasLoading, HasBlock, HasUnstyled, InteractsWithWire;
 
     protected static function componentConfigKey(): string
     {
         return 'button';
+    }
+
+    protected static function viewName(): string
+    {
+        return 'ui::components.button';
     }
 
     protected array $allowedVariants = ['solid', 'outline', 'ghost', 'soft'];
@@ -37,17 +46,21 @@ class Button extends BaseComponent
         public ?string  $href         = null,
         public ?string  $target       = null,
         public bool     $external     = false,
-        public bool     $disabled     = false,
-        public bool     $loading      = false,
-        public bool     $block        = false,
+        bool            $disabled     = false,
+        bool            $loading      = false,
+        bool            $block        = false,
         ?string         $leadingIcon  = null,
         ?string         $trailingIcon = null,
-        public bool     $unstyled     = false,
+        bool            $unstyled     = false,
         ?string         $wireModel    = null,
     ) {
         $this->size         = $this->resolveDefault('button', 'size', $size, 'md');
         $this->variant      = $this->resolveDefault('button', 'variant', $variant, 'solid');
         $this->color        = $this->resolveDefault('button', 'color', $color, 'primary');
+        $this->disabled     = $disabled;
+        $this->loading      = $loading;
+        $this->block        = $block;
+        $this->unstyled     = $unstyled;
         $this->leadingIcon  = $leadingIcon;
         $this->trailingIcon = $trailingIcon;
         $this->wireModel    = $wireModel;
@@ -86,6 +99,8 @@ class Button extends BaseComponent
 
     public function classes(): string
     {
+        if ($this->unstyled) return '';
+
         $this->validate();
 
         return $this->classNames(
@@ -97,10 +112,5 @@ class Button extends BaseComponent
             $this->loading  ? 'ui-btn--loading'  : null,
             $this->disabled ? 'ui-btn--disabled' : null,
         );
-    }
-
-    public function render(): \Illuminate\Contracts\View\View
-    {
-        return view('ui::components.button');
     }
 }

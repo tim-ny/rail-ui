@@ -1,0 +1,465 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Textarea — Aegis UI Docs</title>
+    <meta name="description" content="Textarea component: multi-line text input with variants, sizes, character count, and validation." />
+
+    <!-- Alpine.js Collapse Plugin -->
+    <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
+    <!-- Alpine.js Core -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <!-- Tabler Icons CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
+    <!-- Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/src/styles.css" />
+  </head>
+
+  <body x-data="{ sidebarOpen: false }" class="bg-background text-foreground antialiased">
+    <!-- ───────────────────────── Mobile sidebar overlay ───────────────────────── -->
+    <div x-show="sidebarOpen" x-cloak class="fixed inset-0 z-50 lg:hidden">
+      <div class="absolute inset-0 bg-black/40" @click="sidebarOpen = false"></div>
+      <aside class="absolute inset-y-0 left-0 flex w-72 flex-col overflow-y-auto border-r border-r border-border bg-background">
+        <div class="flex h-14 items-center gap-2 border-b border-border px-5">
+          <span class="flex h-7 w-7 items-center justify-center rounded-md bg-primary text-primary-foreground">
+            <i class="ti ti-shield text-sm"></i>
+          </span>
+          <span class="text-sm font-bold tracking-tight">Aegis UI</span>
+        </div>
+        <nav class="flex-1 overflow-y-auto px-4 py-6">
+          <p class="px-2 pb-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground">Getting Started</p>
+          <a href="index.html" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors text-muted-foreground hover:text-foreground"><i class="ti ti-home text-base"></i> Home</a>
+          <a href="about.html" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors text-muted-foreground hover:text-foreground"><i class="ti ti-info-circle text-base"></i> About</a>
+          <a href="installation.html" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors text-muted-foreground hover:text-foreground"><i class="ti ti-terminal text-base"></i> Installation</a>
+          <a href="theming.html" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors text-muted-foreground hover:text-foreground"><i class="ti ti-palette text-base"></i> Theming &amp; Customization</a>
+
+          <p class="px-2 pb-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground pt-6">Components</p>
+          <a href="components.html" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors text-muted-foreground hover:text-foreground"><i class="ti ti-components text-base"></i> Overview</a>
+          <a href="button.html" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors text-muted-foreground hover:text-foreground"><i class="ti ti-click text-base"></i> Button</a>
+          <a href="input.html" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors text-muted-foreground hover:text-foreground"><i class="ti ti-forms text-base"></i> Input</a>
+          <a href="textarea.html" aria-current="page" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors bg-muted text-foreground font-medium"><i class="ti ti-text-wrap text-base"></i> Textarea</a>
+          <a href="checkbox.html" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors text-muted-foreground hover:text-foreground"><i class="ti ti-square-check text-base"></i> Checkbox</a>
+          <a href="datepicker.html" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors text-muted-foreground hover:text-foreground"><i class="ti ti-calendar text-base"></i> Date Picker</a>
+          <a href="alert.html" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors text-muted-foreground hover:text-foreground"><i class="ti ti-bell text-base"></i> Alert</a>
+          <a href="accordion.html" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors text-muted-foreground hover:text-foreground"><i class="ti ti-layout-list text-base"></i> Accordion</a>
+          <a href="spinner.html" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors text-muted-foreground hover:text-foreground"><i class="ti ti-loader-2 text-base"></i> Spinner</a>
+          <a href="icon.html" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors text-muted-foreground hover:text-foreground"><i class="ti ti-icons text-base"></i> Icon</a>
+          <a href="form-field.html" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors text-muted-foreground hover:text-foreground"><i class="ti ti-list-check text-base"></i> Form Field</a>
+        </nav>
+      </aside>
+    </div>
+
+    <div class="lg:pl-64">
+      <!-- ───────────────────────── Desktop sidebar ───────────────────────── -->
+      <aside class="fixed inset-y-0 left-0 z-40 hidden w-64 flex-col border-r border-border bg-background lg:flex">
+        <a href="index.html" class="flex h-14 items-center gap-2 border-b border-border px-5">
+          <span class="flex h-7 w-7 items-center justify-center rounded-md bg-primary text-primary-foreground">
+            <i class="ti ti-shield text-sm"></i>
+          </span>
+          <span class="text-sm font-bold tracking-tight">Aegis UI</span>
+        </a>
+        <nav class="flex-1 overflow-y-auto px-4 py-6">
+          <p class="px-2 pb-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground">Getting Started</p>
+          <a href="index.html" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors text-muted-foreground hover:text-foreground"><i class="ti ti-home text-base"></i> Home</a>
+          <a href="about.html" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors text-muted-foreground hover:text-foreground"><i class="ti ti-info-circle text-base"></i> About</a>
+          <a href="installation.html" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors text-muted-foreground hover:text-foreground"><i class="ti ti-terminal text-base"></i> Installation</a>
+          <a href="theming.html" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors text-muted-foreground hover:text-foreground"><i class="ti ti-palette text-base"></i> Theming &amp; Customization</a>
+
+          <p class="px-2 pb-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground pt-6">Components</p>
+          <a href="components.html" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors text-muted-foreground hover:text-foreground"><i class="ti ti-components text-base"></i> Overview</a>
+          <a href="button.html" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors text-muted-foreground hover:text-foreground"><i class="ti ti-click text-base"></i> Button</a>
+          <a href="input.html" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors text-muted-foreground hover:text-foreground"><i class="ti ti-forms text-base"></i> Input</a>
+          <a href="textarea.html" aria-current="page" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors bg-muted text-foreground font-medium"><i class="ti ti-text-wrap text-base"></i> Textarea</a>
+          <a href="checkbox.html" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors text-muted-foreground hover:text-foreground"><i class="ti ti-square-check text-base"></i> Checkbox</a>
+          <a href="datepicker.html" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors text-muted-foreground hover:text-foreground"><i class="ti ti-calendar text-base"></i> Date Picker</a>
+          <a href="alert.html" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors text-muted-foreground hover:text-foreground"><i class="ti ti-bell text-base"></i> Alert</a>
+          <a href="accordion.html" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors text-muted-foreground hover:text-foreground"><i class="ti ti-layout-list text-base"></i> Accordion</a>
+          <a href="spinner.html" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors text-muted-foreground hover:text-foreground"><i class="ti ti-loader-2 text-base"></i> Spinner</a>
+          <a href="icon.html" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors text-muted-foreground hover:text-foreground"><i class="ti ti-icons text-base"></i> Icon</a>
+          <a href="form-field.html" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors text-muted-foreground hover:text-foreground"><i class="ti ti-list-check text-base"></i> Form Field</a>
+        </nav>
+      </aside>
+
+      <!-- ───────────────────────── Top header ───────────────────────── -->
+      <header class="sticky top-0 z-30 flex h-14 items-center justify-between border-b border-border bg-background/80 px-4 backdrop-blur sm:px-6">
+        <div class="flex items-center gap-3">
+          <button
+            type="button"
+            @click="sidebarOpen = true"
+            class="flex h-9 w-9 items-center justify-center rounded-md border border-border text-muted-foreground transition-colors hover:text-foreground lg:hidden"
+            aria-label="Open navigation"
+          >
+            <i class="ti ti-menu-2 text-lg"></i>
+          </button>
+          <span class="text-sm font-medium text-muted-foreground lg:hidden">Aegis UI</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="version-chip"><i class="ti ti-shield text-xs text-foreground"></i> v1.0.0</span>
+          <span class="hidden sm:inline-flex text-xs text-muted-foreground">Laravel 13 · Livewire 4 · Tailwind 4 · Alpine 3</span>
+        </div>
+      </header>
+
+      <!-- ───────────────────────── Main content ───────────────────────── -->
+      <main class="mx-auto w-full max-w-7xl px-4 py-10 sm:px-6">
+        <section>
+
+          <div class="flex items-center gap-3">
+            <h1 class="text-3xl font-extrabold tracking-tight">Textarea</h1>
+            <span class="inline-code">&lt;x-textarea /&gt;</span>
+          </div>
+          <p class="mt-2 text-muted-foreground">
+            Multi-line text input with variants, sizes, character count and validation.
+          </p>
+
+          <div class="docs-card mt-8" aria-label="On this page">
+            <span class="docs-card__label">On this page</span>
+            <nav class="flex flex-wrap gap-2">
+              <a href="#usage" class="rounded-md border border-border px-2.5 py-1 text-xs font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground">Usage</a>
+              <a href="#props" class="rounded-md border border-border px-2.5 py-1 text-xs font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground">Props</a>
+              <a href="#variants" class="rounded-md border border-border px-2.5 py-1 text-xs font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground">Variants</a>
+              <a href="#sizes" class="rounded-md border border-border px-2.5 py-1 text-xs font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground">Sizes</a>
+              <a href="#character-count" class="rounded-md border border-border px-2.5 py-1 text-xs font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground">Character count</a>
+              <a href="#auto-resize" class="rounded-md border border-border px-2.5 py-1 text-xs font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground">Auto resize</a>
+              <a href="#validation" class="rounded-md border border-border px-2.5 py-1 text-xs font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground">Validation</a>
+            </nav>
+          </div>
+
+          <h2 class="mt-10 text-xl font-bold tracking-tight scroll-mt-20" id="usage">Usage</h2>
+          <pre
+            class="code-block mt-3"
+          ><code x-text="uiDocs.textareaUsage"></code></pre>
+
+          <h2 class="mt-10 text-xl font-bold tracking-tight scroll-mt-20" id="props">Props</h2>
+          <table class="prop-table mt-3">
+            <thead>
+              <tr>
+                <th>Prop</th>
+                <th>Type / Options</th>
+                <th>Default</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>rows</td>
+                <td>int</td>
+                <td>3</td>
+                <td>HTML rows attribute. Controls initial visible height.</td>
+              </tr>
+              <tr>
+                <td>maxlength</td>
+                <td>int</td>
+                <td>null</td>
+                <td>Maximum character count. Shows a live counter when set.</td>
+              </tr>
+              <tr>
+                <td>autoResize</td>
+                <td>bool</td>
+                <td>false</td>
+                <td>Textarea grows/shrinks automatically with content.</td>
+              </tr>
+              <tr>
+                <td>variant</td>
+                <td>outline, soft, subtle, ghost, none</td>
+                <td>outline</td>
+                <td>Field visual style.</td>
+              </tr>
+              <tr>
+                <td>size</td>
+                <td>xs, sm, md, lg, xl</td>
+                <td>md</td>
+                <td>Height scale.</td>
+              </tr>
+              <tr>
+                <td>color</td>
+                <td>primary, danger, success, warning, neutral</td>
+                <td>primary</td>
+                <td>Focus/theme color.</td>
+              </tr>
+              <tr>
+                <td>label / hint / error</td>
+                <td>string</td>
+                <td>null</td>
+                <td>Form-field text (see Form Field).</td>
+              </tr>
+              <tr>
+                <td>valid</td>
+                <td>bool</td>
+                <td>false</td>
+                <td>Shows the success state.</td>
+              </tr>
+              <tr>
+                <td>required / readonly / disabled</td>
+                <td>bool</td>
+                <td>false</td>
+                <td>Native states with themed styling.</td>
+              </tr>
+              <tr>
+                <td>loading</td>
+                <td>bool</td>
+                <td>false</td>
+                <td>Shows a spinner overlay on the textarea.</td>
+              </tr>
+              <tr>
+                <td>block</td>
+                <td>bool</td>
+                <td>false</td>
+                <td>Full-width control.</td>
+              </tr>
+              <tr>
+                <td>placeholder / autocomplete / autofocus</td>
+                <td>string / bool</td>
+                <td>—</td>
+                <td>Passed to the native textarea.</td>
+              </tr>
+              <tr>
+                <td>wireModel / wireModelModifier</td>
+                <td>string</td>
+                <td>null</td>
+                <td>Livewire binding.</td>
+              </tr>
+              <tr>
+                <td>unstyled</td>
+                <td>bool</td>
+                <td>false</td>
+                <td>Removes wrapper + field styles.</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h2 class="mt-10 text-xl font-bold tracking-tight scroll-mt-20" id="variants">Variants</h2>
+          <div class="docs-card mt-4 grid gap-6 sm:grid-cols-2">
+            <div class="ui-form-field">
+              <label for="ta-v-outline" class="ui-form-field__label">Outline (default)</label>
+              <textarea
+                id="ta-v-outline"
+                rows="2"
+                placeholder="ui-textarea--outline"
+                class="ui-textarea ui-textarea--outline ui-textarea--md ui-textarea--primary"
+              ></textarea>
+            </div>
+            <div class="ui-form-field">
+              <label for="ta-v-soft" class="ui-form-field__label">Soft</label>
+              <textarea
+                id="ta-v-soft"
+                rows="2"
+                placeholder="ui-textarea--soft"
+                class="ui-textarea ui-textarea--soft ui-textarea--md ui-textarea--primary"
+              ></textarea>
+            </div>
+            <div class="ui-form-field">
+              <label for="ta-v-subtle" class="ui-form-field__label">Subtle</label>
+              <textarea
+                id="ta-v-subtle"
+                rows="2"
+                placeholder="ui-textarea--subtle"
+                class="ui-textarea ui-textarea--subtle ui-textarea--md ui-textarea--primary"
+              ></textarea>
+            </div>
+            <div class="ui-form-field">
+              <label for="ta-v-ghost" class="ui-form-field__label">Ghost</label>
+              <textarea
+                id="ta-v-ghost"
+                rows="2"
+                placeholder="ui-textarea--ghost"
+                class="ui-textarea ui-textarea--ghost ui-textarea--md ui-textarea--primary"
+              ></textarea>
+            </div>
+          </div>
+          <pre
+            class="code-block mt-3"
+          ><code x-text="uiDocs.textareaVariants"></code></pre>
+
+          <h2 class="mt-10 text-xl font-bold tracking-tight scroll-mt-20" id="sizes">Sizes</h2>
+          <div class="docs-card mt-4 grid gap-4 sm:grid-cols-2">
+            <div class="ui-form-field">
+              <label for="ta-s-xs" class="ui-form-field__label">Extra Small</label>
+              <textarea
+                id="ta-s-xs"
+                rows="2"
+                placeholder="size xs"
+                class="ui-textarea ui-textarea--outline ui-textarea--xs ui-textarea--primary"
+              ></textarea>
+            </div>
+            <div class="ui-form-field">
+              <label for="ta-s-sm" class="ui-form-field__label">Small</label>
+              <textarea
+                id="ta-s-sm"
+                rows="2"
+                placeholder="size sm"
+                class="ui-textarea ui-textarea--outline ui-textarea--sm ui-textarea--primary"
+              ></textarea>
+            </div>
+            <div class="ui-form-field">
+              <label for="ta-s-md" class="ui-form-field__label">Medium (default)</label>
+              <textarea
+                id="ta-s-md"
+                rows="2"
+                placeholder="size md"
+                class="ui-textarea ui-textarea--outline ui-textarea--md ui-textarea--primary"
+              ></textarea>
+            </div>
+            <div class="ui-form-field">
+              <label for="ta-s-lg" class="ui-form-field__label">Large</label>
+              <textarea
+                id="ta-s-lg"
+                rows="2"
+                placeholder="size lg"
+                class="ui-textarea ui-textarea--outline ui-textarea--lg ui-textarea--primary"
+              ></textarea>
+            </div>
+            <div class="ui-form-field">
+              <label for="ta-s-xl" class="ui-form-field__label">Extra Large</label>
+              <textarea
+                id="ta-s-xl"
+                rows="2"
+                placeholder="size xl"
+                class="ui-textarea ui-textarea--outline ui-textarea--xl ui-textarea--primary"
+              ></textarea>
+            </div>
+          </div>
+          <pre
+            class="code-block mt-3"
+          ><code x-text="uiDocs.textareaSizes"></code></pre>
+
+          <h2 class="mt-10 text-xl font-bold tracking-tight scroll-mt-20" id="character-count">Character count</h2>
+          <div class="docs-card mt-4">
+            <div class="ui-form-field">
+              <label for="ta-cc" class="ui-form-field__label">Bio</label>
+              <textarea
+                id="ta-cc"
+                rows="3"
+                maxlength="200"
+                placeholder="Tell us about yourself..."
+                class="ui-textarea ui-textarea--outline ui-textarea--md ui-textarea--primary"
+              ></textarea>
+              <p class="ui-form-field__charcount" aria-live="polite" aria-atomic="true">0 / 200</p>
+            </div>
+          </div>
+          <pre
+            class="code-block mt-3"
+          ><code x-text="uiDocs.textareaCharCount"></code></pre>
+
+          <h2 class="mt-10 text-xl font-bold tracking-tight scroll-mt-20" id="auto-resize">Auto resize</h2>
+          <div class="docs-card mt-4">
+            <div class="ui-form-field" x-data="{ resize() { let t = $el.querySelector('textarea'); t.style.height = 'auto'; t.style.height = t.scrollHeight + 'px'; } }" x-init="$nextTick(() => resize())">
+              <label for="ta-ar" class="ui-form-field__label">Message (auto-resize)</label>
+              <textarea
+                id="ta-ar"
+                rows="2"
+                placeholder="Start typing... the textarea will grow as you type."
+                class="ui-textarea ui-textarea--outline ui-textarea--md ui-textarea--primary ui-textarea--auto-resize"
+                @input="resize()"
+              ></textarea>
+            </div>
+          </div>
+          <pre
+            class="code-block mt-3"
+          ><code x-text="uiDocs.textareaAutoResize"></code></pre>
+
+          <h2 class="mt-10 text-xl font-bold tracking-tight scroll-mt-20" id="validation">Validation</h2>
+          <div class="docs-card mt-4 grid gap-6 sm:grid-cols-2">
+            <div class="ui-form-field ui-field--error">
+              <label for="ta-e-err" class="ui-form-field__label">About you</label>
+              <textarea
+                id="ta-e-err"
+                rows="2"
+                class="ui-textarea ui-textarea--outline ui-textarea--md ui-textarea--primary"
+              >This is too short.</textarea>
+              <p role="alert" class="ui-form-field__feedback ui-form-field__feedback--error">
+                Please provide at least 50 characters.
+              </p>
+            </div>
+            <div class="ui-form-field ui-field--valid">
+              <label for="ta-e-valid" class="ui-form-field__label">Description</label>
+              <textarea
+                id="ta-e-valid"
+                rows="2"
+                class="ui-textarea ui-textarea--outline ui-textarea--md ui-textarea--primary"
+              >Great description!</textarea>
+            </div>
+            <div class="ui-form-field ui-field--readonly">
+              <label for="ta-e-ro" class="ui-form-field__label">Read-only</label>
+              <textarea
+                id="ta-e-ro"
+                rows="2"
+                readonly
+                class="ui-textarea ui-textarea--outline ui-textarea--md ui-textarea--primary"
+              >This content is read-only and cannot be edited.</textarea>
+            </div>
+            <div class="ui-form-field">
+              <label for="ta-e-dis" class="ui-form-field__label">Disabled</label>
+              <textarea
+                id="ta-e-dis"
+                rows="2"
+                disabled
+                class="ui-textarea ui-textarea--outline ui-textarea--md ui-textarea--primary ui-textarea--disabled"
+              >This textarea is disabled.</textarea>
+            </div>
+          </div>
+          <pre
+            class="code-block mt-3"
+          ><code x-text="uiDocs.textareaValidation"></code></pre>
+
+        </section>
+      </main>
+    </div>
+
+    <script>
+      window.uiDocs = {
+        textareaUsage: [
+          '<x-textarea label="About" rows="4" placeholder="Tell us about yourself..."',
+          '    hint="Max 500 characters." wireModel="about" />',
+          '',
+          '<!-- With character count -->',
+          '<x-textarea label="Bio" maxlength="200" />',
+          '',
+          '<!-- Auto-resize (grows with content) -->',
+          '<x-textarea label="Message" autoResize rows="2" />',
+        ].join('\n'),
+
+        textareaVariants: [
+          '<x-textarea variant="outline" />  {{-- default --}}',
+          '<x-textarea variant="soft" />',
+          '<x-textarea variant="subtle" />',
+          '<x-textarea variant="ghost" />',
+          '<x-textarea variant="none" />',
+        ].join('\n'),
+
+        textareaSizes: [
+          '<x-textarea size="xs" placeholder="size xs" />',
+          '<x-textarea size="sm" placeholder="size sm" />',
+          '<x-textarea size="md" placeholder="size md" />',
+          '<x-textarea size="lg" placeholder="size lg" />',
+          '<x-textarea size="xl" placeholder="size xl" />',
+        ].join('\n'),
+
+        textareaCharCount: [
+          '<!-- Character count appears automatically when maxlength is set -->',
+          '<x-textarea label="Bio" maxlength="200" placeholder="Tell us about yourself..." />',
+        ].join('\n'),
+
+        textareaAutoResize: [
+          '<!-- Textarea grows and shrinks with content -->',
+          '<x-textarea label="Message" autoResize rows="2"',
+          '    placeholder="Start typing..." />',
+          '',
+          '<!-- Combine with maxlength for auto-resize + character count -->',
+          '<x-textarea label="Bio" autoResize maxlength="500" />',
+        ].join('\n'),
+
+        textareaValidation: [
+          '<x-textarea label="About" error="Please provide at least 50 characters." />',
+          '<x-textarea label="Description" valid />',
+          '<x-textarea label="Notes" readonly />',
+          '<x-textarea label="Notes" disabled />',
+        ].join('\n'),
+      }
+    </script>
+
+  </body>
+</html>

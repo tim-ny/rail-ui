@@ -48,7 +48,7 @@
         <button
             type="button"
             class="ui-alert__dismiss"
-            @click="show = false"
+            @click="show = false; $dispatch('alert-dismissed')"
             aria-label="Dismiss alert"
         >
             <x-icon name="x" size="sm" aria-hidden="true" />

@@ -18,16 +18,23 @@ namespace Aegis\Ui\Components;
 
 use Aegis\Ui\Concerns\HasSize;
 use Aegis\Ui\Concerns\HasColor;
+use Aegis\Ui\Concerns\HasDisabled;
+use Aegis\Ui\Concerns\HasUnstyled;
 use Aegis\Ui\Concerns\HasValidation;
 use Aegis\Ui\Concerns\InteractsWithWire;
 
 class DatePicker extends BaseComponent
 {
-    use HasSize, HasColor, HasValidation, InteractsWithWire;
+    use HasSize, HasColor, HasDisabled, HasUnstyled, HasValidation, InteractsWithWire;
 
     protected static function componentConfigKey(): string
     {
         return 'datepicker';
+    }
+
+    protected static function viewName(): string
+    {
+        return 'ui::components.datepicker';
     }
 
     protected array $allowedModes = [
@@ -52,7 +59,7 @@ class DatePicker extends BaseComponent
         bool               $valid           = false,
         bool               $required        = false,
         bool               $readonly        = false,
-        public bool        $disabled        = false,
+        bool               $disabled        = false,
         public bool        $weekNumbers     = false,
         public bool|array  $presets         = false,
         public array       $disabledDates   = [],
@@ -68,7 +75,7 @@ class DatePicker extends BaseComponent
         public ?string     $placeholder     = null,
         ?string            $id              = null,
         ?string            $name            = null,
-        public bool        $unstyled        = false,
+        bool               $unstyled        = false,
         ?string            $wireModel       = null,
         ?string            $wireModelModifier = null,
     ) {
@@ -77,6 +84,8 @@ class DatePicker extends BaseComponent
         $this->size              = $this->resolveDefault('datepicker', 'size', $size, 'md');
         $this->color             = $this->resolveDefault('datepicker', 'color', $color, 'primary');
         $this->placeholder       = $this->placeholder ?? 'Select date';
+        $this->disabled          = $disabled;
+        $this->unstyled          = $unstyled;
         $this->hint              = $hint;
         $this->error             = $error;
         $this->valid             = $valid;
@@ -119,6 +128,8 @@ class DatePicker extends BaseComponent
 
     public function classes(): string
     {
+        if ($this->unstyled) return '';
+
         $this->validate();
         $this->validateMode();
         $this->validateFormat();
@@ -220,11 +231,6 @@ class DatePicker extends BaseComponent
             'multiple' => is_array($selected) ? implode(',', $selected) : '',
             default => $selected ? (string) $selected : '',
         };
-    }
-
-    public function render(): \Illuminate\Contracts\View\View
-    {
-        return view('ui::components.datepicker');
     }
 
     protected function normalizeRange(mixed $value): array

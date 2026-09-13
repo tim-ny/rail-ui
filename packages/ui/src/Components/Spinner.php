@@ -15,19 +15,32 @@
 
 namespace Aegis\Ui\Components;
 
+use Aegis\Ui\Concerns\HasSize;
+
 class Spinner extends BaseComponent
 {
+    use HasSize;
+
     protected static function componentConfigKey(): string
     {
         return 'spinner';
     }
 
+    protected static function viewName(): string
+    {
+        return 'ui::components.spinner';
+    }
+
+    protected array $allowedSizes = ['xs', 'sm', 'md', 'lg', 'xl'];
+
     public function __construct(
-        public string  $size  = 'md',
+        string  $size  = 'md',
         public ?string $color = null,
         public string  $label = 'Loading',
         public ?string $icon  = null,
-    ) {}
+    ) {
+        $this->size = $this->resolveDefault('spinner', 'size', $size, 'md');
+    }
 
     public function sizeClass(): string
     {
@@ -57,10 +70,5 @@ class Spinner extends BaseComponent
         }
 
         return $icon;
-    }
-
-    public function render(): \Illuminate\Contracts\View\View
-    {
-        return view('ui::components.spinner');
     }
 }

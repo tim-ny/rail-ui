@@ -18,16 +18,24 @@ namespace Aegis\Ui\Components;
 
 use Aegis\Ui\Concerns\HasSize;
 use Aegis\Ui\Concerns\HasColor;
+use Aegis\Ui\Concerns\HasDisabled;
+use Aegis\Ui\Concerns\HasBlock;
+use Aegis\Ui\Concerns\HasUnstyled;
 use Aegis\Ui\Concerns\HasValidation;
 use Aegis\Ui\Concerns\InteractsWithWire;
 
 class Checkbox extends BaseComponent
 {
-    use HasSize, HasColor, HasValidation, InteractsWithWire;
+    use HasSize, HasColor, HasDisabled, HasBlock, HasUnstyled, HasValidation, InteractsWithWire;
 
     protected static function componentConfigKey(): string
     {
         return 'checkbox';
+    }
+
+    protected static function viewName(): string
+    {
+        return 'ui::components.checkbox';
     }
 
     protected array $allowedRadii = ['none', 'xs', 'sm', 'md', 'lg', 'full'];
@@ -36,9 +44,9 @@ class Checkbox extends BaseComponent
         public bool     $checked          = false,
         public ?string  $value            = null,
         public bool     $indeterminate    = false,
-        public bool     $disabled         = false,
-        public bool     $block            = false,
-        public bool     $unstyled         = false,
+        bool            $disabled         = false,
+        bool            $block            = false,
+        bool            $unstyled         = false,
         string   $size             = 'md',
         string   $color            = 'primary',
         public string   $radius           = 'sm',
@@ -56,6 +64,9 @@ class Checkbox extends BaseComponent
         $this->size              = $this->resolveDefault('checkbox', 'size', $size, 'md');
         $this->color             = $this->resolveDefault('checkbox', 'color', $color, 'primary');
         $this->radius            = $this->resolveDefault('checkbox', 'radius', $radius, 'sm');
+        $this->disabled          = $disabled;
+        $this->block             = $block;
+        $this->unstyled          = $unstyled;
         $this->hint              = $hint;
         $this->error             = $error;
         $this->valid             = $valid;
@@ -84,6 +95,8 @@ class Checkbox extends BaseComponent
 
     public function classes(): string
     {
+        if ($this->unstyled) return '';
+
         $this->validate();
 
         return $this->classNames(
@@ -95,10 +108,5 @@ class Checkbox extends BaseComponent
             $this->disabled ? 'ui-checkbox--disabled' : null,
             $this->readonly ? 'ui-checkbox--readonly' : null,
         );
-    }
-
-    public function render(): \Illuminate\Contracts\View\View
-    {
-        return view('ui::components.checkbox');
     }
 }

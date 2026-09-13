@@ -10,15 +10,21 @@
 
 namespace Aegis\Ui\Components;
 
+use Aegis\Ui\Concerns\HasUnstyled;
 use Aegis\Ui\Concerns\HasValidation;
 
 class FormField extends BaseComponent
 {
-    use HasValidation;
+    use HasUnstyled, HasValidation;
 
     protected static function componentConfigKey(): string
     {
         return 'form-field';
+    }
+
+    protected static function viewName(): string
+    {
+        return 'ui::components.form-field';
     }
 
     public function __construct(
@@ -30,13 +36,9 @@ class FormField extends BaseComponent
         public bool    $readonly = false,
         public ?string $id       = null,
         public ?string $name     = null,
-        public bool    $unstyled = false,
+        bool           $unstyled = false,
     ) {
+        $this->unstyled = $unstyled;
         $this->bootHasValidation();
-    }
-
-    public function render(): \Illuminate\Contracts\View\View
-    {
-        return view('ui::components.form-field');
     }
 }

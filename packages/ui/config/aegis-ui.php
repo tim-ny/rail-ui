@@ -54,6 +54,11 @@ return [
             'size' => 'md',
             'color' => 'primary',
         ],
+        'textarea' => [
+            'size' => 'md',
+            'variant' => 'outline',
+            'color' => 'primary',
+        ],
         'spinner' => [
             'size' => 'md',
         ],
@@ -61,15 +66,18 @@ return [
             'size' => 'md',
         ],
         'form-field' => [],
+        // @planned — component not yet built
         'badge' => [
             'size' => 'md',
             'variant' => 'soft',
             'color' => 'primary',
         ],
+        // @planned — component not yet built
         'toggle' => [
             'size' => 'md',
             'color' => 'primary',
         ],
+        // @planned — component not yet built
         'modal' => [
             'size' => 'md',
         ],

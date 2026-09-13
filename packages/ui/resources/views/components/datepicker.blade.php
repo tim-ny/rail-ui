@@ -53,14 +53,20 @@
         'min'             => $c ? $c->min : $min,
         'max'             => $c ? $c->max : $max,
         'disabledDates'   => array_values($c ? $c->disabledDates : $disabledDates),
-        'presets'         => $c ? $c->presetsConfig() : [],
+        'presets'         => $c ? $c->presetsConfig() : ($presets === true ? [
+            ['label' => 'Today', 'value' => now()->toDateString()],
+            ['label' => 'Yesterday', 'value' => now()->subDay()->toDateString()],
+            ['label' => 'Last 7 days', 'start' => now()->subDays(6)->toDateString(), 'end' => now()->toDateString()],
+            ['label' => 'Last 30 days', 'start' => now()->subDays(29)->toDateString(), 'end' => now()->toDateString()],
+            ['label' => 'This month', 'start' => now()->startOfMonth()->toDateString(), 'end' => now()->endOfMonth()->toDateString()],
+        ] : []),
         'readonly'        => $c ? $c->readonly : $readonly,
         'disabled'        => $c ? $c->disabled : $disabled,
     ];
     $pickerId = $c ? $c->id : ($id ?? ($label ? 'ui-' . \Illuminate\Support\Str::slug($label) : 'ui-' . uniqid()));
     $pickerName = $c ? $c->name : ($name ?? $pickerId);
-    $validationCls = $c ? $c->validationClass() : '';
-    $pickerClasses = $unstyled ? '' : ($c ? $c->classes() : "ui-datepicker ui-datepicker--{$size} ui-datepicker--{$color} ui-datepicker--{$mode}");
+    $validationCls = $c ? $c->validationClass() : (!empty($error) ? 'ui-field--error' : ($valid ? 'ui-field--valid' : ($readonly ? 'ui-field--readonly' : '')));
+    $pickerClasses = $unstyled ? '' : ($c ? $c->classes() : "ui-datepicker ui-datepicker--{$size} ui-datepicker--{$color} ui-datepicker--{$mode}" . ($weekNumbers ? ' ui-datepicker--week-numbers' : '') . ($disabled ? ' ui-datepicker--disabled' : '') . ($readonly ? ' ui-datepicker--readonly' : ''));
     $initialView = $c ? $c->initialView() : $datepicker['granularity'];
     $initialViewMonth = $c ? $c->initialViewMonth() : ((int) now()->format('n') - 1);
     $initialViewYear = $c ? $c->initialViewYear() : ((int) now()->format('Y'));
@@ -387,15 +393,15 @@
                 type="text"
                 readonly
                 :value="displayValue"
-                id="{{ $component->id }}"
-                name="{{ $component->name }}"
+                id="{{ $pickerId }}"
+                name="{{ $pickerName }}"
                 placeholder="{{ $placeholder }}"
                 class="ui-datepicker__input"
                 aria-haspopup="dialog"
                 aria-expanded="open ? 'true' : 'false'"
                 aria-required="{{ $required ? 'true' : 'false' }}"
-                aria-invalid="{{ $component->hasError() ? 'true' : 'false' }}"
-                aria-describedby="{{ $component->describedById() }}"
+                aria-invalid="{{ ($c ? $c->hasError() : !empty($error)) ? 'true' : 'false' }}"
+                aria-describedby="{{ $c ? $c->describedById() : ((!empty($error) || !empty($hint)) ? $pickerId . '-feedback' : null) }}"
                 @if($disabled) disabled @endif
             />
             @if($clearable)
@@ -417,7 +423,7 @@
                 type="hidden"
                 x-ref="hiddenInput"
                 :value="wireValue"
-                {{ $component->wireModelAttribute() }}
+                {{ $c ? $c->wireModelAttribute() : "wire:model.lazy=\"{$wireModel}\"" }}
                 x-effect="$refs.hiddenInput.value = wireValue; $refs.hiddenInput.dispatchEvent(new Event('change', { bubbles: true })); $refs.hiddenInput.dispatchEvent(new Event('input', { bubbles: true }));"
             />
         @endif
@@ -545,8 +551,8 @@
 
     @php
         $feedbackTxt = $c ? $c->feedbackText() : ($error ?? $hint ?? null);
-        $feedbackCls = $c ? $c->feedbackClass() : (!empty($error) ? 'ui-field__feedback--error' : 'ui-field__feedback--hint');
         $hasErr = $c ? $c->hasError() : !empty($error);
+        $feedbackCls = $c ? $c->feedbackClass() : ($hasErr ? 'ui-form-field__feedback--error' : 'ui-form-field__feedback--hint');
     @endphp
     @if($feedbackTxt)
         <p
