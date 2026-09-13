@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Input — Aegis UI Docs</title>
-    <meta name="description" content="Input component: variants, sizes, leading/trailing icons, validation and loading." />
+    <title>Banner — Aegis UI Docs</title>
+    <meta name="description" content="Banner component: announcement bar with transitions, dismiss, auto-hide and action slots." />
 
     <!-- Alpine.js Collapse Plugin -->
     <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
@@ -40,9 +40,9 @@
 
             <p class="px-2 pb-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground pt-6">Components</p>
             <a href="components.html" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors text-muted-foreground hover:text-foreground"><i class="ti ti-components text-base"></i> Overview</a>
-            <a href="banner.html" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors text-muted-foreground hover:text-foreground"><i class="ti ti-speakerphone text-base"></i> Banner</a>
+            <a href="banner.html" aria-current="page" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors bg-muted text-foreground font-medium"><i class="ti ti-speakerphone text-base"></i> Banner</a>
             <a href="button.html" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors text-muted-foreground hover:text-foreground"><i class="ti ti-click text-base"></i> Button</a>
-            <a href="input.html" aria-current="page" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors bg-muted text-foreground font-medium"><i class="ti ti-forms text-base"></i> Input</a>
+            <a href="input.html" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors text-muted-foreground hover:text-foreground"><i class="ti ti-forms text-base"></i> Input</a>
             <a href="textarea.html" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors text-muted-foreground hover:text-foreground"><i class="ti ti-text-wrap text-base"></i> Textarea</a>
             <a href="checkbox.html" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors text-muted-foreground hover:text-foreground"><i class="ti ti-square-check text-base"></i> Checkbox</a>
             <a href="datepicker.html" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors text-muted-foreground hover:text-foreground"><i class="ti ti-calendar text-base"></i> Date Picker</a>
@@ -75,9 +75,9 @@
 
             <p class="px-2 pb-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground pt-6">Components</p>
             <a href="components.html" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors text-muted-foreground hover:text-foreground"><i class="ti ti-components text-base"></i> Overview</a>
-            <a href="banner.html" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors text-muted-foreground hover:text-foreground"><i class="ti ti-speakerphone text-base"></i> Banner</a>
+            <a href="banner.html" aria-current="page" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors bg-muted text-foreground font-medium"><i class="ti ti-speakerphone text-base"></i> Banner</a>
             <a href="button.html" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors text-muted-foreground hover:text-foreground"><i class="ti ti-click text-base"></i> Button</a>
-            <a href="input.html" aria-current="page" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors bg-muted text-foreground font-medium"><i class="ti ti-forms text-base"></i> Input</a>
+            <a href="input.html" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors text-muted-foreground hover:text-foreground"><i class="ti ti-forms text-base"></i> Input</a>
             <a href="textarea.html" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors text-muted-foreground hover:text-foreground"><i class="ti ti-text-wrap text-base"></i> Textarea</a>
             <a href="checkbox.html" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors text-muted-foreground hover:text-foreground"><i class="ti ti-square-check text-base"></i> Checkbox</a>
             <a href="datepicker.html" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors text-muted-foreground hover:text-foreground"><i class="ti ti-calendar text-base"></i> Date Picker</a>
@@ -114,11 +114,11 @@
         <section>
 
           <div class="flex items-center gap-3">
-            <h1 class="text-3xl font-extrabold tracking-tight">Input</h1>
-            <span class="inline-code">&lt;x-input /&gt;</span>
+            <h1 class="text-3xl font-extrabold tracking-tight">Banner</h1>
+            <span class="inline-code">&lt;x-banner /&gt;</span>
           </div>
           <p class="mt-2 text-muted-foreground">
-            Text input with variants, icons, validation and loading states.
+            Top-of-page announcement bar with transitions, dismiss, auto-hide and action slots.
           </p>
 
           <div class="docs-card mt-8" aria-label="On this page">
@@ -126,17 +126,18 @@
             <nav class="flex flex-wrap gap-2">
               <a href="#usage" class="rounded-md border border-border px-2.5 py-1 text-xs font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground">Usage</a>
               <a href="#props" class="rounded-md border border-border px-2.5 py-1 text-xs font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground">Props</a>
+              <a href="#slots" class="rounded-md border border-border px-2.5 py-1 text-xs font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground">Slots</a>
               <a href="#variants" class="rounded-md border border-border px-2.5 py-1 text-xs font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground">Variants</a>
               <a href="#sizes" class="rounded-md border border-border px-2.5 py-1 text-xs font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground">Sizes</a>
-              <a href="#icons-and-password-toggle" class="rounded-md border border-border px-2.5 py-1 text-xs font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground">Icons &amp; password toggle</a>
-              <a href="#validation-and-loading" class="rounded-md border border-border px-2.5 py-1 text-xs font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground">Validation &amp; loading</a>
+              <a href="#colors" class="rounded-md border border-border px-2.5 py-1 text-xs font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground">Colors</a>
+              <a href="#behavior" class="rounded-md border border-border px-2.5 py-1 text-xs font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground">Behavior</a>
             </nav>
           </div>
 
           <h2 class="mt-10 text-xl font-bold tracking-tight scroll-mt-20" id="usage">Usage</h2>
           <pre
             class="code-block mt-3"
-          ><code x-text="uiDocs.inputUsage"></code></pre>
+          ><code x-text="uiDocs.bannerUsage"></code></pre>
 
           <h2 class="mt-10 text-xl font-bold tracking-tight scroll-mt-20" id="props">Props</h2>
           <table class="prop-table mt-3">
@@ -150,328 +151,251 @@
             </thead>
             <tbody>
               <tr>
-                <td>type</td>
-                <td>text, password, email, …</td>
-                <td>text</td>
-                <td>
-                  Native input type.
-                  <code class="inline-code">password</code> adds an Alpine eye
-                  toggle.
-                </td>
+                <td>title</td>
+                <td>string</td>
+                <td>null</td>
+                <td>Bold heading text.</td>
+              </tr>
+              <tr>
+                <td>icon</td>
+                <td>string</td>
+                <td>null</td>
+                <td>Tabler icon name rendered before the title.</td>
+              </tr>
+              <tr>
+                <td>href</td>
+                <td>string</td>
+                <td>null</td>
+                <td>Makes the entire banner a link. Omit for static text.</td>
+              </tr>
+              <tr>
+                <td>closable</td>
+                <td>bool</td>
+                <td>true</td>
+                <td>Shows a dismiss (×) button.</td>
+              </tr>
+              <tr>
+                <td>showAfter</td>
+                <td>int (ms)</td>
+                <td>300</td>
+                <td>Delay before the banner animates in.</td>
+              </tr>
+              <tr>
+                <td>autoHide</td>
+                <td>int (ms)</td>
+                <td>0</td>
+                <td>Auto-dismiss after N ms. 0 = stays visible.</td>
+              </tr>
+              <tr>
+                <td>fixed</td>
+                <td>bool</td>
+                <td>true</td>
+                <td>Fixed to the top of the viewport.</td>
               </tr>
               <tr>
                 <td>variant</td>
-                <td>outline, soft, subtle, ghost, none</td>
-                <td>outline</td>
-                <td>Field visual style.</td>
+                <td>solid, outline, soft, ghost</td>
+                <td>soft</td>
+                <td>Visual style.</td>
               </tr>
               <tr>
                 <td>size</td>
-                <td>xs, sm, md, lg, xl</td>
+                <td>sm, md, lg</td>
                 <td>md</td>
-                <td>Height scale.</td>
+                <td>Padding and font scale.</td>
               </tr>
               <tr>
                 <td>color</td>
                 <td>primary, danger, success, warning, neutral</td>
                 <td>primary</td>
-                <td>Focus/theme color.</td>
-              </tr>
-              <tr>
-                <td>leadingIcon</td>
-                <td>string</td>
-                <td>null</td>
-                <td>Icon rendered inside the left edge.</td>
-              </tr>
-              <tr>
-                <td>trailingIcon</td>
-                <td>string</td>
-                <td>null</td>
-                <td>Icon rendered inside the right edge.</td>
-              </tr>
-              <tr>
-                <td>label / hint / error</td>
-                <td>string</td>
-                <td>null</td>
-                <td>Form-field text (see Form Field).</td>
-              </tr>
-              <tr>
-                <td>valid</td>
-                <td>bool</td>
-                <td>false</td>
-                <td>Shows the success state.</td>
-              </tr>
-              <tr>
-                <td>required / readonly / disabled</td>
-                <td>bool</td>
-                <td>false</td>
-                <td>Native states with themed styling.</td>
-              </tr>
-              <tr>
-                <td>loading</td>
-                <td>bool</td>
-                <td>false</td>
-                <td>Replaces the trailing icon with a spinner.</td>
-              </tr>
-              <tr>
-                <td>block</td>
-                <td>bool</td>
-                <td>false</td>
-                <td>Full-width control.</td>
-              </tr>
-              <tr>
-                <td>placeholder / autocomplete / autofocus / maxlength</td>
-                <td>string / bool / int</td>
-                <td>—</td>
-                <td>Passed to the native input.</td>
-              </tr>
-              <tr>
-                <td>wireModel / wireModelModifier</td>
-                <td>string</td>
-                <td>null</td>
-                <td>Livewire binding.</td>
+                <td>Color theme.</td>
               </tr>
               <tr>
                 <td>unstyled</td>
                 <td>bool</td>
                 <td>false</td>
-                <td>Removes wrapper + field styles.</td>
+                <td>Removes all wrapper styles.</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h2 class="mt-10 text-xl font-bold tracking-tight scroll-mt-20" id="slots">Slots</h2>
+          <table class="prop-table mt-3">
+            <thead>
+              <tr>
+                <th>Slot</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>default</td>
+                <td>Description text shown after the title.</td>
+              </tr>
+              <tr>
+                <td>action</td>
+                <td>CTA button or link shown on the right side of the content.</td>
               </tr>
             </tbody>
           </table>
 
           <h2 class="mt-10 text-xl font-bold tracking-tight scroll-mt-20" id="variants">Variants</h2>
-          <div class="docs-card mt-4 grid gap-6 sm:grid-cols-2">
-            <div class="ui-form-field">
-              <label for="in-v-outline" class="ui-form-field__label"
-                >Outline (default)</label
-              >
-              <input
-                id="in-v-outline"
-                type="text"
-                placeholder="ui-input--outline"
-                class="ui-input ui-input--outline ui-input--md ui-input--primary"
-              />
-            </div>
-            <div class="ui-form-field">
-              <label for="in-v-soft" class="ui-form-field__label">Soft</label>
-              <input
-                id="in-v-soft"
-                type="text"
-                placeholder="ui-input--soft"
-                class="ui-input ui-input--soft ui-input--md ui-input--primary"
-              />
-            </div>
-            <div class="ui-form-field">
-              <label for="in-v-subtle" class="ui-form-field__label"
-                >Subtle</label
-              >
-              <input
-                id="in-v-subtle"
-                type="text"
-                placeholder="ui-input--subtle"
-                class="ui-input ui-input--subtle ui-input--md ui-input--primary"
-              />
-            </div>
-            <div class="ui-form-field">
-              <label for="in-v-ghost" class="ui-form-field__label">Ghost</label>
-              <input
-                id="in-v-ghost"
-                type="text"
-                placeholder="ui-input--ghost"
-                class="ui-input ui-input--ghost ui-input--md ui-input--primary"
-              />
-            </div>
-          </div>
-          <pre
-            class="code-block mt-3"
-          ><code x-text="uiDocs.inputVariants"></code></pre>
-
-          <h2 class="mt-10 text-xl font-bold tracking-tight scroll-mt-20" id="sizes">Sizes</h2>
-          <div class="docs-card mt-4 grid gap-4 sm:grid-cols-2">
-            <div class="ui-form-field">
-              <label for="in-s-xs" class="ui-form-field__label"
-                >Extra Small</label
-              ><input
-                id="in-s-xs"
-                type="text"
-                placeholder="size xs"
-                class="ui-input ui-input--outline ui-input--xs ui-input--primary"
-              />
-            </div>
-            <div class="ui-form-field">
-              <label for="in-s-sm" class="ui-form-field__label">Small</label
-              ><input
-                id="in-s-sm"
-                type="text"
-                placeholder="size sm"
-                class="ui-input ui-input--outline ui-input--sm ui-input--primary"
-              />
-            </div>
-            <div class="ui-form-field">
-              <label for="in-s-md" class="ui-form-field__label"
-                >Medium (default)</label
-              ><input
-                id="in-s-md"
-                type="text"
-                placeholder="size md"
-                class="ui-input ui-input--outline ui-input--md ui-input--primary"
-              />
-            </div>
-            <div class="ui-form-field">
-              <label for="in-s-lg" class="ui-form-field__label">Large</label
-              ><input
-                id="in-s-lg"
-                type="text"
-                placeholder="size lg"
-                class="ui-input ui-input--outline ui-input--lg ui-input--primary"
-              />
-            </div>
-            <div class="ui-form-field">
-              <label for="in-s-xl" class="ui-form-field__label"
-                >Extra Large</label
-              ><input
-                id="in-s-xl"
-                type="text"
-                placeholder="size xl"
-                class="ui-input ui-input--outline ui-input--xl ui-input--primary"
-              />
-            </div>
-          </div>
-          <pre
-            class="code-block mt-3"
-          ><code x-text="uiDocs.inputSizes"></code></pre>
-
-          <h2 class="mt-10 text-xl font-bold tracking-tight scroll-mt-20" id="icons-and-password-toggle">
-            Icons &amp; password toggle
-          </h2>
-          <div class="docs-card mt-4 grid gap-6 sm:grid-cols-2">
-            <div class="ui-form-field">
-              <label for="in-i-email" class="ui-form-field__label">Email</label>
-              <div class="ui-input__wrapper">
-                <div class="ui-input__leading"><i class="ti ti-mail"></i></div>
-                <input
-                  id="in-i-email"
-                  type="email"
-                  placeholder="john@example.com"
-                  class="ui-input ui-input--outline ui-input--md ui-input--primary"
-                />
+          <div class="docs-card mt-4 grid gap-4">
+            <div class="ui-banner ui-banner--soft ui-banner--md ui-banner--primary ui-banner--fixed" style="position: relative;">
+              <div class="ui-banner__inner">
+                <div class="ui-banner__content">
+                  <span class="ui-banner__text">
+                    <strong class="ui-banner__title">Soft (default)</strong>
+                    <span class="ui-banner__description">This is a soft banner with primary color.</span>
+                  </span>
+                </div>
               </div>
             </div>
-            <div class="ui-form-field" x-data="{ showPass: false }">
-              <label for="in-i-pass" class="ui-form-field__label"
-                >Password</label
-              >
-              <div class="ui-input__wrapper">
-                <div class="ui-input__leading"><i class="ti ti-lock"></i></div>
-                <input
-                  id="in-i-pass"
-                  :type="showPass ? 'text' : 'password'"
-                  placeholder="Enter your password"
-                  class="ui-input ui-input--outline ui-input--md ui-input--primary"
-                />
-                <div class="ui-input__trailing">
-                  <button
-                    type="button"
-                    @click="showPass = !showPass"
-                    class="ui-input__password-toggle"
-                    aria-label="Toggle password visibility"
-                  >
-                    <i
-                      class="ti"
-                      :class="showPass ? 'ti-eye-off' : 'ti-eye'"
-                    ></i>
+            <div class="ui-banner ui-banner--solid ui-banner--md ui-banner--success ui-banner--fixed" style="position: relative;">
+              <div class="ui-banner__inner">
+                <div class="ui-banner__content">
+                  <span class="ui-banner__text">
+                    <strong class="ui-banner__title">Solid</strong>
+                    <span class="ui-banner__description">Solid background with contrasting text.</span>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="ui-banner ui-banner--outline ui-banner--md ui-banner--warning ui-banner--fixed" style="position: relative;">
+              <div class="ui-banner__inner">
+                <div class="ui-banner__content">
+                  <span class="ui-banner__text">
+                    <strong class="ui-banner__title">Outline</strong>
+                    <span class="ui-banner__description">Border bottom with themed color.</span>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="ui-banner ui-banner--ghost ui-banner--md ui-banner--neutral ui-banner--fixed" style="position: relative;">
+              <div class="ui-banner__inner">
+                <div class="ui-banner__content">
+                  <span class="ui-banner__text">
+                    <strong class="ui-banner__title">Ghost</strong>
+                    <span class="ui-banner__description">Transparent background, themed text.</span>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <pre
+            class="code-block mt-3"
+          ><code x-text="uiDocs.bannerVariants"></code></pre>
+
+          <h2 class="mt-10 text-xl font-bold tracking-tight scroll-mt-20" id="sizes">Sizes</h2>
+          <div class="docs-card mt-4 grid gap-4">
+            <div class="ui-banner ui-banner--soft ui-banner--sm ui-banner--primary ui-banner--fixed" style="position: relative;">
+              <div class="ui-banner__inner">
+                <div class="ui-banner__content">
+                  <span class="ui-banner__text">
+                    <strong class="ui-banner__title">Small</strong>
+                    <span class="ui-banner__description">Compact banner for tight spaces.</span>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="ui-banner ui-banner--soft ui-banner--md ui-banner--primary ui-banner--fixed" style="position: relative;">
+              <div class="ui-banner__inner">
+                <div class="ui-banner__content">
+                  <span class="ui-banner__text">
+                    <strong class="ui-banner__title">Medium (default)</strong>
+                    <span class="ui-banner__description">Standard banner size.</span>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="ui-banner ui-banner--soft ui-banner--lg ui-banner--primary ui-banner--fixed" style="position: relative;">
+              <div class="ui-banner__inner">
+                <div class="ui-banner__content">
+                  <span class="ui-banner__text">
+                    <strong class="ui-banner__title">Large</strong>
+                    <span class="ui-banner__description">Larger banner for important announcements.</span>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <pre
+            class="code-block mt-3"
+          ><code x-text="uiDocs.bannerSizes"></code></pre>
+
+          <h2 class="mt-10 text-xl font-bold tracking-tight scroll-mt-20" id="colors">Colors</h2>
+          <div class="docs-card mt-4 grid gap-4">
+            <div class="ui-banner ui-banner--soft ui-banner--md ui-banner--primary ui-banner--fixed" style="position: relative;">
+              <div class="ui-banner__inner">
+                <div class="ui-banner__content">
+                  <span class="ui-banner__text"><strong class="ui-banner__title">Primary</strong></span>
+                </div>
+              </div>
+            </div>
+            <div class="ui-banner ui-banner--soft ui-banner--md ui-banner--danger ui-banner--fixed" style="position: relative;">
+              <div class="ui-banner__inner">
+                <div class="ui-banner__content">
+                  <span class="ui-banner__text"><strong class="ui-banner__title">Danger</strong></span>
+                </div>
+              </div>
+            </div>
+            <div class="ui-banner ui-banner--soft ui-banner--md ui-banner--success ui-banner--fixed" style="position: relative;">
+              <div class="ui-banner__inner">
+                <div class="ui-banner__content">
+                  <span class="ui-banner__text"><strong class="ui-banner__title">Success</strong></span>
+                </div>
+              </div>
+            </div>
+            <div class="ui-banner ui-banner--soft ui-banner--md ui-banner--warning ui-banner--fixed" style="position: relative;">
+              <div class="ui-banner__inner">
+                <div class="ui-banner__content">
+                  <span class="ui-banner__text"><strong class="ui-banner__title">Warning</strong></span>
+                </div>
+              </div>
+            </div>
+            <div class="ui-banner ui-banner--soft ui-banner--md ui-banner--neutral ui-banner--fixed" style="position: relative;">
+              <div class="ui-banner__inner">
+                <div class="ui-banner__content">
+                  <span class="ui-banner__text"><strong class="ui-banner__title">Neutral</strong></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <pre
+            class="code-block mt-3"
+          ><code x-text="uiDocs.bannerColors"></code></pre>
+
+          <h2 class="mt-10 text-xl font-bold tracking-tight scroll-mt-20" id="behavior">Behavior</h2>
+          <div class="docs-card mt-4 grid gap-6 sm:grid-cols-2">
+            <div x-data="{ visible: true }" class="ui-form-field">
+              <label class="ui-form-field__label">Dismissible banner</label>
+              <div x-show="visible" x-transition class="ui-banner ui-banner--soft ui-banner--md ui-banner--primary ui-banner--fixed" style="position: relative;">
+                <div class="ui-banner__inner">
+                  <div class="ui-banner__content">
+                    <span class="ui-banner__text"><strong class="ui-banner__title">Dismissible</strong></span>
+                  </div>
+                  <button @click="visible = false" class="ui-banner__close" aria-label="Dismiss banner">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="width: 0.875rem; height: 0.875rem;"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
                   </button>
                 </div>
               </div>
+              <button x-show="!visible" @click="visible = true" class="text-xs text-muted-foreground underline mt-2">Show again</button>
+            </div>
+            <div x-data="{ visible: false, init() { setTimeout(() => { visible = true }, 1000) } }" class="ui-form-field">
+              <label class="ui-form-field__label">Delayed show (1s)</label>
+              <div x-show="visible" x-transition class="ui-banner ui-banner--soft ui-banner--md ui-banner--success ui-banner--fixed" style="position: relative;">
+                <div class="ui-banner__inner">
+                  <div class="ui-banner__content">
+                    <span class="ui-banner__text"><strong class="ui-banner__title">Appeared after 1 second</strong></span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
           <pre
             class="code-block mt-3"
-          ><code x-text="uiDocs.inputIcons"></code></pre>
+          ><code x-text="uiDocs.bannerBehavior"></code></pre>
 
-          <h2 class="mt-10 text-xl font-bold tracking-tight scroll-mt-20" id="validation-and-loading">
-            Validation &amp; loading
-          </h2>
-          <div class="docs-card mt-4 grid gap-6 sm:grid-cols-2">
-            <div class="ui-form-field ui-field--error">
-              <label for="in-e-err" class="ui-form-field__label"
-                >Username</label
-              >
-              <div class="ui-input__wrapper">
-                <input
-                  id="in-e-err"
-                  type="text"
-                  value="invalid_username#"
-                  class="ui-input ui-input--outline ui-input--md ui-input--primary"
-                />
-                <div class="ui-input__trailing">
-                  <i
-                    class="ti ti-alert-circle ui-input__trailing-icon--error"
-                  ></i>
-                </div>
-              </div>
-              <p
-                role="alert"
-                class="ui-form-field__feedback ui-form-field__feedback--error"
-              >
-                Username can only contain alphanumeric characters.
-              </p>
-            </div>
-            <div class="ui-form-field ui-field--valid">
-              <label for="in-e-valid" class="ui-form-field__label"
-                >Website URL</label
-              >
-              <div class="ui-input__wrapper">
-                <input
-                  id="in-e-valid"
-                  type="text"
-                  value="https://aegis-ui.dev"
-                  class="ui-input ui-input--outline ui-input--md ui-input--primary"
-                />
-                <div class="ui-input__trailing">
-                  <i
-                    class="ti ti-circle-check ui-input__trailing-icon--valid"
-                  ></i>
-                </div>
-              </div>
-            </div>
-            <div class="ui-form-field" x-data="{ searching: true }">
-              <label class="ui-form-field__label flex justify-between">
-                <span>Live Async Search</span>
-                <button
-                  type="button"
-                  @click="searching = !searching"
-                  class="text-xs text-muted-foreground underline"
-                >
-                  Toggle Spinner
-                </button>
-              </label>
-              <div class="ui-input__wrapper">
-                <input
-                  type="text"
-                  placeholder="Search database..."
-                  class="ui-input ui-input--outline ui-input--md ui-input--primary"
-                  :class="{ 'ui-input--loading': searching }"
-                />
-                <div class="ui-input__trailing">
-                  <template x-if="searching"
-                    ><i
-                      class="ti ti-loader-2 ui-spinner ui-spinner--xs"
-                      style="font-size: var(--ui-icon-size-xs)"
-                    ></i
-                  ></template>
-                  <template x-if="!searching"
-                    ><i class="ti ti-search"></i
-                  ></template>
-                </div>
-              </div>
-            </div>
-          </div>
-          <pre
-            class="code-block mt-3"
-          ><code x-text="uiDocs.inputValidation"></code></pre>
-        
 </section>
 
 
@@ -479,42 +403,64 @@
     </div>
 
     <script>
-
       window.uiDocs = {
-        inputUsage: [
-          '<x-input label="Email" type="email" placeholder="john@example.com" required',
-          '    leadingIcon="mail" hint="We will send a confirmation."',
-          '    wireModel="email" />',
+        bannerUsage: [
+          '<!-- Simple announcement -->',
+          '<x-banner title="New Feature"',
+          '    href="https://example.com">',
+          '    Click here to learn about our latest feature',
+          '</x-banner>',
           '',
-          '<x-input type="password" label="Password" />',
+          '<!-- With icon, dismiss, and auto-hide -->',
+          '<x-banner title="System Update"',
+          '    icon="alert-circle"',
+          '    color="warning"',
+          '    :auto-hide="5000">',
+          '    Scheduled maintenance in 30 minutes.',
+          '</x-banner>',
+          '',
+          '<!-- With action slot -->',
+          '<x-banner title="New version available" color="success">',
+          '    Version 2.0 is now live.',
+          '    <x-slot:action>',
+          '        <a href="#" class="underline font-medium">Upgrade now</a>',
+          '    </x-slot:action>',
+          '</x-banner>',
         ].join('\n'),
 
-        inputVariants: [
-          '<x-input variant="outline" />  {{-- default --}}',
-          '<x-input variant="soft" />',
-          '<x-input variant="subtle" />',
-          '<x-input variant="ghost" />',
-          '<x-input variant="none" />',
+        bannerVariants: [
+          '<x-banner variant="soft" />   {{-- default --}}',
+          '<x-banner variant="solid" />',
+          '<x-banner variant="outline" />',
+          '<x-banner variant="ghost" />',
         ].join('\n'),
 
-        inputSizes: [
-          '<x-input size="xs" placeholder="size xs" />',
-          '<x-input size="sm" placeholder="size sm" />',
-          '<x-input size="md" placeholder="size md" />',
-          '<x-input size="lg" placeholder="size lg" />',
-          '<x-input size="xl" placeholder="size xl" />',
+        bannerSizes: [
+          '<x-banner size="sm" title="Small" />',
+          '<x-banner size="md" title="Medium" />  {{-- default --}}',
+          '<x-banner size="lg" title="Large" />',
         ].join('\n'),
 
-        inputIcons: [
-          '<x-input leadingIcon="mail" placeholder="john@example.com" />',
-          '<x-input type="password" leadingIcon="lock" />  {{-- Alpine eye toggle --}}',
-          '<x-input trailingIcon="search" />',
+        bannerColors: [
+          '<x-banner color="primary" />  {{-- default --}}',
+          '<x-banner color="danger" />',
+          '<x-banner color="success" />',
+          '<x-banner color="warning" />',
+          '<x-banner color="neutral" />',
         ].join('\n'),
 
-        inputValidation: [
-          '<x-input label="Username" error="Username can only contain alphanumeric characters." />',
-          '<x-input label="Website URL" value="https://aegis-ui.dev" valid />',
-          '<x-input loading />  {{-- trailing spinner --}}',
+        bannerBehavior: [
+          '<!-- Dismissable -->',
+          '<x-banner title="Notice" closable>Closable banner</x-banner>',
+          '',
+          '<!-- Non-dismissable -->',
+          '<x-banner title="Important" :closable="false">Cannot be closed</x-banner>',
+          '',
+          '<!-- Delayed show -->',
+          '<x-banner title="Delayed" :show-after="1000">Appears after 1s</x-banner>',
+          '',
+          '<!-- Auto-hide after 5s -->',
+          '<x-banner title="Temp" :auto-hide="5000">Gone in 5s</x-banner>',
         ].join('\n'),
       }
     </script>

@@ -39,6 +39,7 @@ class UiServiceProvider extends ServiceProvider
             'accordion'      => \Aegis\Ui\Components\Accordion::class,
             'accordion-item' => \Aegis\Ui\Components\AccordionItem::class,
             'alert'          => \Aegis\Ui\Components\Alert::class,
+            'banner'         => \Aegis\Ui\Components\Banner::class,
             'button'         => \Aegis\Ui\Components\Button::class,
             'checkbox'       => \Aegis\Ui\Components\Checkbox::class,
             'datepicker'     => \Aegis\Ui\Components\DatePicker::class,

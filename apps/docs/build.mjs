@@ -29,6 +29,7 @@ const NAV = [
     section: 'Components',
     items: [
       { key: 'components', label: 'Overview', icon: 'ti-components', href: 'components.html' },
+      { key: 'banner', label: 'Banner', icon: 'ti-speakerphone', href: 'banner.html' },
       { key: 'button', label: 'Button', icon: 'ti-click', href: 'button.html' },
       { key: 'input', label: 'Input', icon: 'ti-forms', href: 'input.html' },
       { key: 'textarea', label: 'Textarea', icon: 'ti-text-wrap', href: 'textarea.html' },
@@ -62,6 +63,9 @@ const PAGES = [
   { src: 'components', out: 'components', navKey: 'components', toc: false,
     title: 'Components — Aegis UI Docs',
     description: 'Every component page documents each prop and customization option.' },
+  { src: 'banner', out: 'banner', navKey: 'banner', toc: true,
+    title: 'Banner — Aegis UI Docs',
+    description: 'Banner component: announcement bar with transitions, dismiss, auto-hide and action slots.' },
   { src: 'button', out: 'button', navKey: 'button', toc: true,
     title: 'Button — Aegis UI Docs',
     description: 'Button component: variants, sizes, colors, icons, links, loading and block.' },

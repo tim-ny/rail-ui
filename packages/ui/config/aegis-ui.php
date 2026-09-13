@@ -33,6 +33,11 @@ return [
             'size' => 'md',
             'color' => 'primary',
         ],
+        'banner' => [
+            'variant' => 'soft',
+            'size' => 'md',
+            'color' => 'primary',
+        ],
         'button' => [
             'variant' => 'solid',
             'size' => 'md',
