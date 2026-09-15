@@ -1,5 +1,5 @@
 {
-    "name": "aegis/ui",
+    "name": "timny/aegis-ui",
     "description": "A token-driven Blade + Livewire component library for Laravel 13, Livewire 4, Alpine.js 3, and Tailwind CSS 4.",
     "type": "library",
     "license": "MIT",
