@@ -1,16 +1,16 @@
 {
-    "name": "rail/ui-monorepo",
-    "description": "Monorepo workspace for Rail UI package and docs",
-    "type": "project",
-    "license": "MIT",
-    "repositories": [
-        {
-            "type": "path",
-            "url": "packages/ui"
-        }
-    ],
-    "require": {},
-    "require-dev": {},
-    "minimum-stability": "dev",
-    "prefer-stable": true
+  "name": "timny/rail-ui",
+  "description": "Monorepo workspace for Rail UI package and docs",
+  "type": "project",
+  "license": "MIT",
+  "repositories": [
+    {
+      "type": "path",
+      "url": "packages/ui"
+    }
+  ],
+  "require": {},
+  "require-dev": {},
+  "minimum-stability": "dev",
+  "prefer-stable": true
 }
