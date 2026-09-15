@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Accordion — Aegis UI Docs</title>
-    <meta name="description" content="Accordion component: single or multi-open, variants and leading icons." />
+    <title>Toggle — Aegis UI Docs</title>
+    <meta name="description" content="Toggle component: on/off switch with sizes, colors, labels and accessible role." />
 
     <!-- Alpine.js Collapse Plugin -->
     <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
@@ -40,7 +40,7 @@
 
             <p class="px-2 pb-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground pt-6">Components</p>
             <a href="components.html" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors text-muted-foreground hover:text-foreground"><i class="ti ti-components text-base"></i> Overview</a>
-            <a href="accordion.html" aria-current="page" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors bg-muted text-foreground font-medium"><i class="ti ti-layout-list text-base"></i> Accordion</a>
+            <a href="accordion.html" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors text-muted-foreground hover:text-foreground"><i class="ti ti-layout-list text-base"></i> Accordion</a>
             <a href="alert.html" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors text-muted-foreground hover:text-foreground"><i class="ti ti-bell text-base"></i> Alert</a>
             <a href="banner.html" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors text-muted-foreground hover:text-foreground"><i class="ti ti-speakerphone text-base"></i> Banner</a>
             <a href="button.html" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors text-muted-foreground hover:text-foreground"><i class="ti ti-click text-base"></i> Button</a>
@@ -55,7 +55,7 @@
             <a href="select.html" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors text-muted-foreground hover:text-foreground"><i class="ti ti-selector text-base"></i> Select</a>
             <a href="spinner.html" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors text-muted-foreground hover:text-foreground"><i class="ti ti-loader-2 text-base"></i> Spinner</a>
             <a href="textarea.html" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors text-muted-foreground hover:text-foreground"><i class="ti ti-text-wrap text-base"></i> Textarea</a>
-            <a href="toggle.html" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors text-muted-foreground hover:text-foreground"><i class="ti ti-toggle-left text-base"></i> Toggle</a>
+            <a href="toggle.html" aria-current="page" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors bg-muted text-foreground font-medium"><i class="ti ti-toggle-left text-base"></i> Toggle</a>
         </nav>
       </aside>
     </div>
@@ -79,7 +79,7 @@
 
             <p class="px-2 pb-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground pt-6">Components</p>
             <a href="components.html" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors text-muted-foreground hover:text-foreground"><i class="ti ti-components text-base"></i> Overview</a>
-            <a href="accordion.html" aria-current="page" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors bg-muted text-foreground font-medium"><i class="ti ti-layout-list text-base"></i> Accordion</a>
+            <a href="accordion.html" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors text-muted-foreground hover:text-foreground"><i class="ti ti-layout-list text-base"></i> Accordion</a>
             <a href="alert.html" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors text-muted-foreground hover:text-foreground"><i class="ti ti-bell text-base"></i> Alert</a>
             <a href="banner.html" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors text-muted-foreground hover:text-foreground"><i class="ti ti-speakerphone text-base"></i> Banner</a>
             <a href="button.html" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors text-muted-foreground hover:text-foreground"><i class="ti ti-click text-base"></i> Button</a>
@@ -94,7 +94,7 @@
             <a href="select.html" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors text-muted-foreground hover:text-foreground"><i class="ti ti-selector text-base"></i> Select</a>
             <a href="spinner.html" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors text-muted-foreground hover:text-foreground"><i class="ti ti-loader-2 text-base"></i> Spinner</a>
             <a href="textarea.html" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors text-muted-foreground hover:text-foreground"><i class="ti ti-text-wrap text-base"></i> Textarea</a>
-            <a href="toggle.html" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors text-muted-foreground hover:text-foreground"><i class="ti ti-toggle-left text-base"></i> Toggle</a>
+            <a href="toggle.html" aria-current="page" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors bg-muted text-foreground font-medium"><i class="ti ti-toggle-left text-base"></i> Toggle</a>
         </nav>
       </aside>
 
@@ -122,11 +122,11 @@
         <section>
 
           <div class="flex items-center gap-3">
-            <h1 class="text-3xl font-extrabold tracking-tight">Accordion</h1>
-            <span class="inline-code">&lt;x-accordion /&gt;</span>
+            <h1 class="text-3xl font-extrabold tracking-tight">Toggle</h1>
+            <span class="inline-code">&lt;x-toggle /&gt;</span>
           </div>
           <p class="mt-2 text-muted-foreground">
-            Collapsible panels with single or multiple open modes.
+            On/off switch with sizes, colors, labels, and accessible role="switch".
           </p>
 
           <div class="docs-card mt-8" aria-label="On this page">
@@ -134,15 +134,15 @@
             <nav class="flex flex-wrap gap-2">
               <a href="#usage" class="rounded-md border border-border px-2.5 py-1 text-xs font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground">Usage</a>
               <a href="#props" class="rounded-md border border-border px-2.5 py-1 text-xs font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground">Props</a>
-              <a href="#single-open" class="rounded-md border border-border px-2.5 py-1 text-xs font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground">Single open</a>
-              <a href="#multiple-open" class="rounded-md border border-border px-2.5 py-1 text-xs font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground">Multiple open</a>
+              <a href="#basic-toggle" class="rounded-md border border-border px-2.5 py-1 text-xs font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground">Basic toggle</a>
+              <a href="#sizes" class="rounded-md border border-border px-2.5 py-1 text-xs font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground">Sizes</a>
+              <a href="#colors" class="rounded-md border border-border px-2.5 py-1 text-xs font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground">Colors</a>
+              <a href="#disabled" class="rounded-md border border-border px-2.5 py-1 text-xs font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground">Disabled</a>
             </nav>
           </div>
 
           <h2 class="mt-10 text-xl font-bold tracking-tight scroll-mt-20" id="usage">Usage</h2>
-          <pre
-            class="code-block mt-3"
-          ><code x-text="uiDocs.accordionUsage"></code></pre>
+          <pre class="code-block mt-3"><code x-text="uiDocs.toggleUsage"></code></pre>
 
           <h2 class="mt-10 text-xl font-bold tracking-tight scroll-mt-20" id="props">Props</h2>
           <table class="prop-table mt-3">
@@ -156,261 +156,144 @@
             </thead>
             <tbody>
               <tr>
-                <td>multiple</td>
-                <td>bool</td>
-                <td>false</td>
-                <td>Allow several panels open at once.</td>
+                <td>label</td>
+                <td>string</td>
+                <td>null</td>
+                <td>Label text next to the switch.</td>
               </tr>
               <tr>
-                <td>variant</td>
-                <td>outline, soft, ghost, flush</td>
-                <td>outline</td>
-                <td>Container style.</td>
+                <td>checked</td>
+                <td>bool</td>
+                <td>false</td>
+                <td>Initial on/off state.</td>
               </tr>
               <tr>
                 <td>size</td>
-                <td>sm, md, lg</td>
+                <td>xs, sm, md, lg, xl</td>
                 <td>md</td>
-                <td>Item padding scale.</td>
+                <td>Switch track and knob scale.</td>
               </tr>
               <tr>
                 <td>color</td>
                 <td>primary, danger, success, warning, neutral</td>
-                <td>neutral</td>
-                <td>Accent color.</td>
-              </tr>
-              <tr>
-                <td>defaultOpen</td>
-                <td>string / array</td>
-                <td>null</td>
-                <td>Item id(s) open on load.</td>
-              </tr>
-              <tr>
-                <td>block / unstyled</td>
-                <td>bool</td>
-                <td>false</td>
-                <td>Full-width / unwrapped.</td>
-              </tr>
-            </tbody>
-          </table>
-          <table class="prop-table mt-4">
-            <thead>
-              <tr>
-                <th colspan="4">&lt;x-accordion-item /&gt; props</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>title</td>
-                <td>string</td>
-                <td>null</td>
-                <td>
-                  Header label (or pass a
-                  <code class="inline-code">$trigger</code> slot).
-                </td>
-              </tr>
-              <tr>
-                <td>leadingIcon</td>
-                <td>string</td>
-                <td>null</td>
-                <td>Icon before the title.</td>
+                <td>primary</td>
+                <td>Accent color when toggled on.</td>
               </tr>
               <tr>
                 <td>disabled</td>
                 <td>bool</td>
                 <td>false</td>
-                <td>Item cannot be opened.</td>
+                <td>Disables the toggle.</td>
               </tr>
               <tr>
-                <td>id</td>
+                <td>required</td>
+                <td>bool</td>
+                <td>false</td>
+                <td>Shows required indicator and sets aria-required.</td>
+              </tr>
+              <tr>
+                <td>hint</td>
                 <td>string</td>
-                <td>auto</td>
-                <td>Slug-generated by default.</td>
+                <td>null</td>
+                <td>Hint text below the toggle.</td>
+              </tr>
+              <tr>
+                <td>error</td>
+                <td>string</td>
+                <td>null</td>
+                <td>Error message (overrides hint).</td>
+              </tr>
+              <tr>
+                <td>wireModel</td>
+                <td>string</td>
+                <td>null</td>
+                <td>Livewire wire:model binding.</td>
+              </tr>
+              <tr>
+                <td>unstyled</td>
+                <td>bool</td>
+                <td>false</td>
+                <td>Strip all Aegis classes.</td>
               </tr>
             </tbody>
           </table>
 
-          <h2 class="mt-10 text-xl font-bold tracking-tight scroll-mt-20" id="single-open">Single open</h2>
+          <h2 class="mt-10 text-xl font-bold tracking-tight scroll-mt-20" id="basic-toggle">Basic toggle</h2>
           <div class="docs-card mt-4">
-            <span class="docs-card__label"
-              >variant="outline" · multiple="false"</span
-            >
-            <div
-              x-data="{
-                        active: 'a-1',
-                        toggle(id) { this.active = (this.active === id) ? null : id; },
-                        isOpen(id) { return this.active === id; }
-                    }"
-              class="ui-accordion ui-accordion--outline ui-accordion--md ui-accordion--neutral"
-            >
-              <div class="ui-accordion__item">
-                <button
-                  type="button"
-                  @click="toggle('a-1')"
-                  :aria-expanded="isOpen('a-1')"
-                  class="ui-accordion__trigger"
-                >
-                  <span class="ui-accordion__trigger-left"
-                    ><i
-                      class="ti ti-help-circle ui-accordion__icon--leading"
-                    ></i
-                    ><span>What is Aegis UI?</span></span
-                  >
-                  <i
-                    class="ti ti-chevron-down ui-accordion__chevron"
-                    :class="{ 'ui-accordion__chevron--open': isOpen('a-1') }"
-                  ></i>
-                </button>
-                <div
-                  x-show="isOpen('a-1')"
-                  x-collapse
-                  x-cloak
-                  class="ui-accordion__panel"
-                >
-                  <div class="ui-accordion__content">
-                    Aegis UI is a token-driven Blade + Livewire component
-                    package for Laravel 13, Livewire 4, Alpine 3 and Tailwind 4.
-                  </div>
-                </div>
-              </div>
-              <div class="ui-accordion__item">
-                <button
-                  type="button"
-                  @click="toggle('a-2')"
-                  :aria-expanded="isOpen('a-2')"
-                  class="ui-accordion__trigger"
-                >
-                  <span class="ui-accordion__trigger-left"
-                    ><i class="ti ti-box ui-accordion__icon--leading"></i
-                    ><span>How do I install it?</span></span
-                  >
-                  <i
-                    class="ti ti-chevron-down ui-accordion__chevron"
-                    :class="{ 'ui-accordion__chevron--open': isOpen('a-2') }"
-                  ></i>
-                </button>
-                <div
-                  x-show="isOpen('a-2')"
-                  x-collapse
-                  x-cloak
-                  class="ui-accordion__panel"
-                >
-                  <div class="ui-accordion__content">
-                    Require via
-                    <code class="inline-code">composer require aegis/ui</code>
-                    and import the published CSS.
-                  </div>
-                </div>
-              </div>
-              <div class="ui-accordion__item">
-                <button
-                  type="button"
-                  @click="toggle('a-3')"
-                  :aria-expanded="isOpen('a-3')"
-                  class="ui-accordion__trigger"
-                >
-                  <span class="ui-accordion__trigger-left"
-                    ><i class="ti ti-palette ui-accordion__icon--leading"></i
-                    ><span>Can I customize tokens?</span></span
-                  >
-                  <i
-                    class="ti ti-chevron-down ui-accordion__chevron"
-                    :class="{ 'ui-accordion__chevron--open': isOpen('a-3') }"
-                  ></i>
-                </button>
-                <div
-                  x-show="isOpen('a-3')"
-                  x-collapse
-                  x-cloak
-                  class="ui-accordion__panel"
-                >
-                  <div class="ui-accordion__content">
-                    Absolutely — every visual value references a
-                    <code class="inline-code">--ui-*</code> custom property.
-                  </div>
-                </div>
-              </div>
+            <div x-data="{ on: false }" class="flex items-center space-x-3">
+              <input type="checkbox" class="hidden" :checked="on">
+              <button type="button" @click="on = !on" :class="on ? 'bg-primary' : 'bg-neutral-200'" class="relative inline-flex h-6 w-11 items-center rounded-full py-0.5 transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2">
+                <span :class="on ? 'translate-x-[22px]' : 'translate-x-0.5'" class="inline-block h-5 w-5 rounded-full bg-white shadow-md transition-transform duration-200 ease-in-out"></span>
+              </button>
+              <label class="text-sm select-none" :class="on ? 'text-primary' : 'text-muted-foreground'">Enable Feature</label>
             </div>
           </div>
-          <pre
-            class="code-block mt-3"
-          ><code x-text="uiDocs.accordionSingle"></code></pre>
+          <pre class="code-block mt-3"><code x-text="uiDocs.toggleBasic"></code></pre>
 
-          <h2 class="mt-10 text-xl font-bold tracking-tight scroll-mt-20" id="multiple-open">Multiple open</h2>
+          <h2 class="mt-10 text-xl font-bold tracking-tight scroll-mt-20" id="sizes">Sizes</h2>
           <div class="docs-card mt-4">
-            <span class="docs-card__label"
-              >variant="soft" · multiple="true"</span
-            >
-            <div
-              x-data="{
-                        active: ['m-1', 'm-2'],
-                        toggle(id) {
-                            this.active = this.active.includes(id) ? this.active.filter(i => i !== id) : [...this.active, id];
-                        },
-                        isOpen(id) { return this.active.includes(id); }
-                    }"
-              class="ui-accordion ui-accordion--soft ui-accordion--md ui-accordion--neutral"
-            >
-              <div class="ui-accordion__item">
-                <button
-                  type="button"
-                  @click="toggle('m-1')"
-                  :aria-expanded="isOpen('m-1')"
-                  class="ui-accordion__trigger"
-                >
-                  <span class="ui-accordion__trigger-left"
-                    ><span>Multi-Expand Panel 1</span></span
-                  >
-                  <i
-                    class="ti ti-chevron-down ui-accordion__chevron"
-                    :class="{ 'ui-accordion__chevron--open': isOpen('m-1') }"
-                  ></i>
-                </button>
-                <div
-                  x-show="isOpen('m-1')"
-                  x-collapse
-                  x-cloak
-                  class="ui-accordion__panel"
-                >
-                  <div class="ui-accordion__content">
-                    Multiple panels stay open simultaneously when
-                    <code class="inline-code">multiple="true"</code>.
-                  </div>
+            <div class="space-y-4">
+              <template x-for="size in ['xs', 'sm', 'md', 'lg', 'xl']" :key="size">
+                <div x-data="{ on: false }" class="flex items-center space-x-3">
+                  <span class="w-8 text-xs text-muted-foreground" x-text="size"></span>
+                  <button type="button" @click="on = !on" :class="on ? 'bg-primary' : 'bg-neutral-200'" class="relative inline-flex items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                    :class="{
+                      'h-4 w-8': size === 'xs',
+                      'h-5 w-10': size === 'sm',
+                      'h-6 w-11': size === 'md',
+                      'h-7 w-14': size === 'lg',
+                      'h-8 w-16': size === 'xl'
+                    }">
+                    <span :class="on ? (size === 'xs' ? 'translate-x-[16px]' : size === 'sm' ? 'translate-x-[18px]' : size === 'md' ? 'translate-x-[22px]' : size === 'lg' ? 'translate-x-[26px]' : 'translate-x-[30px]') : 'translate-x-0.5'"
+                      class="inline-block rounded-full bg-white shadow-md transition-transform duration-200 ease-in-out"
+                      :class="{
+                        'h-3 w-3': size === 'xs',
+                        'h-4 w-4': size === 'sm',
+                        'h-5 w-5': size === 'md',
+                        'h-6 w-6': size === 'lg',
+                        'h-6 w-6': size === 'xl'
+                      }"></span>
+                  </button>
                 </div>
-              </div>
-              <div class="ui-accordion__item">
-                <button
-                  type="button"
-                  @click="toggle('m-2')"
-                  :aria-expanded="isOpen('m-2')"
-                  class="ui-accordion__trigger"
-                >
-                  <span class="ui-accordion__trigger-left"
-                    ><span>Multi-Expand Panel 2</span></span
-                  >
-                  <i
-                    class="ti ti-chevron-down ui-accordion__chevron"
-                    :class="{ 'ui-accordion__chevron--open': isOpen('m-2') }"
-                  ></i>
-                </button>
-                <div
-                  x-show="isOpen('m-2')"
-                  x-collapse
-                  x-cloak
-                  class="ui-accordion__panel"
-                >
-                  <div class="ui-accordion__content">
-                    Smooth height expansion is powered by Alpine's
-                    <code class="inline-code">x-collapse</code>.
-                  </div>
-                </div>
-              </div>
+              </template>
             </div>
           </div>
-          <pre
-            class="code-block mt-3"
-          ><code x-text="uiDocs.accordionMultiple"></code></pre>
-        
+          <pre class="code-block mt-3"><code x-text="uiDocs.toggleSizes"></code></pre>
+
+          <h2 class="mt-10 text-xl font-bold tracking-tight scroll-mt-20" id="colors">Colors</h2>
+          <div class="docs-card mt-4">
+            <div class="space-y-4">
+              <template x-for="(color, i) in ['primary', 'danger', 'success', 'warning', 'neutral']" :key="color">
+                <div x-data="{ on: i === 0 }" class="flex items-center space-x-3">
+                  <span class="w-16 text-xs text-muted-foreground" x-text="color"></span>
+                  <button type="button" @click="on = !on" class="relative inline-flex h-6 w-11 items-center rounded-full py-0.5 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2"
+                    :class="{
+                      'bg-primary focus:ring-primary': on && color === 'primary',
+                      'bg-red-500 focus:ring-red-500': on && color === 'danger',
+                      'bg-green-500 focus:ring-green-500': on && color === 'success',
+                      'bg-amber-500 focus:ring-amber-500': on && color === 'warning',
+                      'bg-gray-500 focus:ring-gray-500': on && color === 'neutral',
+                      'bg-neutral-200': !on
+                    }">
+                    <span :class="on ? 'translate-x-[22px]' : 'translate-x-0.5'" class="inline-block h-5 w-5 rounded-full bg-white shadow-md transition-transform duration-200 ease-in-out"></span>
+                  </button>
+                </div>
+              </template>
+            </div>
+          </div>
+          <pre class="code-block mt-3"><code x-text="uiDocs.toggleColors"></code></pre>
+
+          <h2 class="mt-10 text-xl font-bold tracking-tight scroll-mt-20" id="disabled">Disabled</h2>
+          <div class="docs-card mt-4">
+            <div class="flex items-center space-x-3 opacity-50 pointer-events-none">
+              <button type="button" class="relative inline-flex h-6 w-11 items-center rounded-full bg-neutral-200 py-0.5">
+                <span class="translate-x-0.5 inline-block h-5 w-5 rounded-full bg-white shadow-md"></span>
+              </button>
+              <span class="text-sm text-muted-foreground">Disabled toggle</span>
+            </div>
+          </div>
+          <pre class="code-block mt-3"><code x-text="uiDocs.toggleDisabled"></code></pre>
+
 </section>
 
 
@@ -418,44 +301,39 @@
     </div>
 
     <script>
-
       window.uiDocs = {
-        accordionUsage: [
-          '<x-accordion>',
-          '    <x-accordion-item title="What is Aegis UI?" leadingIcon="help-circle">',
-          '        Aegis UI is a token-driven Blade + Livewire component package.',
-          '    </x-accordion-item>',
-          '    <x-accordion-item title="How do I install it?" leadingIcon="box">',
-          '        composer require aegis/ui',
-          '    </x-accordion-item>',
-          '</x-accordion>',
+        toggleUsage: [
+          '<x-toggle label="Enable Feature" />',
           '',
-          '{{-- multi-open --}}',
-          '<x-accordion multiple variant="soft">',
-          '    <x-accordion-item title="Panel A" />',
-          '    <x-accordion-item title="Panel B" />',
-          '</x-accordion>',
+          '<!-- Checked by default -->',
+          '<x-toggle label="Active" checked />',
+          '',
+          '<!-- Custom size and color -->',
+          '<x-toggle label="Large Danger" size="lg" color="danger" />',
         ].join('\n'),
 
-        accordionSingle: [
-          '<x-accordion defaultOpen="what-is-aegis-ui">',
-          '    <x-accordion-item title="What is Aegis UI?" leadingIcon="help-circle">',
-          '        A token-driven Blade + Livewire component package.',
-          '    </x-accordion-item>',
-          '    <x-accordion-item title="How do I install it?" leadingIcon="box">',
-          '        composer require aegis/ui',
-          '    </x-accordion-item>',
-          '    <x-accordion-item title="Can I customize tokens?" leadingIcon="palette">',
-          '        Yes — every visual value is a --ui-* custom property.',
-          '    </x-accordion-item>',
-          '</x-accordion>',
+        toggleBasic: [
+          '<x-toggle label="Enable Feature" />',
         ].join('\n'),
 
-        accordionMultiple: [
-          '<x-accordion multiple variant="soft">',
-          '    <x-accordion-item title="Multi-Expand Panel 1" />',
-          '    <x-accordion-item title="Multi-Expand Panel 2" />',
-          '</x-accordion>',
+        toggleSizes: [
+          '<x-toggle label="Extra Small" size="xs" />',
+          '<x-toggle label="Small" size="sm" />',
+          '<x-toggle label="Medium" size="md" />',
+          '<x-toggle label="Large" size="lg" />',
+          '<x-toggle label="Extra Large" size="xl" />',
+        ].join('\n'),
+
+        toggleColors: [
+          '<x-toggle label="Primary" color="primary" />',
+          '<x-toggle label="Danger" color="danger" />',
+          '<x-toggle label="Success" color="success" />',
+          '<x-toggle label="Warning" color="warning" />',
+          '<x-toggle label="Neutral" color="neutral" />',
+        ].join('\n'),
+
+        toggleDisabled: [
+          '<x-toggle label="Disabled" disabled />',
         ].join('\n'),
       }
     </script>

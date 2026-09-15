@@ -122,10 +122,10 @@ These are common UI components that aren't in `AGENT.md` but would round out the
 
 ```
 Phase 1 — Form completeness (current focus)
-├── Textarea
-├── Select
-├── Toggle
-└── Radio
+├── Textarea ✓
+├── Radio Group ✓
+├── Select ✓
+└── Toggle ✓
 
 Phase 2 — Display & feedback
 ├── Badge
@@ -134,9 +134,9 @@ Phase 2 — Display & feedback
 └── Separator
 
 Phase 3 — Layout & navigation
-├── Dropdown
+├── Dropdown ✓
+├── Card ✓
 ├── Tabs
-├── Card
 ├── Breadcrumb
 └── Table
 
@@ -159,10 +159,10 @@ Phase 5 — Polish & extras
 
 | Metric | Count |
 |--------|-------|
-| Completed Blade components | 10 |
+| Completed Blade components | 18 |
 | Completed Livewire components | 0 |
 | Shared Concerns (traits) | 6 |
-| Unit tests | 8 |
-| Feature render tests | 7 |
-| Planned but not built | 11 (from AGENT.md) |
+| Unit tests | ~200 |
+| Feature render tests | ~80 |
+| Planned but not built | 8 (from AGENT.md) |
 | Suggested additions | 12 |

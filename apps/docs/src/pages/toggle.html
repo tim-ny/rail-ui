@@ -1,0 +1,202 @@
+<section>
+
+          <div class="flex items-center gap-3">
+            <h1 class="text-3xl font-extrabold tracking-tight">Toggle</h1>
+            <span class="inline-code">&lt;x-toggle /&gt;</span>
+          </div>
+          <p class="mt-2 text-muted-foreground">
+            On/off switch with sizes, colors, labels, and accessible role="switch".
+          </p>
+
+          <h2 class="mt-10 text-xl font-bold tracking-tight">Usage</h2>
+          <pre class="code-block mt-3"><code x-text="uiDocs.toggleUsage"></code></pre>
+
+          <h2 class="mt-10 text-xl font-bold tracking-tight">Props</h2>
+          <table class="prop-table mt-3">
+            <thead>
+              <tr>
+                <th>Prop</th>
+                <th>Type / Options</th>
+                <th>Default</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>label</td>
+                <td>string</td>
+                <td>null</td>
+                <td>Label text next to the switch.</td>
+              </tr>
+              <tr>
+                <td>checked</td>
+                <td>bool</td>
+                <td>false</td>
+                <td>Initial on/off state.</td>
+              </tr>
+              <tr>
+                <td>size</td>
+                <td>xs, sm, md, lg, xl</td>
+                <td>md</td>
+                <td>Switch track and knob scale.</td>
+              </tr>
+              <tr>
+                <td>color</td>
+                <td>primary, danger, success, warning, neutral</td>
+                <td>primary</td>
+                <td>Accent color when toggled on.</td>
+              </tr>
+              <tr>
+                <td>disabled</td>
+                <td>bool</td>
+                <td>false</td>
+                <td>Disables the toggle.</td>
+              </tr>
+              <tr>
+                <td>required</td>
+                <td>bool</td>
+                <td>false</td>
+                <td>Shows required indicator and sets aria-required.</td>
+              </tr>
+              <tr>
+                <td>hint</td>
+                <td>string</td>
+                <td>null</td>
+                <td>Hint text below the toggle.</td>
+              </tr>
+              <tr>
+                <td>error</td>
+                <td>string</td>
+                <td>null</td>
+                <td>Error message (overrides hint).</td>
+              </tr>
+              <tr>
+                <td>wireModel</td>
+                <td>string</td>
+                <td>null</td>
+                <td>Livewire wire:model binding.</td>
+              </tr>
+              <tr>
+                <td>unstyled</td>
+                <td>bool</td>
+                <td>false</td>
+                <td>Strip all Aegis classes.</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h2 class="mt-10 text-xl font-bold tracking-tight">Basic toggle</h2>
+          <div class="docs-card mt-4">
+            <div x-data="{ on: false }" class="flex items-center space-x-3">
+              <input type="checkbox" class="hidden" :checked="on">
+              <button type="button" @click="on = !on" :class="on ? 'bg-primary' : 'bg-neutral-200'" class="relative inline-flex h-6 w-11 items-center rounded-full py-0.5 transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2">
+                <span :class="on ? 'translate-x-[22px]' : 'translate-x-0.5'" class="inline-block h-5 w-5 rounded-full bg-white shadow-md transition-transform duration-200 ease-in-out"></span>
+              </button>
+              <label class="text-sm select-none" :class="on ? 'text-primary' : 'text-muted-foreground'">Enable Feature</label>
+            </div>
+          </div>
+          <pre class="code-block mt-3"><code x-text="uiDocs.toggleBasic"></code></pre>
+
+          <h2 class="mt-10 text-xl font-bold tracking-tight">Sizes</h2>
+          <div class="docs-card mt-4">
+            <div class="space-y-4">
+              <template x-for="size in ['xs', 'sm', 'md', 'lg', 'xl']" :key="size">
+                <div x-data="{ on: false }" class="flex items-center space-x-3">
+                  <span class="w-8 text-xs text-muted-foreground" x-text="size"></span>
+                  <button type="button" @click="on = !on" :class="on ? 'bg-primary' : 'bg-neutral-200'" class="relative inline-flex items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                    :class="{
+                      'h-4 w-8': size === 'xs',
+                      'h-5 w-10': size === 'sm',
+                      'h-6 w-11': size === 'md',
+                      'h-7 w-14': size === 'lg',
+                      'h-8 w-16': size === 'xl'
+                    }">
+                    <span :class="on ? (size === 'xs' ? 'translate-x-[16px]' : size === 'sm' ? 'translate-x-[18px]' : size === 'md' ? 'translate-x-[22px]' : size === 'lg' ? 'translate-x-[26px]' : 'translate-x-[30px]') : 'translate-x-0.5'"
+                      class="inline-block rounded-full bg-white shadow-md transition-transform duration-200 ease-in-out"
+                      :class="{
+                        'h-3 w-3': size === 'xs',
+                        'h-4 w-4': size === 'sm',
+                        'h-5 w-5': size === 'md',
+                        'h-6 w-6': size === 'lg',
+                        'h-6 w-6': size === 'xl'
+                      }"></span>
+                  </button>
+                </div>
+              </template>
+            </div>
+          </div>
+          <pre class="code-block mt-3"><code x-text="uiDocs.toggleSizes"></code></pre>
+
+          <h2 class="mt-10 text-xl font-bold tracking-tight">Colors</h2>
+          <div class="docs-card mt-4">
+            <div class="space-y-4">
+              <template x-for="(color, i) in ['primary', 'danger', 'success', 'warning', 'neutral']" :key="color">
+                <div x-data="{ on: i === 0 }" class="flex items-center space-x-3">
+                  <span class="w-16 text-xs text-muted-foreground" x-text="color"></span>
+                  <button type="button" @click="on = !on" class="relative inline-flex h-6 w-11 items-center rounded-full py-0.5 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2"
+                    :class="{
+                      'bg-primary focus:ring-primary': on && color === 'primary',
+                      'bg-red-500 focus:ring-red-500': on && color === 'danger',
+                      'bg-green-500 focus:ring-green-500': on && color === 'success',
+                      'bg-amber-500 focus:ring-amber-500': on && color === 'warning',
+                      'bg-gray-500 focus:ring-gray-500': on && color === 'neutral',
+                      'bg-neutral-200': !on
+                    }">
+                    <span :class="on ? 'translate-x-[22px]' : 'translate-x-0.5'" class="inline-block h-5 w-5 rounded-full bg-white shadow-md transition-transform duration-200 ease-in-out"></span>
+                  </button>
+                </div>
+              </template>
+            </div>
+          </div>
+          <pre class="code-block mt-3"><code x-text="uiDocs.toggleColors"></code></pre>
+
+          <h2 class="mt-10 text-xl font-bold tracking-tight">Disabled</h2>
+          <div class="docs-card mt-4">
+            <div class="flex items-center space-x-3 opacity-50 pointer-events-none">
+              <button type="button" class="relative inline-flex h-6 w-11 items-center rounded-full bg-neutral-200 py-0.5">
+                <span class="translate-x-0.5 inline-block h-5 w-5 rounded-full bg-white shadow-md"></span>
+              </button>
+              <span class="text-sm text-muted-foreground">Disabled toggle</span>
+            </div>
+          </div>
+          <pre class="code-block mt-3"><code x-text="uiDocs.toggleDisabled"></code></pre>
+
+</section>
+
+<script>
+      window.uiDocs = {
+        toggleUsage: [
+          '<x-toggle label="Enable Feature" />',
+          '',
+          '<!-- Checked by default -->',
+          '<x-toggle label="Active" checked />',
+          '',
+          '<!-- Custom size and color -->',
+          '<x-toggle label="Large Danger" size="lg" color="danger" />',
+        ].join('\n'),
+
+        toggleBasic: [
+          '<x-toggle label="Enable Feature" />',
+        ].join('\n'),
+
+        toggleSizes: [
+          '<x-toggle label="Extra Small" size="xs" />',
+          '<x-toggle label="Small" size="sm" />',
+          '<x-toggle label="Medium" size="md" />',
+          '<x-toggle label="Large" size="lg" />',
+          '<x-toggle label="Extra Large" size="xl" />',
+        ].join('\n'),
+
+        toggleColors: [
+          '<x-toggle label="Primary" color="primary" />',
+          '<x-toggle label="Danger" color="danger" />',
+          '<x-toggle label="Success" color="success" />',
+          '<x-toggle label="Warning" color="warning" />',
+          '<x-toggle label="Neutral" color="neutral" />',
+        ].join('\n'),
+
+        toggleDisabled: [
+          '<x-toggle label="Disabled" disabled />',
+        ].join('\n'),
+      }
+    </script>

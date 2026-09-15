@@ -1,0 +1,352 @@
+<section>
+
+          <div class="flex items-center gap-3">
+            <h1 class="text-3xl font-extrabold tracking-tight">Radio Group</h1>
+            <span class="inline-code">&lt;x-radio-group /&gt;</span>
+          </div>
+          <p class="mt-2 text-muted-foreground">
+            Card-style radio group with sizes, colors, descriptions, and
+            Alpine.js-powered selection state.
+          </p>
+
+          <h2 class="mt-10 text-xl font-bold tracking-tight">Usage</h2>
+          <pre class="code-block mt-3"><code x-text="uiDocs.radioUsage"></code></pre>
+
+          <h2 class="mt-10 text-xl font-bold tracking-tight">Props — x-radio-group</h2>
+          <table class="prop-table mt-3">
+            <thead>
+              <tr>
+                <th>Prop</th>
+                <th>Type / Options</th>
+                <th>Default</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>name</td>
+                <td>string</td>
+                <td>auto</td>
+                <td>Radio group name attribute. Auto-generated from id if not set.</td>
+              </tr>
+              <tr>
+                <td>value</td>
+                <td>string</td>
+                <td>null</td>
+                <td>Initially selected value.</td>
+              </tr>
+              <tr>
+                <td>label</td>
+                <td>string</td>
+                <td>null</td>
+                <td>Group label rendered above the options.</td>
+              </tr>
+              <tr>
+                <td>required</td>
+                <td>bool</td>
+                <td>false</td>
+                <td>Shows required indicator and sets aria-required.</td>
+              </tr>
+              <tr>
+                <td>size</td>
+                <td>xs, sm, md, lg, xl</td>
+                <td>md</td>
+                <td>Radio card and circle scale.</td>
+              </tr>
+              <tr>
+                <td>color</td>
+                <td>primary, danger, success, warning, neutral</td>
+                <td>primary</td>
+                <td>Accent color for selected state.</td>
+              </tr>
+              <tr>
+                <td>disabled</td>
+                <td>bool</td>
+                <td>false</td>
+                <td>Disables all radios in the group.</td>
+              </tr>
+              <tr>
+                <td>hint</td>
+                <td>string</td>
+                <td>null</td>
+                <td>Hint text below the group.</td>
+              </tr>
+              <tr>
+                <td>error</td>
+                <td>string</td>
+                <td>null</td>
+                <td>Error message (overrides hint).</td>
+              </tr>
+              <tr>
+                <td>wireModel</td>
+                <td>string</td>
+                <td>null</td>
+                <td>Livewire wire:model binding.</td>
+              </tr>
+              <tr>
+                <td>unstyled</td>
+                <td>bool</td>
+                <td>false</td>
+                <td>Strip all Aegis classes.</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h2 class="mt-10 text-xl font-bold tracking-tight">Props — x-radio</h2>
+          <table class="prop-table mt-3">
+            <thead>
+              <tr>
+                <th>Prop</th>
+                <th>Type / Options</th>
+                <th>Default</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>value</td>
+                <td>string</td>
+                <td>null</td>
+                <td>Value submitted with the form.</td>
+              </tr>
+              <tr>
+                <td>label</td>
+                <td>string</td>
+                <td>null</td>
+                <td>Primary label text.</td>
+              </tr>
+              <tr>
+                <td>description</td>
+                <td>string</td>
+                <td>null</td>
+                <td>Secondary text below the label.</td>
+              </tr>
+              <tr>
+                <td>disabled</td>
+                <td>bool</td>
+                <td>false</td>
+                <td>Disables this individual radio.</td>
+              </tr>
+              <tr>
+                <td>unstyled</td>
+                <td>bool</td>
+                <td>false</td>
+                <td>Strip all Aegis classes.</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h2 class="mt-10 text-xl font-bold tracking-tight">Basic radio group</h2>
+          <div class="docs-card mt-4">
+            <div x-data="{ selected: 'laravel' }" class="space-y-3">
+              <template x-for="(option, index) in [
+                { title: 'Tailwind CSS', description: 'A utility-first CSS framework for rapid UI development.', value: 'tailwind' },
+                { title: 'Alpine JS', description: 'A rugged and lightweight JavaScript framework.', value: 'alpine' },
+                { title: 'Laravel', description: 'The PHP Framework for Web Artisans.', value: 'laravel' }
+              ]" :key="index">
+                <label @click="selected = option.value" class="flex items-start p-5 space-x-3 bg-white border rounded-lg shadow-sm hover:bg-gray-50 border-neutral-200/70 cursor-pointer transition-colors" :class="selected === option.value ? 'border-primary bg-primary/5' : ''">
+                  <input type="radio" name="framework" :value="option.value" :checked="selected === option.value" class="mt-0.5 text-primary focus:ring-primary" />
+                  <span class="relative flex flex-col text-left space-y-1">
+                    <span x-text="option.title" class="font-semibold text-sm"></span>
+                    <span x-text="option.description" class="text-sm text-muted-foreground"></span>
+                  </span>
+                </label>
+              </template>
+            </div>
+          </div>
+          <pre class="code-block mt-3"><code x-text="uiDocs.radioBasic"></code></pre>
+
+          <h2 class="mt-10 text-xl font-bold tracking-tight">With label &amp; required</h2>
+          <div class="docs-card mt-4">
+            <div x-data="{ selected: null }" class="space-y-3">
+              <span class="text-sm font-medium">Pick a framework <span class="text-red-500">*</span></span>
+              <template x-for="(option, index) in [
+                { title: 'React', value: 'react' },
+                { title: 'Vue', value: 'vue' },
+                { title: 'Svelte', value: 'svelte' }
+              ]" :key="index">
+                <label @click="selected = option.value" class="flex items-center p-4 space-x-3 bg-white border rounded-lg shadow-sm hover:bg-gray-50 border-neutral-200/70 cursor-pointer transition-colors" :class="selected === option.value ? 'border-primary bg-primary/5' : ''">
+                  <input type="radio" name="js-framework" :value="option.value" :checked="selected === option.value" class="text-primary focus:ring-primary" />
+                  <span x-text="option.title" class="text-sm font-medium"></span>
+                </label>
+              </template>
+            </div>
+          </div>
+          <pre class="code-block mt-3"><code x-text="uiDocs.radioLabel"></code></pre>
+
+          <h2 class="mt-10 text-xl font-bold tracking-tight">Sizes</h2>
+          <div class="docs-card mt-4 space-y-6">
+            <div x-data="{ selected: 'md' }">
+              <p class="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-3">Extra Small</p>
+              <div x-data="{ selected: 'xs-opt' }" class="space-y-1">
+                <template x-for="(option, index) in [{ title: 'Option A', value: 'xs-opt' }, { title: 'Option B', value: 'xs-opt2' }]" :key="index">
+                  <label @click="selected = option.value" class="flex items-center p-2 space-x-2 bg-white border rounded-md hover:bg-gray-50 border-neutral-200/70 cursor-pointer text-xs transition-colors" :class="selected === option.value ? 'border-primary bg-primary/5' : ''">
+                    <input type="radio" name="xs-radio" :value="option.value" :checked="selected === option.value" class="text-primary focus:ring-primary" />
+                    <span x-text="option.title" class="font-medium"></span>
+                  </label>
+                </template>
+              </div>
+
+              <p class="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-3 mt-6">Small</p>
+              <div x-data="{ selected: 'sm-opt' }" class="space-y-1.5">
+                <template x-for="(option, index) in [{ title: 'Option A', value: 'sm-opt' }, { title: 'Option B', value: 'sm-opt2' }]" :key="index">
+                  <label @click="selected = option.value" class="flex items-center p-3 space-x-2.5 bg-white border rounded-lg shadow-sm hover:bg-gray-50 border-neutral-200/70 cursor-pointer text-sm transition-colors" :class="selected === option.value ? 'border-primary bg-primary/5' : ''">
+                    <input type="radio" name="sm-radio" :value="option.value" :checked="selected === option.value" class="text-primary focus:ring-primary" />
+                    <span x-text="option.title" class="font-medium"></span>
+                  </label>
+                </template>
+              </div>
+
+              <p class="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-3 mt-6">Large</p>
+              <div x-data="{ selected: 'lg-opt' }" class="space-y-2">
+                <template x-for="(option, index) in [{ title: 'Option A', value: 'lg-opt' }, { title: 'Option B', value: 'lg-opt2' }]" :key="index">
+                  <label @click="selected = option.value" class="flex items-center p-5 space-x-4 bg-white border rounded-lg shadow-sm hover:bg-gray-50 border-neutral-200/70 cursor-pointer transition-colors" :class="selected === option.value ? 'border-primary bg-primary/5' : ''">
+                    <input type="radio" name="lg-radio" :value="option.value" :checked="selected === option.value" class="text-primary focus:ring-primary" />
+                    <span x-text="option.title" class="font-semibold"></span>
+                  </label>
+                </template>
+              </div>
+            </div>
+          </div>
+          <pre class="code-block mt-3"><code x-text="uiDocs.radioSizes"></code></pre>
+
+          <h2 class="mt-10 text-xl font-bold tracking-tight">Colors</h2>
+          <div class="docs-card mt-4 space-y-6">
+            <div class="grid gap-6 sm:grid-cols-2">
+              <div x-data="{ selected: 'p1' }">
+                <p class="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-3">Primary</p>
+                <div class="space-y-2">
+                  <template x-for="(option, index) in [{ title: 'Option A', value: 'p1' }, { title: 'Option B', value: 'p2' }]" :key="index">
+                    <label @click="selected = option.value" class="flex items-center p-4 space-x-3 bg-white border rounded-lg shadow-sm hover:bg-gray-50 border-neutral-200/70 cursor-pointer transition-colors" :class="selected === option.value ? 'border-primary bg-primary/5' : ''">
+                      <input type="radio" name="color-p" :value="option.value" :checked="selected === option.value" class="text-primary focus:ring-primary" />
+                      <span x-text="option.title" class="text-sm font-medium"></span>
+                    </label>
+                  </template>
+                </div>
+              </div>
+              <div x-data="{ selected: 'd1' }">
+                <p class="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-3">Danger</p>
+                <div class="space-y-2">
+                  <template x-for="(option, index) in [{ title: 'Option A', value: 'd1' }, { title: 'Option B', value: 'd2' }]" :key="index">
+                    <label @click="selected = option.value" class="flex items-center p-4 space-x-3 bg-white border rounded-lg shadow-sm hover:bg-gray-50 border-neutral-200/70 cursor-pointer transition-colors" :class="selected === option.value ? 'border-red-500 bg-red-50' : ''">
+                      <input type="radio" name="color-d" :value="option.value" :checked="selected === option.value" class="text-red-600 focus:ring-red-500" />
+                      <span x-text="option.title" class="text-sm font-medium"></span>
+                    </label>
+                  </template>
+                </div>
+              </div>
+              <div x-data="{ selected: 's1' }">
+                <p class="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-3">Success</p>
+                <div class="space-y-2">
+                  <template x-for="(option, index) in [{ title: 'Option A', value: 's1' }, { title: 'Option B', value: 's2' }]" :key="index">
+                    <label @click="selected = option.value" class="flex items-center p-4 space-x-3 bg-white border rounded-lg shadow-sm hover:bg-gray-50 border-neutral-200/70 cursor-pointer transition-colors" :class="selected === option.value ? 'border-green-500 bg-green-50' : ''">
+                      <input type="radio" name="color-s" :value="option.value" :checked="selected === option.value" class="text-green-600 focus:ring-green-500" />
+                      <span x-text="option.title" class="text-sm font-medium"></span>
+                    </label>
+                  </template>
+                </div>
+              </div>
+              <div x-data="{ selected: 'w1' }">
+                <p class="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-3">Warning</p>
+                <div class="space-y-2">
+                  <template x-for="(option, index) in [{ title: 'Option A', value: 'w1' }, { title: 'Option B', value: 'w2' }]" :key="index">
+                    <label @click="selected = option.value" class="flex items-center p-4 space-x-3 bg-white border rounded-lg shadow-sm hover:bg-gray-50 border-neutral-200/70 cursor-pointer transition-colors" :class="selected === option.value ? 'border-amber-500 bg-amber-50' : ''">
+                      <input type="radio" name="color-w" :value="option.value" :checked="selected === option.value" class="text-amber-600 focus:ring-amber-500" />
+                      <span x-text="option.title" class="text-sm font-medium"></span>
+                    </label>
+                  </template>
+                </div>
+              </div>
+            </div>
+          </div>
+          <pre class="code-block mt-3"><code x-text="uiDocs.radioColors"></code></pre>
+
+          <h2 class="mt-10 text-xl font-bold tracking-tight">Disabled state</h2>
+          <div class="docs-card mt-4">
+            <div x-data="{ selected: 'a' }" class="space-y-2 opacity-50 pointer-events-none">
+              <template x-for="(option, index) in [{ title: 'Option A', value: 'a' }, { title: 'Option B', value: 'b' }]" :key="index">
+                <label class="flex items-center p-4 space-x-3 bg-white border rounded-lg shadow-sm border-neutral-200/70">
+                  <input type="radio" name="disabled-radio" :value="option.value" disabled class="text-primary" />
+                  <span x-text="option.title" class="text-sm font-medium"></span>
+                </label>
+              </template>
+            </div>
+          </div>
+          <pre class="code-block mt-3"><code x-text="uiDocs.radioDisabled"></code></pre>
+
+</section>
+
+<script>
+      window.uiDocs = {
+        radioUsage: [
+          '<x-radio-group name="framework" value="laravel" label="Pick a framework">',
+          '    <x-radio value="tailwind" label="Tailwind CSS" description="Utility-first CSS framework" />',
+          '    <x-radio value="alpine"   label="Alpine JS"   description="Lightweight JS framework" />',
+          '    <x-radio value="laravel"  label="Laravel"     description="PHP Framework for Web Artisans" />',
+          '</x-radio-group>',
+        ].join('\n'),
+
+        radioBasic: [
+          '<x-radio-group name="framework" value="laravel">',
+          '    <x-radio value="tailwind" label="Tailwind CSS" description="A utility-first CSS framework." />',
+          '    <x-radio value="alpine"   label="Alpine JS"   description="A lightweight JavaScript framework." />',
+          '    <x-radio value="laravel"  label="Laravel"     description="The PHP Framework for Web Artisans." />',
+          '</x-radio-group>',
+        ].join('\n'),
+
+        radioLabel: [
+          '<x-radio-group name="framework" label="Pick a framework" required>',
+          '    <x-radio value="react"  label="React"  description="A JavaScript library for building user interfaces." />',
+          '    <x-radio value="vue"    label="Vue"    description="The Progressive JavaScript Framework." />',
+          '    <x-radio value="svelte" label="Svelte" description="Cybernetically enhanced web apps." />',
+          '</x-radio-group>',
+        ].join('\n'),
+
+        radioSizes: [
+          '<!-- xs -->',
+          '<x-radio-group name="opt" size="xs">',
+          '    <x-radio value="a" label="Option A" />',
+          '</x-radio-group>',
+          '',
+          '<!-- sm -->',
+          '<x-radio-group name="opt" size="sm">',
+          '    <x-radio value="a" label="Option A" />',
+          '</x-radio-group>',
+          '',
+          '<!-- lg -->',
+          '<x-radio-group name="opt" size="lg">',
+          '    <x-radio value="a" label="Option A" />',
+          '</x-radio-group>',
+          '',
+          '<!-- xl -->',
+          '<x-radio-group name="opt" size="xl">',
+          '    <x-radio value="a" label="Option A" />',
+          '</x-radio-group>',
+        ].join('\n'),
+
+        radioColors: [
+          '<x-radio-group name="opt" color="primary">',
+          '    <x-radio value="a" label="Option A" />',
+          '</x-radio-group>',
+          '',
+          '<x-radio-group name="opt" color="danger">',
+          '    <x-radio value="a" label="Option A" />',
+          '</x-radio-group>',
+          '',
+          '<x-radio-group name="opt" color="success">',
+          '    <x-radio value="a" label="Option A" />',
+          '</x-radio-group>',
+          '',
+          '<x-radio-group name="opt" color="warning">',
+          '    <x-radio value="a" label="Option A" />',
+          '</x-radio-group>',
+        ].join('\n'),
+
+        radioDisabled: [
+          '<x-radio-group name="opt" disabled>',
+          '    <x-radio value="a" label="Option A" />',
+          '    <x-radio value="b" label="Option B" />',
+          '</x-radio-group>',
+        ].join('\n'),
+      }
+    </script>

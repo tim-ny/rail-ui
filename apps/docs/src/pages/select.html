@@ -1,0 +1,306 @@
+<section>
+
+          <div class="flex items-center gap-3">
+            <h1 class="text-3xl font-extrabold tracking-tight">Select</h1>
+            <span class="inline-code">&lt;x-select /&gt;</span>
+          </div>
+          <p class="mt-2 text-muted-foreground">
+            Custom dropdown with single/multiple selection, search, icons, images,
+            keyboard navigation, and flexible option objects.
+          </p>
+
+          <h2 class="mt-10 text-xl font-bold tracking-tight">Usage</h2>
+          <pre class="code-block mt-3"><code x-text="uiDocs.selectUsage"></code></pre>
+
+          <h2 class="mt-10 text-xl font-bold tracking-tight">Props</h2>
+          <table class="prop-table mt-3">
+            <thead>
+              <tr>
+                <th>Prop</th>
+                <th>Type / Options</th>
+                <th>Default</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>options</td>
+                <td>array</td>
+                <td>[]</td>
+                <td>Array of strings or <code class="inline-code">['value', 'label', 'icon', 'image', 'description', 'disabled']</code> objects.</td>
+              </tr>
+              <tr>
+                <td>value</td>
+                <td>string|array</td>
+                <td>null</td>
+                <td>Initially selected value(s).</td>
+              </tr>
+              <tr>
+                <td>label</td>
+                <td>string</td>
+                <td>null</td>
+                <td>Label rendered above the select.</td>
+              </tr>
+              <tr>
+                <td>placeholder</td>
+                <td>string</td>
+                <td>Select...</td>
+                <td>Placeholder text when nothing is selected.</td>
+              </tr>
+              <tr>
+                <td>multiple</td>
+                <td>bool</td>
+                <td>false</td>
+                <td>Allow selecting multiple options.</td>
+              </tr>
+              <tr>
+                <td>searchable</td>
+                <td>bool</td>
+                <td>false</td>
+                <td>Adds a search input to filter options.</td>
+              </tr>
+              <tr>
+                <td>clearable</td>
+                <td>bool</td>
+                <td>false</td>
+                <td>Shows an X button to clear the selection.</td>
+              </tr>
+              <tr>
+                <td>size</td>
+                <td>xs, sm, md, lg, xl</td>
+                <td>md</td>
+                <td>Select input scale.</td>
+              </tr>
+              <tr>
+                <td>color</td>
+                <td>primary, danger, success, warning, neutral</td>
+                <td>primary</td>
+                <td>Focus ring accent color.</td>
+              </tr>
+              <tr>
+                <td>disabled</td>
+                <td>bool</td>
+                <td>false</td>
+                <td>Disables the select.</td>
+              </tr>
+              <tr>
+                <td>wireModel</td>
+                <td>string</td>
+                <td>null</td>
+                <td>Livewire wire:model binding.</td>
+              </tr>
+              <tr>
+                <td>unstyled</td>
+                <td>bool</td>
+                <td>false</td>
+                <td>Strip all Aegis classes.</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h2 class="mt-10 text-xl font-bold tracking-tight">Option format</h2>
+          <pre class="code-block mt-3"><code x-text="uiDocs.selectOptions"></code></pre>
+
+          <h2 class="mt-10 text-xl font-bold tracking-tight">Basic select</h2>
+          <div class="docs-card mt-4">
+            <div x-data="{
+                open: false,
+                selected: '',
+                options: [
+                    { title: 'Milk', value: 'milk' },
+                    { title: 'Eggs', value: 'eggs' },
+                    { title: 'Cheese', value: 'cheese' },
+                    { title: 'Bread', value: 'bread' },
+                    { title: 'Coffee', value: 'coffee' }
+                ],
+                activeIndex: -1
+            }" class="relative w-64">
+                <button @click="open = !open" class="relative flex min-h-[38px] items-center justify-between w-full py-2 pl-3 pr-10 text-left bg-white border rounded-md shadow-sm cursor-default border-neutral-200/70 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 text-sm">
+                    <span x-text="selected ? options.find(o => o.value === selected)?.title : 'Select Item'" class="truncate text-muted-foreground" :class="selected && 'text-foreground'"></span>
+                    <span class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
+                        <i class="ti ti-chevron-down text-base text-muted-foreground" :class="open && 'rotate-180'" style="transition:transform 0.15s"></i>
+                    </span>
+                </button>
+                <ul x-show="open" @click.away="open = false" x-cloak
+                    class="absolute z-50 w-full py-1 mt-1 overflow-auto text-sm bg-white rounded-md shadow-lg max-h-56 ring-1 ring-black/5 focus:outline-none">
+                    <template x-for="(item, i) in options" :key="item.value">
+                        <li @click="selected = item.value; open = false"
+                            :class="{ 'bg-primary/5 text-primary font-medium': selected === item.value }"
+                            class="relative flex items-center py-2 pl-8 pr-4 cursor-pointer select-none hover:bg-muted text-sm">
+                            <i x-show="selected === item.value" class="ti ti-check absolute left-2 text-primary"></i>
+                            <span x-text="item.title"></span>
+                        </li>
+                    </template>
+                </ul>
+            </div>
+          </div>
+          <pre class="code-block mt-3"><code x-text="uiDocs.selectBasic"></code></pre>
+
+          <h2 class="mt-10 text-xl font-bold tracking-tight">With icons</h2>
+          <div class="docs-card mt-4">
+            <div x-data="{
+                open: false,
+                selected: 'laravel',
+                options: [
+                    { title: 'Tailwind CSS', value: 'tailwind', icon: 'ti-palette' },
+                    { title: 'Alpine.js', value: 'alpine', icon: 'ti-star' },
+                    { title: 'Laravel', value: 'laravel', icon: 'ti-brand-laravel' },
+                    { title: 'Livewire', value: 'livewire', icon: 'ti-bolt' }
+                ]
+            }" class="relative w-64">
+                <button @click="open = !open" class="relative flex min-h-[38px] items-center justify-between w-full py-2 pl-3 pr-10 text-left bg-white border rounded-md shadow-sm cursor-default border-neutral-200/70 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 text-sm">
+                    <span x-text="options.find(o => o.value === selected)?.title" class="text-foreground"></span>
+                    <i class="ti ti-chevron-down absolute right-2 text-muted-foreground text-base" :class="open && 'rotate-180'" style="transition:transform 0.15s"></i>
+                </button>
+                <ul x-show="open" @click.away="open = false" x-cloak
+                    class="absolute z-50 w-full py-1 mt-1 overflow-auto text-sm bg-white rounded-md shadow-lg max-h-56 ring-1 ring-black/5 focus:outline-none">
+                    <template x-for="item in options" :key="item.value">
+                        <li @click="selected = item.value; open = false"
+                            :class="{ 'bg-primary/5 text-primary font-medium': selected === item.value }"
+                            class="relative flex items-center gap-2 py-2 pl-3 pr-4 cursor-pointer select-none hover:bg-muted text-sm">
+                            <i :class="item.icon" class="text-muted-foreground"></i>
+                            <span x-text="item.title"></span>
+                            <i x-show="selected === item.value" class="ti ti-check ml-auto text-primary"></i>
+                        </li>
+                    </template>
+                </ul>
+            </div>
+          </div>
+          <pre class="code-block mt-3"><code x-text="uiDocs.selectIcons"></code></pre>
+
+          <h2 class="mt-10 text-xl font-bold tracking-tight">Multiple selection</h2>
+          <div class="docs-card mt-4">
+            <div x-data="{
+                open: false,
+                selected: ['laravel'],
+                options: [
+                    { title: 'Tailwind CSS', value: 'tailwind' },
+                    { title: 'Alpine.js', value: 'alpine' },
+                    { title: 'Laravel', value: 'laravel' },
+                    { title: 'Livewire', value: 'livewire' },
+                    { title: 'Vite', value: 'vite' }
+                ],
+                toggle(val) {
+                    this.selected = this.selected.includes(val)
+                        ? this.selected.filter(v => v !== val)
+                        : [...this.selected, val];
+                }
+            }" class="relative w-64">
+                <button @click="open = !open" class="relative flex min-h-[38px] items-center justify-between w-full py-2 pl-3 pr-10 text-left bg-white border rounded-md shadow-sm cursor-default border-neutral-200/70 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 text-sm">
+                    <span x-text="selected.length ? selected.length + ' selected' : 'Select...'" :class="selected.length ? 'text-foreground' : 'text-muted-foreground'"></span>
+                    <i class="ti ti-chevron-down absolute right-2 text-muted-foreground text-base" :class="open && 'rotate-180'" style="transition:transform 0.15s"></i>
+                </button>
+                <ul x-show="open" @click.away="open = false" x-cloak
+                    class="absolute z-50 w-full py-1 mt-1 overflow-auto text-sm bg-white rounded-md shadow-lg max-h-56 ring-1 ring-black/5 focus:outline-none">
+                    <template x-for="item in options" :key="item.value">
+                        <li @click="toggle(item.value)"
+                            :class="{ 'bg-primary/5 text-primary font-medium': selected.includes(item.value) }"
+                            class="relative flex items-center py-2 pl-8 pr-4 cursor-pointer select-none hover:bg-muted text-sm">
+                            <i x-show="selected.includes(item.value)" class="ti ti-check absolute left-2 text-primary"></i>
+                            <span x-text="item.title"></span>
+                        </li>
+                    </template>
+                </ul>
+            </div>
+          </div>
+          <pre class="code-block mt-3"><code x-text="uiDocs.selectMultiple"></code></pre>
+
+          <h2 class="mt-10 text-xl font-bold tracking-tight">With descriptions</h2>
+          <div class="docs-card mt-4">
+            <div x-data="{
+                open: false,
+                selected: '',
+                options: [
+                    { title: 'Free', value: 'free', desc: '1 GB storage, basic features' },
+                    { title: 'Pro', value: 'pro', desc: '100 GB storage, all features' },
+                    { title: 'Enterprise', value: 'enterprise', desc: 'Unlimited storage, priority support' }
+                ]
+            }" class="relative w-72">
+                <button @click="open = !open" class="relative flex min-h-[38px] items-center justify-between w-full py-2 pl-3 pr-10 text-left bg-white border rounded-md shadow-sm cursor-default border-neutral-200/70 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 text-sm">
+                    <span x-text="selected ? options.find(o => o.value === selected)?.title : 'Choose plan'" :class="selected ? 'text-foreground' : 'text-muted-foreground'"></span>
+                    <i class="ti ti-chevron-down absolute right-2 text-muted-foreground text-base" :class="open && 'rotate-180'" style="transition:transform 0.15s"></i>
+                </button>
+                <ul x-show="open" @click.away="open = false" x-cloak
+                    class="absolute z-50 w-full py-1 mt-1 overflow-auto text-sm bg-white rounded-md shadow-lg max-h-56 ring-1 ring-black/5 focus:outline-none">
+                    <template x-for="item in options" :key="item.value">
+                        <li @click="selected = item.value; open = false"
+                            :class="{ 'bg-primary/5': selected === item.value }"
+                            class="relative flex flex-col py-2 pl-8 pr-4 cursor-pointer select-none hover:bg-muted text-sm">
+                            <div class="flex items-center">
+                                <i x-show="selected === item.value" class="ti ti-check absolute left-2 text-primary"></i>
+                                <span x-text="item.title" class="font-medium"></span>
+                            </div>
+                            <span x-text="item.desc" class="text-xs text-muted-foreground ml-5"></span>
+                        </li>
+                    </template>
+                </ul>
+            </div>
+          </div>
+          <pre class="code-block mt-3"><code x-text="uiDocs.selectDescriptions"></code></pre>
+
+</section>
+
+<script>
+      window.uiDocs = {
+        selectUsage: [
+          '<!-- Simple string options -->',
+          '<x-select name="fruit" :options="[\'apple\', \'banana\', \'cherry\']" />',
+          '',
+          '<!-- Object options with icons -->',
+          '<x-select name="framework" :options="[\'label\' => \'Laravel\', \'value\' => \'laravel\', \'icon\' => \'brand-laravel\']" />',
+          '',
+          '<!-- Multiple selection -->',
+          '<x-select name="tags" multiple :options="[\'red\', \'green\', \'blue\']" />',
+          '',
+          '<!-- Searchable + clearable -->',
+          '<x-select name="search" searchable clearable :options="..." />',
+        ].join('\n'),
+
+        selectOptions: [
+          '// Simple strings',
+          ':options="[\'apple\', \'banana\', \'cherry\')"',
+          '',
+          '// Array of objects',
+          ':options="[\'[\'value\' => \'us\', \'label\' => \'United States\', \'icon\' => \'flag\']"',
+          '',
+          '// Full option object',
+          ':options="[\'[',
+          '    \'value\'       => \'pro\',',
+          '    \'label\'       => \'Pro Plan\',',
+          '    \'icon\'        => \'star\',',
+          '    \'image\'       => \'/img/pro.png\',',
+          '    \'description\' => \'Best for teams\',',
+          '    \'disabled\'    => false,',
+          ']]"',
+        ].join('\n'),
+
+        selectBasic: [
+          '<x-select name="fruit" placeholder="Pick a fruit"',
+          '    :options="[\'Milk\', \'Eggs\', \'Cheese\', \'Bread\', \'Coffee\']" />',
+        ].join('\n'),
+
+        selectIcons: [
+          '<x-select name="framework"',
+          '    :options="[',
+          '        [\'value\' => \'tailwind\', \'label\' => \'Tailwind CSS\', \'icon\' => \'palette\'],',
+          '        [\'value\' => \'alpine\',   \'label\' => \'Alpine.js\',   \'icon\' => \'star\'],',
+          '        [\'value\' => \'laravel\',  \'label\' => \'Laravel\',     \'icon\' => \'brand-laravel\'],',
+          '        [\'value\' => \'livewire\', \'label\' => \'Livewire\',    \'icon\' => \'bolt\'],',
+          '    ]" />',
+        ].join('\n'),
+
+        selectMultiple: [
+          '<x-select name="tags" multiple',
+          '    :options="[\'Tailwind CSS\', \'Alpine.js\', \'Laravel\', \'Livewire\', \'Vite\']" />',
+        ].join('\n'),
+
+        selectDescriptions: [
+          '<x-select name="plan"',
+          '    :options="[',
+          '        [\'value\' => \'free\',       \'label\' => \'Free\',       \'description\' => \'1 GB storage\'],',
+          '        [\'value\' => \'pro\',        \'label\' => \'Pro\',        \'description\' => \'100 GB storage\'],',
+          '        [\'value\' => \'enterprise\', \'label\' => \'Enterprise\', \'description\' => \'Unlimited storage\'],',
+          '    ]" />',
+        ].join('\n'),
+      }
+    </script>

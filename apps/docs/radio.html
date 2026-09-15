@@ -1,0 +1,494 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Radio Group — Aegis UI Docs</title>
+    <meta name="description" content="Radio Group component: card-style radios with sizes, colors, descriptions and selection state." />
+
+    <!-- Alpine.js Collapse Plugin -->
+    <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
+    <!-- Alpine.js Core -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <!-- Tabler Icons CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
+    <!-- Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/src/styles.css" />
+  </head>
+
+  <body x-data="{ sidebarOpen: false }" class="bg-background text-foreground antialiased">
+    <!-- ───────────────────────── Mobile sidebar overlay ───────────────────────── -->
+    <div x-show="sidebarOpen" x-cloak class="fixed inset-0 z-50 lg:hidden">
+      <div class="absolute inset-0 bg-black/40" @click="sidebarOpen = false"></div>
+      <aside class="absolute inset-y-0 left-0 flex w-72 flex-col overflow-y-auto border-r border-border bg-background">
+        
+          <div class="flex h-14 items-center gap-2 border-b border-border px-5">
+            <span class="flex h-7 w-7 items-center justify-center rounded-md bg-primary text-primary-foreground">
+              <i class="ti ti-shield text-sm"></i>
+            </span>
+            <span class="text-sm font-bold tracking-tight">Aegis UI</span>
+          </div>
+        <nav class="flex-1 overflow-y-auto px-4 py-6">
+          <p class="px-2 pb-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground">Getting Started</p>
+            <a href="index.html" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors text-muted-foreground hover:text-foreground"><i class="ti ti-home text-base"></i> Home</a>
+            <a href="about.html" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors text-muted-foreground hover:text-foreground"><i class="ti ti-info-circle text-base"></i> About</a>
+            <a href="installation.html" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors text-muted-foreground hover:text-foreground"><i class="ti ti-terminal text-base"></i> Installation</a>
+            <a href="theming.html" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors text-muted-foreground hover:text-foreground"><i class="ti ti-palette text-base"></i> Theming & Customization</a>
+
+            <p class="px-2 pb-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground pt-6">Components</p>
+            <a href="components.html" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors text-muted-foreground hover:text-foreground"><i class="ti ti-components text-base"></i> Overview</a>
+            <a href="accordion.html" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors text-muted-foreground hover:text-foreground"><i class="ti ti-layout-list text-base"></i> Accordion</a>
+            <a href="alert.html" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors text-muted-foreground hover:text-foreground"><i class="ti ti-bell text-base"></i> Alert</a>
+            <a href="banner.html" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors text-muted-foreground hover:text-foreground"><i class="ti ti-speakerphone text-base"></i> Banner</a>
+            <a href="button.html" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors text-muted-foreground hover:text-foreground"><i class="ti ti-click text-base"></i> Button</a>
+            <a href="card.html" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors text-muted-foreground hover:text-foreground"><i class="ti ti-id text-base"></i> Card</a>
+            <a href="checkbox.html" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors text-muted-foreground hover:text-foreground"><i class="ti ti-square-check text-base"></i> Checkbox</a>
+            <a href="datepicker.html" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors text-muted-foreground hover:text-foreground"><i class="ti ti-calendar text-base"></i> Date Picker</a>
+            <a href="dropdown.html" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors text-muted-foreground hover:text-foreground"><i class="ti ti-menu-2 text-base"></i> Dropdown</a>
+            <a href="form-field.html" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors text-muted-foreground hover:text-foreground"><i class="ti ti-list-check text-base"></i> Form Field</a>
+            <a href="icon.html" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors text-muted-foreground hover:text-foreground"><i class="ti ti-icons text-base"></i> Icon</a>
+            <a href="input.html" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors text-muted-foreground hover:text-foreground"><i class="ti ti-forms text-base"></i> Input</a>
+            <a href="radio.html" aria-current="page" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors bg-muted text-foreground font-medium"><i class="ti ti-circle-dot text-base"></i> Radio Group</a>
+            <a href="select.html" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors text-muted-foreground hover:text-foreground"><i class="ti ti-selector text-base"></i> Select</a>
+            <a href="spinner.html" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors text-muted-foreground hover:text-foreground"><i class="ti ti-loader-2 text-base"></i> Spinner</a>
+            <a href="textarea.html" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors text-muted-foreground hover:text-foreground"><i class="ti ti-text-wrap text-base"></i> Textarea</a>
+            <a href="toggle.html" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors text-muted-foreground hover:text-foreground"><i class="ti ti-toggle-left text-base"></i> Toggle</a>
+        </nav>
+      </aside>
+    </div>
+
+    <div class="lg:pl-64">
+      <!-- ───────────────────────── Desktop sidebar ───────────────────────── -->
+      <aside class="fixed inset-y-0 left-0 z-40 hidden w-64 flex-col border-r border-border bg-background lg:flex">
+        
+          <a href="index.html" class="flex h-14 items-center gap-2 border-b border-border px-5">
+            <span class="flex h-7 w-7 items-center justify-center rounded-md bg-primary text-primary-foreground">
+              <i class="ti ti-shield text-sm"></i>
+            </span>
+            <span class="text-sm font-bold tracking-tight">Aegis UI</span>
+          </a>
+        <nav class="flex-1 overflow-y-auto px-4 py-6">
+          <p class="px-2 pb-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground">Getting Started</p>
+            <a href="index.html" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors text-muted-foreground hover:text-foreground"><i class="ti ti-home text-base"></i> Home</a>
+            <a href="about.html" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors text-muted-foreground hover:text-foreground"><i class="ti ti-info-circle text-base"></i> About</a>
+            <a href="installation.html" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors text-muted-foreground hover:text-foreground"><i class="ti ti-terminal text-base"></i> Installation</a>
+            <a href="theming.html" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors text-muted-foreground hover:text-foreground"><i class="ti ti-palette text-base"></i> Theming & Customization</a>
+
+            <p class="px-2 pb-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground pt-6">Components</p>
+            <a href="components.html" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors text-muted-foreground hover:text-foreground"><i class="ti ti-components text-base"></i> Overview</a>
+            <a href="accordion.html" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors text-muted-foreground hover:text-foreground"><i class="ti ti-layout-list text-base"></i> Accordion</a>
+            <a href="alert.html" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors text-muted-foreground hover:text-foreground"><i class="ti ti-bell text-base"></i> Alert</a>
+            <a href="banner.html" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors text-muted-foreground hover:text-foreground"><i class="ti ti-speakerphone text-base"></i> Banner</a>
+            <a href="button.html" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors text-muted-foreground hover:text-foreground"><i class="ti ti-click text-base"></i> Button</a>
+            <a href="card.html" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors text-muted-foreground hover:text-foreground"><i class="ti ti-id text-base"></i> Card</a>
+            <a href="checkbox.html" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors text-muted-foreground hover:text-foreground"><i class="ti ti-square-check text-base"></i> Checkbox</a>
+            <a href="datepicker.html" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors text-muted-foreground hover:text-foreground"><i class="ti ti-calendar text-base"></i> Date Picker</a>
+            <a href="dropdown.html" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors text-muted-foreground hover:text-foreground"><i class="ti ti-menu-2 text-base"></i> Dropdown</a>
+            <a href="form-field.html" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors text-muted-foreground hover:text-foreground"><i class="ti ti-list-check text-base"></i> Form Field</a>
+            <a href="icon.html" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors text-muted-foreground hover:text-foreground"><i class="ti ti-icons text-base"></i> Icon</a>
+            <a href="input.html" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors text-muted-foreground hover:text-foreground"><i class="ti ti-forms text-base"></i> Input</a>
+            <a href="radio.html" aria-current="page" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors bg-muted text-foreground font-medium"><i class="ti ti-circle-dot text-base"></i> Radio Group</a>
+            <a href="select.html" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors text-muted-foreground hover:text-foreground"><i class="ti ti-selector text-base"></i> Select</a>
+            <a href="spinner.html" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors text-muted-foreground hover:text-foreground"><i class="ti ti-loader-2 text-base"></i> Spinner</a>
+            <a href="textarea.html" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors text-muted-foreground hover:text-foreground"><i class="ti ti-text-wrap text-base"></i> Textarea</a>
+            <a href="toggle.html" class="mb-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors text-muted-foreground hover:text-foreground"><i class="ti ti-toggle-left text-base"></i> Toggle</a>
+        </nav>
+      </aside>
+
+      <!-- ───────────────────────── Top header ───────────────────────── -->
+      <header class="sticky top-0 z-30 flex h-14 items-center justify-between border-b border-border bg-background/80 px-4 backdrop-blur sm:px-6">
+        <div class="flex items-center gap-3">
+          <button
+            type="button"
+            @click="sidebarOpen = true"
+            class="flex h-9 w-9 items-center justify-center rounded-md border border-border text-muted-foreground transition-colors hover:text-foreground lg:hidden"
+            aria-label="Open navigation"
+          >
+            <i class="ti ti-menu-2 text-lg"></i>
+          </button>
+          <span class="text-sm font-medium text-muted-foreground lg:hidden">Aegis UI</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="version-chip"><i class="ti ti-shield text-xs text-foreground"></i> v1.0.0</span>
+          <span class="hidden sm:inline-flex text-xs text-muted-foreground">Laravel 13 · Livewire 4 · Tailwind 4 · Alpine 3</span>
+        </div>
+      </header>
+
+      <!-- ───────────────────────── Main content ───────────────────────── -->
+      <main class="mx-auto w-full max-w-7xl px-4 py-10 sm:px-6">
+        <section>
+
+          <div class="flex items-center gap-3">
+            <h1 class="text-3xl font-extrabold tracking-tight">Radio Group</h1>
+            <span class="inline-code">&lt;x-radio-group /&gt;</span>
+          </div>
+          <p class="mt-2 text-muted-foreground">
+            Card-style radio group with sizes, colors, descriptions, and
+            Alpine.js-powered selection state.
+          </p>
+
+          <div class="docs-card mt-8" aria-label="On this page">
+            <span class="docs-card__label">On this page</span>
+            <nav class="flex flex-wrap gap-2">
+              <a href="#usage" class="rounded-md border border-border px-2.5 py-1 text-xs font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground">Usage</a>
+              <a href="#props-x-radio-group" class="rounded-md border border-border px-2.5 py-1 text-xs font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground">Props — x-radio-group</a>
+              <a href="#props-x-radio" class="rounded-md border border-border px-2.5 py-1 text-xs font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground">Props — x-radio</a>
+              <a href="#basic-radio-group" class="rounded-md border border-border px-2.5 py-1 text-xs font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground">Basic radio group</a>
+              <a href="#with-label-and-required" class="rounded-md border border-border px-2.5 py-1 text-xs font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground">With label &amp; required</a>
+              <a href="#sizes" class="rounded-md border border-border px-2.5 py-1 text-xs font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground">Sizes</a>
+              <a href="#colors" class="rounded-md border border-border px-2.5 py-1 text-xs font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground">Colors</a>
+              <a href="#disabled-state" class="rounded-md border border-border px-2.5 py-1 text-xs font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground">Disabled state</a>
+            </nav>
+          </div>
+
+          <h2 class="mt-10 text-xl font-bold tracking-tight scroll-mt-20" id="usage">Usage</h2>
+          <pre class="code-block mt-3"><code x-text="uiDocs.radioUsage"></code></pre>
+
+          <h2 class="mt-10 text-xl font-bold tracking-tight scroll-mt-20" id="props-x-radio-group">Props — x-radio-group</h2>
+          <table class="prop-table mt-3">
+            <thead>
+              <tr>
+                <th>Prop</th>
+                <th>Type / Options</th>
+                <th>Default</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>name</td>
+                <td>string</td>
+                <td>auto</td>
+                <td>Radio group name attribute. Auto-generated from id if not set.</td>
+              </tr>
+              <tr>
+                <td>value</td>
+                <td>string</td>
+                <td>null</td>
+                <td>Initially selected value.</td>
+              </tr>
+              <tr>
+                <td>label</td>
+                <td>string</td>
+                <td>null</td>
+                <td>Group label rendered above the options.</td>
+              </tr>
+              <tr>
+                <td>required</td>
+                <td>bool</td>
+                <td>false</td>
+                <td>Shows required indicator and sets aria-required.</td>
+              </tr>
+              <tr>
+                <td>size</td>
+                <td>xs, sm, md, lg, xl</td>
+                <td>md</td>
+                <td>Radio card and circle scale.</td>
+              </tr>
+              <tr>
+                <td>color</td>
+                <td>primary, danger, success, warning, neutral</td>
+                <td>primary</td>
+                <td>Accent color for selected state.</td>
+              </tr>
+              <tr>
+                <td>disabled</td>
+                <td>bool</td>
+                <td>false</td>
+                <td>Disables all radios in the group.</td>
+              </tr>
+              <tr>
+                <td>hint</td>
+                <td>string</td>
+                <td>null</td>
+                <td>Hint text below the group.</td>
+              </tr>
+              <tr>
+                <td>error</td>
+                <td>string</td>
+                <td>null</td>
+                <td>Error message (overrides hint).</td>
+              </tr>
+              <tr>
+                <td>wireModel</td>
+                <td>string</td>
+                <td>null</td>
+                <td>Livewire wire:model binding.</td>
+              </tr>
+              <tr>
+                <td>unstyled</td>
+                <td>bool</td>
+                <td>false</td>
+                <td>Strip all Aegis classes.</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h2 class="mt-10 text-xl font-bold tracking-tight scroll-mt-20" id="props-x-radio">Props — x-radio</h2>
+          <table class="prop-table mt-3">
+            <thead>
+              <tr>
+                <th>Prop</th>
+                <th>Type / Options</th>
+                <th>Default</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>value</td>
+                <td>string</td>
+                <td>null</td>
+                <td>Value submitted with the form.</td>
+              </tr>
+              <tr>
+                <td>label</td>
+                <td>string</td>
+                <td>null</td>
+                <td>Primary label text.</td>
+              </tr>
+              <tr>
+                <td>description</td>
+                <td>string</td>
+                <td>null</td>
+                <td>Secondary text below the label.</td>
+              </tr>
+              <tr>
+                <td>disabled</td>
+                <td>bool</td>
+                <td>false</td>
+                <td>Disables this individual radio.</td>
+              </tr>
+              <tr>
+                <td>unstyled</td>
+                <td>bool</td>
+                <td>false</td>
+                <td>Strip all Aegis classes.</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h2 class="mt-10 text-xl font-bold tracking-tight scroll-mt-20" id="basic-radio-group">Basic radio group</h2>
+          <div class="docs-card mt-4">
+            <div x-data="{ selected: 'laravel' }" class="space-y-3">
+              <template x-for="(option, index) in [
+                { title: 'Tailwind CSS', description: 'A utility-first CSS framework for rapid UI development.', value: 'tailwind' },
+                { title: 'Alpine JS', description: 'A rugged and lightweight JavaScript framework.', value: 'alpine' },
+                { title: 'Laravel', description: 'The PHP Framework for Web Artisans.', value: 'laravel' }
+              ]" :key="index">
+                <label @click="selected = option.value" class="flex items-start p-5 space-x-3 bg-white border rounded-lg shadow-sm hover:bg-gray-50 border-neutral-200/70 cursor-pointer transition-colors" :class="selected === option.value ? 'border-primary bg-primary/5' : ''">
+                  <input type="radio" name="framework" :value="option.value" :checked="selected === option.value" class="mt-0.5 text-primary focus:ring-primary" />
+                  <span class="relative flex flex-col text-left space-y-1">
+                    <span x-text="option.title" class="font-semibold text-sm"></span>
+                    <span x-text="option.description" class="text-sm text-muted-foreground"></span>
+                  </span>
+                </label>
+              </template>
+            </div>
+          </div>
+          <pre class="code-block mt-3"><code x-text="uiDocs.radioBasic"></code></pre>
+
+          <h2 class="mt-10 text-xl font-bold tracking-tight scroll-mt-20" id="with-label-and-required">With label &amp; required</h2>
+          <div class="docs-card mt-4">
+            <div x-data="{ selected: null }" class="space-y-3">
+              <span class="text-sm font-medium">Pick a framework <span class="text-red-500">*</span></span>
+              <template x-for="(option, index) in [
+                { title: 'React', value: 'react' },
+                { title: 'Vue', value: 'vue' },
+                { title: 'Svelte', value: 'svelte' }
+              ]" :key="index">
+                <label @click="selected = option.value" class="flex items-center p-4 space-x-3 bg-white border rounded-lg shadow-sm hover:bg-gray-50 border-neutral-200/70 cursor-pointer transition-colors" :class="selected === option.value ? 'border-primary bg-primary/5' : ''">
+                  <input type="radio" name="js-framework" :value="option.value" :checked="selected === option.value" class="text-primary focus:ring-primary" />
+                  <span x-text="option.title" class="text-sm font-medium"></span>
+                </label>
+              </template>
+            </div>
+          </div>
+          <pre class="code-block mt-3"><code x-text="uiDocs.radioLabel"></code></pre>
+
+          <h2 class="mt-10 text-xl font-bold tracking-tight scroll-mt-20" id="sizes">Sizes</h2>
+          <div class="docs-card mt-4 space-y-6">
+            <div x-data="{ selected: 'md' }">
+              <p class="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-3">Extra Small</p>
+              <div x-data="{ selected: 'xs-opt' }" class="space-y-1">
+                <template x-for="(option, index) in [{ title: 'Option A', value: 'xs-opt' }, { title: 'Option B', value: 'xs-opt2' }]" :key="index">
+                  <label @click="selected = option.value" class="flex items-center p-2 space-x-2 bg-white border rounded-md hover:bg-gray-50 border-neutral-200/70 cursor-pointer text-xs transition-colors" :class="selected === option.value ? 'border-primary bg-primary/5' : ''">
+                    <input type="radio" name="xs-radio" :value="option.value" :checked="selected === option.value" class="text-primary focus:ring-primary" />
+                    <span x-text="option.title" class="font-medium"></span>
+                  </label>
+                </template>
+              </div>
+
+              <p class="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-3 mt-6">Small</p>
+              <div x-data="{ selected: 'sm-opt' }" class="space-y-1.5">
+                <template x-for="(option, index) in [{ title: 'Option A', value: 'sm-opt' }, { title: 'Option B', value: 'sm-opt2' }]" :key="index">
+                  <label @click="selected = option.value" class="flex items-center p-3 space-x-2.5 bg-white border rounded-lg shadow-sm hover:bg-gray-50 border-neutral-200/70 cursor-pointer text-sm transition-colors" :class="selected === option.value ? 'border-primary bg-primary/5' : ''">
+                    <input type="radio" name="sm-radio" :value="option.value" :checked="selected === option.value" class="text-primary focus:ring-primary" />
+                    <span x-text="option.title" class="font-medium"></span>
+                  </label>
+                </template>
+              </div>
+
+              <p class="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-3 mt-6">Large</p>
+              <div x-data="{ selected: 'lg-opt' }" class="space-y-2">
+                <template x-for="(option, index) in [{ title: 'Option A', value: 'lg-opt' }, { title: 'Option B', value: 'lg-opt2' }]" :key="index">
+                  <label @click="selected = option.value" class="flex items-center p-5 space-x-4 bg-white border rounded-lg shadow-sm hover:bg-gray-50 border-neutral-200/70 cursor-pointer transition-colors" :class="selected === option.value ? 'border-primary bg-primary/5' : ''">
+                    <input type="radio" name="lg-radio" :value="option.value" :checked="selected === option.value" class="text-primary focus:ring-primary" />
+                    <span x-text="option.title" class="font-semibold"></span>
+                  </label>
+                </template>
+              </div>
+            </div>
+          </div>
+          <pre class="code-block mt-3"><code x-text="uiDocs.radioSizes"></code></pre>
+
+          <h2 class="mt-10 text-xl font-bold tracking-tight scroll-mt-20" id="colors">Colors</h2>
+          <div class="docs-card mt-4 space-y-6">
+            <div class="grid gap-6 sm:grid-cols-2">
+              <div x-data="{ selected: 'p1' }">
+                <p class="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-3">Primary</p>
+                <div class="space-y-2">
+                  <template x-for="(option, index) in [{ title: 'Option A', value: 'p1' }, { title: 'Option B', value: 'p2' }]" :key="index">
+                    <label @click="selected = option.value" class="flex items-center p-4 space-x-3 bg-white border rounded-lg shadow-sm hover:bg-gray-50 border-neutral-200/70 cursor-pointer transition-colors" :class="selected === option.value ? 'border-primary bg-primary/5' : ''">
+                      <input type="radio" name="color-p" :value="option.value" :checked="selected === option.value" class="text-primary focus:ring-primary" />
+                      <span x-text="option.title" class="text-sm font-medium"></span>
+                    </label>
+                  </template>
+                </div>
+              </div>
+              <div x-data="{ selected: 'd1' }">
+                <p class="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-3">Danger</p>
+                <div class="space-y-2">
+                  <template x-for="(option, index) in [{ title: 'Option A', value: 'd1' }, { title: 'Option B', value: 'd2' }]" :key="index">
+                    <label @click="selected = option.value" class="flex items-center p-4 space-x-3 bg-white border rounded-lg shadow-sm hover:bg-gray-50 border-neutral-200/70 cursor-pointer transition-colors" :class="selected === option.value ? 'border-red-500 bg-red-50' : ''">
+                      <input type="radio" name="color-d" :value="option.value" :checked="selected === option.value" class="text-red-600 focus:ring-red-500" />
+                      <span x-text="option.title" class="text-sm font-medium"></span>
+                    </label>
+                  </template>
+                </div>
+              </div>
+              <div x-data="{ selected: 's1' }">
+                <p class="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-3">Success</p>
+                <div class="space-y-2">
+                  <template x-for="(option, index) in [{ title: 'Option A', value: 's1' }, { title: 'Option B', value: 's2' }]" :key="index">
+                    <label @click="selected = option.value" class="flex items-center p-4 space-x-3 bg-white border rounded-lg shadow-sm hover:bg-gray-50 border-neutral-200/70 cursor-pointer transition-colors" :class="selected === option.value ? 'border-green-500 bg-green-50' : ''">
+                      <input type="radio" name="color-s" :value="option.value" :checked="selected === option.value" class="text-green-600 focus:ring-green-500" />
+                      <span x-text="option.title" class="text-sm font-medium"></span>
+                    </label>
+                  </template>
+                </div>
+              </div>
+              <div x-data="{ selected: 'w1' }">
+                <p class="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-3">Warning</p>
+                <div class="space-y-2">
+                  <template x-for="(option, index) in [{ title: 'Option A', value: 'w1' }, { title: 'Option B', value: 'w2' }]" :key="index">
+                    <label @click="selected = option.value" class="flex items-center p-4 space-x-3 bg-white border rounded-lg shadow-sm hover:bg-gray-50 border-neutral-200/70 cursor-pointer transition-colors" :class="selected === option.value ? 'border-amber-500 bg-amber-50' : ''">
+                      <input type="radio" name="color-w" :value="option.value" :checked="selected === option.value" class="text-amber-600 focus:ring-amber-500" />
+                      <span x-text="option.title" class="text-sm font-medium"></span>
+                    </label>
+                  </template>
+                </div>
+              </div>
+            </div>
+          </div>
+          <pre class="code-block mt-3"><code x-text="uiDocs.radioColors"></code></pre>
+
+          <h2 class="mt-10 text-xl font-bold tracking-tight scroll-mt-20" id="disabled-state">Disabled state</h2>
+          <div class="docs-card mt-4">
+            <div x-data="{ selected: 'a' }" class="space-y-2 opacity-50 pointer-events-none">
+              <template x-for="(option, index) in [{ title: 'Option A', value: 'a' }, { title: 'Option B', value: 'b' }]" :key="index">
+                <label class="flex items-center p-4 space-x-3 bg-white border rounded-lg shadow-sm border-neutral-200/70">
+                  <input type="radio" name="disabled-radio" :value="option.value" disabled class="text-primary" />
+                  <span x-text="option.title" class="text-sm font-medium"></span>
+                </label>
+              </template>
+            </div>
+          </div>
+          <pre class="code-block mt-3"><code x-text="uiDocs.radioDisabled"></code></pre>
+
+</section>
+
+
+      </main>
+    </div>
+
+    <script>
+      window.uiDocs = {
+        radioUsage: [
+          '<x-radio-group name="framework" value="laravel" label="Pick a framework">',
+          '    <x-radio value="tailwind" label="Tailwind CSS" description="Utility-first CSS framework" />',
+          '    <x-radio value="alpine"   label="Alpine JS"   description="Lightweight JS framework" />',
+          '    <x-radio value="laravel"  label="Laravel"     description="PHP Framework for Web Artisans" />',
+          '</x-radio-group>',
+        ].join('\n'),
+
+        radioBasic: [
+          '<x-radio-group name="framework" value="laravel">',
+          '    <x-radio value="tailwind" label="Tailwind CSS" description="A utility-first CSS framework." />',
+          '    <x-radio value="alpine"   label="Alpine JS"   description="A lightweight JavaScript framework." />',
+          '    <x-radio value="laravel"  label="Laravel"     description="The PHP Framework for Web Artisans." />',
+          '</x-radio-group>',
+        ].join('\n'),
+
+        radioLabel: [
+          '<x-radio-group name="framework" label="Pick a framework" required>',
+          '    <x-radio value="react"  label="React"  description="A JavaScript library for building user interfaces." />',
+          '    <x-radio value="vue"    label="Vue"    description="The Progressive JavaScript Framework." />',
+          '    <x-radio value="svelte" label="Svelte" description="Cybernetically enhanced web apps." />',
+          '</x-radio-group>',
+        ].join('\n'),
+
+        radioSizes: [
+          '<!-- xs -->',
+          '<x-radio-group name="opt" size="xs">',
+          '    <x-radio value="a" label="Option A" />',
+          '</x-radio-group>',
+          '',
+          '<!-- sm -->',
+          '<x-radio-group name="opt" size="sm">',
+          '    <x-radio value="a" label="Option A" />',
+          '</x-radio-group>',
+          '',
+          '<!-- lg -->',
+          '<x-radio-group name="opt" size="lg">',
+          '    <x-radio value="a" label="Option A" />',
+          '</x-radio-group>',
+          '',
+          '<!-- xl -->',
+          '<x-radio-group name="opt" size="xl">',
+          '    <x-radio value="a" label="Option A" />',
+          '</x-radio-group>',
+        ].join('\n'),
+
+        radioColors: [
+          '<x-radio-group name="opt" color="primary">',
+          '    <x-radio value="a" label="Option A" />',
+          '</x-radio-group>',
+          '',
+          '<x-radio-group name="opt" color="danger">',
+          '    <x-radio value="a" label="Option A" />',
+          '</x-radio-group>',
+          '',
+          '<x-radio-group name="opt" color="success">',
+          '    <x-radio value="a" label="Option A" />',
+          '</x-radio-group>',
+          '',
+          '<x-radio-group name="opt" color="warning">',
+          '    <x-radio value="a" label="Option A" />',
+          '</x-radio-group>',
+        ].join('\n'),
+
+        radioDisabled: [
+          '<x-radio-group name="opt" disabled>',
+          '    <x-radio value="a" label="Option A" />',
+          '    <x-radio value="b" label="Option B" />',
+          '</x-radio-group>',
+        ].join('\n'),
+      }
+    </script>
+
+  </body>
+</html>

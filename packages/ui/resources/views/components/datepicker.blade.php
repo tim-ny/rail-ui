@@ -94,6 +94,7 @@
             viewMonth: @js($initialViewMonth),
             viewYear: @js($initialViewYear),
             selected: @js($initialSelected),
+            hoverDate: null,
             monthNames: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
             shortMonths: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
             weekDayNames: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
@@ -215,6 +216,11 @@
                 return this.selected === key;
             },
             isInRange(key) {
+                if (this.isRange() && this.selected && this.selected.start && !this.selected.end && this.hoverDate) {
+                    const s = this.selected.start;
+                    const h = this.hoverDate;
+                    return (s < h && key > s && key < h) || (h < s && key > h && key < s);
+                }
                 if (!this.isRange() || !this.selected || !this.selected.start || !this.selected.end) return false;
                 return key > this.selected.start && key < this.selected.end;
             },
@@ -271,6 +277,13 @@
                 const classes = ['ui-datepicker__cell'];
                 if (this.isSelected(cell.key)) classes.push('ui-datepicker__cell--selected');
                 else if (this.isInRange(cell.key)) classes.push('ui-datepicker__cell--in-range');
+                if (this.isRange() && this.selected) {
+                    if (cell.key === this.selected.start) {
+                        classes.push('ui-datepicker__cell--range-start');
+                        if (!this.selected.end || this.selected.start === this.selected.end) classes.push('range-single');
+                    }
+                    if (cell.key === this.selected.end) classes.push('ui-datepicker__cell--range-end');
+                }
                 if (cell.key === this.todayIso()) classes.push('ui-datepicker__cell--today');
                 if (this.isDisabled(cell.key)) classes.push('ui-datepicker__cell--disabled');
                 return classes.join(' ');
@@ -280,7 +293,14 @@
                 const classes = ['ui-datepicker__cell'];
                 if (this.isSelected(key)) classes.push('ui-datepicker__cell--selected');
                 else if (this.isInRange(key)) classes.push('ui-datepicker__cell--in-range');
-                if (this.isMonthGran() && this.isDisabled(key)) classes.push('ui-datepicker__cell--disabled');
+                if (this.isRange() && this.selected) {
+                    if (key === this.selected.start) {
+                        classes.push('ui-datepicker__cell--range-start');
+                        if (!this.selected.end || this.selected.start === this.selected.end) classes.push('range-single');
+                    }
+                    if (key === this.selected.end) classes.push('ui-datepicker__cell--range-end');
+                }
+                if (this.isDisabled(key)) classes.push('ui-datepicker__cell--disabled');
                 return classes.join(' ');
             },
             yearCellClass(y) {
@@ -288,7 +308,14 @@
                 const classes = ['ui-datepicker__cell'];
                 if (this.isSelected(key)) classes.push('ui-datepicker__cell--selected');
                 else if (this.isInRange(key)) classes.push('ui-datepicker__cell--in-range');
-                if (this.isYearGran() && this.isDisabled(key)) classes.push('ui-datepicker__cell--disabled');
+                if (this.isRange() && this.selected) {
+                    if (key === this.selected.start) {
+                        classes.push('ui-datepicker__cell--range-start');
+                        if (!this.selected.end || this.selected.start === this.selected.end) classes.push('range-single');
+                    }
+                    if (key === this.selected.end) classes.push('ui-datepicker__cell--range-end');
+                }
+                if (this.isDisabled(key)) classes.push('ui-datepicker__cell--disabled');
                 return classes.join(' ');
             },
 
@@ -450,7 +477,7 @@
 
                     {{-- Header --}}
                     <div class="ui-datepicker__header">
-                        <button type="button" class="ui-datepicker__nav" @click="previous()" x-show="monthControls || view === 'year'" aria-label="Previous">
+                        <button type="button" class="ui-datepicker__nav" @click="previous()" aria-label="Previous">
                             <x-icon name="chevron-left" size="sm" aria-hidden="true" />
                         </button>
 
@@ -461,14 +488,16 @@
                                     <span x-text="viewYear" class="ui-datepicker__heading-label ui-datepicker__heading-label--year"></span>
                                 </span>
                             </template>
-                            <span x-show="view === 'month'" x-text="viewYear"></span>
+                            <template x-if="view === 'month'">
+                                <span x-text="viewYear"></span>
+                            </template>
                         </button>
 
                         <button type="button" class="ui-datepicker__heading" @click="cycleView()" :disabled="!viewControl" x-show="view === 'year'">
-                            <span x-text="yearPageStart + ' - ' + (yearPageStart + 11)"></span>
+                            <span x-text="yearPageStart + ' – ' + (yearPageStart + 11)"></span>
                         </button>
 
-                        <button type="button" class="ui-datepicker__nav" @click="next()" x-show="monthControls || view === 'year'" aria-label="Next">
+                        <button type="button" class="ui-datepicker__nav" @click="next()" aria-label="Next">
                             <x-icon name="chevron-right" size="sm" aria-hidden="true" />
                         </button>
                     </div>
@@ -494,6 +523,8 @@
                                                         class="ui-datepicker__cell"
                                                         :class="cellClass(cell)"
                                                         @click="selectCell(cell.key)"
+                                                        @mouseenter="isRange() && selected && !selected.end ? hoverDate = cell.key : null"
+                                                        @mouseleave="hoverDate = null"
                                                         :disabled="isDisabled(cell.key)"
                                                         x-text="cell.day"
                                                         tabindex="-1"
@@ -519,7 +550,7 @@
                                     class="ui-datepicker__cell"
                                     :class="monthCellClass(m)"
                                     @click="clickMonth(m)"
-                                    :disabled="isMonthGran() ? isDisabled(isoMonth(viewYear, m)) : false"
+                                    :disabled="isDisabled(isoMonth(viewYear, m))"
                                     x-text="shortMonths[m]"
                                     tabindex="-1"
                                 ></button>
@@ -536,7 +567,7 @@
                                     class="ui-datepicker__cell"
                                     :class="yearCellClass(y)"
                                     @click="clickYear(y)"
-                                    :disabled="isYearGran() ? isDisabled(String(y)) : false"
+                                    :disabled="isDisabled(String(y))"
                                     x-text="y"
                                     tabindex="-1"
                                 ></button>

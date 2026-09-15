@@ -64,6 +64,29 @@ return [
             'size' => 'md',
             'color' => 'primary',
         ],
+        'dropdown' => [
+            'size' => 'md',
+            'variant' => 'solid',
+            'color' => 'primary',
+        ],
+        'dropdown-item' => [],
+        'dropdown-header' => [],
+        'dropdown-divider' => [],
+        'dropdown-checkbox' => [],
+        'dropdown-submenu' => [],
+        'radio-group' => [
+            'size' => 'md',
+            'color' => 'primary',
+        ],
+        'radio' => [],
+        'select' => [
+            'size' => 'md',
+            'color' => 'primary',
+        ],
+        'toggle' => [
+            'size' => 'md',
+            'color' => 'primary',
+        ],
         'textarea' => [
             'size' => 'md',
             'variant' => 'outline',
