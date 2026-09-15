@@ -1,6 +1,6 @@
 <?php
 
-namespace Aegis\Ui\Tests\Feature;
+namespace Rail\Ui\Tests\Feature;
 
 use Illuminate\Support\Facades\Blade;
 

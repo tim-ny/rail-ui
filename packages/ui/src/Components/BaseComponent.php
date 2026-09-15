@@ -1,6 +1,6 @@
 <?php
 
-namespace Aegis\Ui\Components;
+namespace Rail\Ui\Components;
 
 use Illuminate\View\Component;
 
@@ -8,7 +8,7 @@ abstract class BaseComponent extends Component
 {
     /**
      * Must return the config key for this component, e.g. 'button'.
-     * Used to resolve defaults from config/aegis-ui.php.
+     * Used to resolve defaults from config/rail-ui.php.
      */
     abstract protected static function componentConfigKey(): string;
 
@@ -20,7 +20,7 @@ abstract class BaseComponent extends Component
     /**
      * Resolve a prop default via:
      * 1. inline prop (handled by Blade before this runs)
-     * 2. published config/aegis-ui.php
+     * 2. published config/rail-ui.php
      * 3. package fallback
      */
     protected function resolveDefault(string $component, string $prop, mixed $value, mixed $packageDefault = null): mixed
@@ -28,7 +28,7 @@ abstract class BaseComponent extends Component
         $packageDefault = $packageDefault ?? $value;
 
         if (function_exists('config') && function_exists('app') && app()->bound('config')) {
-            $configDefault = config("aegis-ui.defaults.{$component}.{$prop}");
+            $configDefault = config("rail-ui.defaults.{$component}.{$prop}");
             if ($configDefault !== null && $value === $packageDefault) {
                 return $configDefault;
             }

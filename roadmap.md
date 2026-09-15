@@ -1,4 +1,4 @@
-# Aegis UI — Component Roadmap
+# Rail UI — Component Roadmap
 
 > Last updated: 2026-09-13
 

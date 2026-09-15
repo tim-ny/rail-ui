@@ -1,8 +1,8 @@
 <?php
 
-namespace Aegis\Ui\Tests\Unit;
+namespace Rail\Ui\Tests\Unit;
 
-use Aegis\Ui\Components\Alert;
+use Rail\Ui\Components\Alert;
 use InvalidArgumentException;
 
 it('resolves soft primary md classes by default for alert', function () {

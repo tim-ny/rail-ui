@@ -1,9 +1,9 @@
 <?php
 
-namespace Aegis\Ui\Tests\Unit;
+namespace Rail\Ui\Tests\Unit;
 
-use Aegis\Ui\Components\Accordion;
-use Aegis\Ui\Components\AccordionItem;
+use Rail\Ui\Components\Accordion;
+use Rail\Ui\Components\AccordionItem;
 use InvalidArgumentException;
 
 it('resolves outline neutral md classes by default for accordion', function () {
@@ -25,6 +25,6 @@ it('throws exception on invalid accordion size', function () {
 });
 
 it('generates item id from title', function () {
-    $item = new AccordionItem(title: 'What is Aegis UI');
-    expect($item->id)->toBe('ui-acc-what-is-aegis-ui');
+    $item = new AccordionItem(title: 'What is Rail UI');
+    expect($item->id)->toBe('ui-acc-what-is-rail-ui');
 });

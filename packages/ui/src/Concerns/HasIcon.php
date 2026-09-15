@@ -1,6 +1,6 @@
 <?php
 
-namespace Aegis\Ui\Concerns;
+namespace Rail\Ui\Concerns;
 
 trait HasIcon
 {

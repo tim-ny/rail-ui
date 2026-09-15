@@ -1,8 +1,8 @@
 <?php
 
-namespace Aegis\Ui\Tests\Unit;
+namespace Rail\Ui\Tests\Unit;
 
-use Aegis\Ui\Components\Textarea;
+use Rail\Ui\Components\Textarea;
 use InvalidArgumentException;
 
 it('resolves default classes for textarea', function () {

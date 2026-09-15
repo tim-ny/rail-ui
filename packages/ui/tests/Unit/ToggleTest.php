@@ -1,8 +1,8 @@
 <?php
 
-namespace Aegis\Ui\Tests\Unit;
+namespace Rail\Ui\Tests\Unit;
 
-use Aegis\Ui\Components\Toggle;
+use Rail\Ui\Components\Toggle;
 use InvalidArgumentException;
 
 it('resolves default classes for toggle', function () {

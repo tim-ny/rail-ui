@@ -1,8 +1,8 @@
 <?php
 
-namespace Aegis\Ui\Tests\Unit;
+namespace Rail\Ui\Tests\Unit;
 
-use Aegis\Ui\Components\Card;
+use Rail\Ui\Components\Card;
 
 it('resolves default classes for card', function () {
     $card = new Card();

@@ -1,13 +1,13 @@
 <?php
 
-namespace Aegis\Ui\Tests\Unit;
+namespace Rail\Ui\Tests\Unit;
 
-use Aegis\Ui\Components\Dropdown;
-use Aegis\Ui\Components\DropdownItem;
-use Aegis\Ui\Components\DropdownHeader;
-use Aegis\Ui\Components\DropdownDivider;
-use Aegis\Ui\Components\DropdownCheckbox;
-use Aegis\Ui\Components\DropdownSubmenu;
+use Rail\Ui\Components\Dropdown;
+use Rail\Ui\Components\DropdownItem;
+use Rail\Ui\Components\DropdownHeader;
+use Rail\Ui\Components\DropdownDivider;
+use Rail\Ui\Components\DropdownCheckbox;
+use Rail\Ui\Components\DropdownSubmenu;
 use InvalidArgumentException;
 
 it('resolves left solid primary classes by default for dropdown', function () {

@@ -1,9 +1,9 @@
 <?php
 
-namespace Aegis\Ui\Tests\Unit;
+namespace Rail\Ui\Tests\Unit;
 
-use Aegis\Ui\Components\RadioGroup;
-use Aegis\Ui\Components\Radio;
+use Rail\Ui\Components\RadioGroup;
+use Rail\Ui\Components\Radio;
 use InvalidArgumentException;
 
 it('resolves default classes for radio group', function () {

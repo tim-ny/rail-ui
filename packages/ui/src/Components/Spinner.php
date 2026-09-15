@@ -6,16 +6,16 @@
  * @props      size, color, label, icon
  * @slots      none
  * @decisions  Renders the Tabler "loader-2" icon by default (configurable via
- *             config('aegis-ui.loading.icon') or the `icon` prop) so every loading
+ *             config('rail-ui.loading.icon') or the `icon` prop) so every loading
  *             state in the package shares one visual language. The spin
  *             animation is applied to the icon SVG itself via the ui-spinner
- *             class. Falls back to the built-in SVG when config('aegis-ui.features.icons')
+ *             class. Falls back to the built-in SVG when config('rail-ui.features.icons')
  *             is disabled. Inherits the current text color by default.
  */
 
-namespace Aegis\Ui\Components;
+namespace Rail\Ui\Components;
 
-use Aegis\Ui\Concerns\HasSize;
+use Rail\Ui\Concerns\HasSize;
 
 class Spinner extends BaseComponent
 {
@@ -56,12 +56,12 @@ class Spinner extends BaseComponent
 
     public function usesTablerIcon(): bool
     {
-        return config('aegis-ui.features.icons', true);
+        return config('rail-ui.features.icons', true);
     }
 
     public function resolveIcon(): string
     {
-        $configIcon = config('aegis-ui.loading.icon');
+        $configIcon = config('rail-ui.loading.icon');
         $rawIcon = ($configIcon && is_string($configIcon)) ? $configIcon : 'loader';
         $icon = trim(preg_replace('/^(ti-|tabler-)/i', '', $this->icon ?? $rawIcon));
 

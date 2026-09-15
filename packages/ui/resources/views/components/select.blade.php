@@ -30,7 +30,7 @@
     $isMultiple = $c ? $c->multiple : $multiple;
     $isSearchable = $c ? $c->searchable : $searchable;
     $isClearable = $c ? $c->clearable : $clearable;
-    $opts = $c ? $c->options : (new \Aegis\Ui\Components\Select(options: $options))->options;
+    $opts = $c ? $c->options : (new \Rail\Ui\Components\Select(options: $options))->options;
     $hasErr = $c ? $c->hasError() : !empty($error);
     $isValid = $c ? $c->isValid() : ($valid && !$hasErr);
     $validationCls = $c ? $c->validationClass() : ($hasErr ? 'ui-field--error' : ($isValid ? 'ui-field--valid' : ''));

@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Accordion — Aegis UI Docs</title>
+    <title>Accordion — Rail UI Docs</title>
     <meta name="description" content="Accordion component: single or multi-open, variants and leading icons." />
 
     <!-- Alpine.js Collapse Plugin -->
@@ -29,7 +29,7 @@
             <span class="flex h-7 w-7 items-center justify-center rounded-md bg-primary text-primary-foreground">
               <i class="ti ti-shield text-sm"></i>
             </span>
-            <span class="text-sm font-bold tracking-tight">Aegis UI</span>
+            <span class="text-sm font-bold tracking-tight">Rail UI</span>
           </div>
         <nav class="flex-1 overflow-y-auto px-4 py-6">
           <p class="px-2 pb-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground">Getting Started</p>
@@ -68,7 +68,7 @@
             <span class="flex h-7 w-7 items-center justify-center rounded-md bg-primary text-primary-foreground">
               <i class="ti ti-shield text-sm"></i>
             </span>
-            <span class="text-sm font-bold tracking-tight">Aegis UI</span>
+            <span class="text-sm font-bold tracking-tight">Rail UI</span>
           </a>
         <nav class="flex-1 overflow-y-auto px-4 py-6">
           <p class="px-2 pb-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground">Getting Started</p>
@@ -109,7 +109,7 @@
           >
             <i class="ti ti-menu-2 text-lg"></i>
           </button>
-          <span class="text-sm font-medium text-muted-foreground lg:hidden">Aegis UI</span>
+          <span class="text-sm font-medium text-muted-foreground lg:hidden">Rail UI</span>
         </div>
         <div class="flex items-center gap-2">
           <span class="version-chip"><i class="ti ti-shield text-xs text-foreground"></i> v1.0.0</span>
@@ -254,7 +254,7 @@
                     ><i
                       class="ti ti-help-circle ui-accordion__icon--leading"
                     ></i
-                    ><span>What is Aegis UI?</span></span
+                    ><span>What is Rail UI?</span></span
                   >
                   <i
                     class="ti ti-chevron-down ui-accordion__chevron"
@@ -268,7 +268,7 @@
                   class="ui-accordion__panel"
                 >
                   <div class="ui-accordion__content">
-                    Aegis UI is a token-driven Blade + Livewire component
+                    Rail UI is a token-driven Blade + Livewire component
                     package for Laravel 13, Livewire 4, Alpine 3 and Tailwind 4.
                   </div>
                 </div>
@@ -297,7 +297,7 @@
                 >
                   <div class="ui-accordion__content">
                     Require via
-                    <code class="inline-code">composer require aegis/ui</code>
+                    <code class="inline-code">composer require rail/ui</code>
                     and import the published CSS.
                   </div>
                 </div>
@@ -422,11 +422,11 @@
       window.uiDocs = {
         accordionUsage: [
           '<x-accordion>',
-          '    <x-accordion-item title="What is Aegis UI?" leadingIcon="help-circle">',
-          '        Aegis UI is a token-driven Blade + Livewire component package.',
+          '    <x-accordion-item title="What is Rail UI?" leadingIcon="help-circle">',
+          '        Rail UI is a token-driven Blade + Livewire component package.',
           '    </x-accordion-item>',
           '    <x-accordion-item title="How do I install it?" leadingIcon="box">',
-          '        composer require aegis/ui',
+          '        composer require rail/ui',
           '    </x-accordion-item>',
           '</x-accordion>',
           '',
@@ -438,12 +438,12 @@
         ].join('\n'),
 
         accordionSingle: [
-          '<x-accordion defaultOpen="what-is-aegis-ui">',
-          '    <x-accordion-item title="What is Aegis UI?" leadingIcon="help-circle">',
+          '<x-accordion defaultOpen="what-is-rail-ui">',
+          '    <x-accordion-item title="What is Rail UI?" leadingIcon="help-circle">',
           '        A token-driven Blade + Livewire component package.',
           '    </x-accordion-item>',
           '    <x-accordion-item title="How do I install it?" leadingIcon="box">',
-          '        composer require aegis/ui',
+          '        composer require rail/ui',
           '    </x-accordion-item>',
           '    <x-accordion-item title="Can I customize tokens?" leadingIcon="palette">',
           '        Yes — every visual value is a --ui-* custom property.',

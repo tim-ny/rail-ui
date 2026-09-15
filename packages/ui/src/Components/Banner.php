@@ -6,15 +6,15 @@
  * @props      variant, size, color, icon, title, href, closable, showAfter, autoHide, fixed, unstyled
  * @slots      $slot (description), $icon, $action
  * @decisions  Top-of-page announcement bar. Uses Alpine.js for show/hide transitions,
- *             dismiss, and auto-hide. Resolves defaults via config/aegis-ui.php.
+ *             dismiss, and auto-hide. Resolves defaults via config/rail-ui.php.
  */
 
-namespace Aegis\Ui\Components;
+namespace Rail\Ui\Components;
 
-use Aegis\Ui\Concerns\HasSize;
-use Aegis\Ui\Concerns\HasVariant;
-use Aegis\Ui\Concerns\HasColor;
-use Aegis\Ui\Concerns\HasUnstyled;
+use Rail\Ui\Concerns\HasSize;
+use Rail\Ui\Concerns\HasVariant;
+use Rail\Ui\Concerns\HasColor;
+use Rail\Ui\Concerns\HasUnstyled;
 
 class Banner extends BaseComponent
 {

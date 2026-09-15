@@ -1,8 +1,8 @@
 <?php
 
-namespace Aegis\Ui\Tests\Unit;
+namespace Rail\Ui\Tests\Unit;
 
-use Aegis\Ui\Components\Icon;
+use Rail\Ui\Components\Icon;
 use InvalidArgumentException;
 
 it('normalises icon name by stripping tabler prefix', function () {

@@ -9,12 +9,12 @@
  *             checkboxes, and nested submenus. Popover positioned via CSS.
  */
 
-namespace Aegis\Ui\Components;
+namespace Rail\Ui\Components;
 
-use Aegis\Ui\Concerns\HasSize;
-use Aegis\Ui\Concerns\HasVariant;
-use Aegis\Ui\Concerns\HasColor;
-use Aegis\Ui\Concerns\HasUnstyled;
+use Rail\Ui\Concerns\HasSize;
+use Rail\Ui\Concerns\HasVariant;
+use Rail\Ui\Concerns\HasColor;
+use Rail\Ui\Concerns\HasUnstyled;
 
 class Dropdown extends BaseComponent
 {

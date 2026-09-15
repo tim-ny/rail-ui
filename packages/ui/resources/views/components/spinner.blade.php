@@ -9,8 +9,8 @@
     $c = $component ?? null;
     $spinnerSizeClass = $c ? $c->sizeClass() : 'ui-spinner--' . ($size ?? 'md');
     $spinnerClasses = 'ui-spinner ' . $spinnerSizeClass . ($color ? " text-{$color}" : '');
-    $usesTabler = $c ? $c->usesTablerIcon() : config('aegis-ui.features.icons', true);
-    $configIcon = config('aegis-ui.loading.icon');
+    $usesTabler = $c ? $c->usesTablerIcon() : config('rail-ui.features.icons', true);
+    $configIcon = config('rail-ui.loading.icon');
     $rawIcon = ($configIcon && is_string($configIcon)) ? $configIcon : 'loader';
     $resolvedIcon = $c ? $c->resolveIcon() : trim(preg_replace('/^(ti-|tabler-)/i', '', $icon ?? $rawIcon));
     $spinnerLabel = $c ? $c->label : ($label ?? 'Loading');

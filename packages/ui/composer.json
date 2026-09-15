@@ -1,13 +1,13 @@
 {
-    "name": "timny/aegis-ui",
+    "name": "timny/rail-ui",
     "description": "A token-driven Blade + Livewire component library for Laravel 13, Livewire 4, Alpine.js 3, and Tailwind CSS 4.",
     "type": "library",
     "license": "MIT",
     "keywords": ["laravel", "blade", "livewire", "alpine", "tailwind", "ui-components", "design-system"],
-    "homepage": "https://github.com/tim-ny/aegis-ui",
+    "homepage": "https://github.com/tim-ny/rail-ui",
     "support": {
-        "issues": "https://github.com/tim-ny/aegis-ui/issues",
-        "source": "https://github.com/tim-ny/aegis-ui"
+        "issues": "https://github.com/tim-ny/rail-ui/issues",
+        "source": "https://github.com/tim-ny/rail-ui"
     },
     "require": {
         "php": "^8.3",
@@ -23,18 +23,18 @@
     },
     "autoload": {
         "psr-4": {
-            "Aegis\\Ui\\": "src/"
+            "Rail\\Ui\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Aegis\\Ui\\Tests\\": "tests/"
+            "Rail\\Ui\\Tests\\": "tests/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Aegis\\Ui\\UiServiceProvider"
+                "Rail\\Ui\\UiServiceProvider"
             ]
         }
     }

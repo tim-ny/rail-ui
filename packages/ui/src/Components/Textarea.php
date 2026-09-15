@@ -9,17 +9,17 @@
  *             height, and a live character count via Alpine.js when maxlength is set.
  */
 
-namespace Aegis\Ui\Components;
+namespace Rail\Ui\Components;
 
-use Aegis\Ui\Concerns\HasSize;
-use Aegis\Ui\Concerns\HasVariant;
-use Aegis\Ui\Concerns\HasColor;
-use Aegis\Ui\Concerns\HasDisabled;
-use Aegis\Ui\Concerns\HasLoading;
-use Aegis\Ui\Concerns\HasBlock;
-use Aegis\Ui\Concerns\HasUnstyled;
-use Aegis\Ui\Concerns\HasValidation;
-use Aegis\Ui\Concerns\InteractsWithWire;
+use Rail\Ui\Concerns\HasSize;
+use Rail\Ui\Concerns\HasVariant;
+use Rail\Ui\Concerns\HasColor;
+use Rail\Ui\Concerns\HasDisabled;
+use Rail\Ui\Concerns\HasLoading;
+use Rail\Ui\Concerns\HasBlock;
+use Rail\Ui\Concerns\HasUnstyled;
+use Rail\Ui\Concerns\HasValidation;
+use Rail\Ui\Concerns\InteractsWithWire;
 
 class Textarea extends BaseComponent
 {

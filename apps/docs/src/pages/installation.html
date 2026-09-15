@@ -2,7 +2,7 @@
 
           <h1 class="text-3xl font-extrabold tracking-tight">Installation</h1>
           <p class="mt-2 text-muted-foreground">
-            Add Aegis UI to any Laravel 13 project in three steps.
+            Add Rail UI to any Laravel 13 project in three steps.
           </p>
 
           <div class="docs-prose mt-8">
@@ -53,18 +53,18 @@
 <script>
 
       window.uiDocs = {
-        installComposer: ['composer require aegis/ui'].join('\n'),
+        installComposer: ['composer require rail/ui'].join('\n'),
 
         installPublish: [
-          'php artisan vendor:publish --provider="Aegis\\Ui\\UiServiceProvider" --tag=aegis-ui-config',
+          'php artisan vendor:publish --provider="Aegis\\Ui\\UiServiceProvider" --tag=rail-ui-config',
         ].join('\n'),
 
         installPublishCss: [
-          'php artisan vendor:publish --provider="Aegis\\Ui\\UiServiceProvider" --tag=aegis-ui-css',
+          'php artisan vendor:publish --provider="Aegis\\Ui\\UiServiceProvider" --tag=rail-ui-css',
         ].join('\n'),
 
         installCss: [
-          '@import "@aegis/ui/resources/css/ui.css";',
+          '@import "@rail/ui/resources/css/ui.css";',
           '',
           '@theme {',
           '    /* override --ui-* tokens here */',

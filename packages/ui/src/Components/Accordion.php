@@ -9,13 +9,13 @@
  *             supporting both single-open and multi-open accordion modes.
  */
 
-namespace Aegis\Ui\Components;
+namespace Rail\Ui\Components;
 
-use Aegis\Ui\Concerns\HasSize;
-use Aegis\Ui\Concerns\HasVariant;
-use Aegis\Ui\Concerns\HasColor;
-use Aegis\Ui\Concerns\HasBlock;
-use Aegis\Ui\Concerns\HasUnstyled;
+use Rail\Ui\Concerns\HasSize;
+use Rail\Ui\Concerns\HasVariant;
+use Rail\Ui\Concerns\HasColor;
+use Rail\Ui\Concerns\HasBlock;
+use Rail\Ui\Concerns\HasUnstyled;
 
 class Accordion extends BaseComponent
 {

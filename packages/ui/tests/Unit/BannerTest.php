@@ -1,8 +1,8 @@
 <?php
 
-namespace Aegis\Ui\Tests\Unit;
+namespace Rail\Ui\Tests\Unit;
 
-use Aegis\Ui\Components\Banner;
+use Rail\Ui\Components\Banner;
 use InvalidArgumentException;
 
 it('resolves default classes for banner', function () {

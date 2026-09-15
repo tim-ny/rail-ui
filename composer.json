@@ -1,6 +1,6 @@
 {
-    "name": "aegis/ui-monorepo",
-    "description": "Monorepo workspace for Aegis UI package and docs",
+    "name": "rail/ui-monorepo",
+    "description": "Monorepo workspace for Rail UI package and docs",
     "type": "project",
     "license": "MIT",
     "repositories": [

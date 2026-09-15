@@ -14,14 +14,14 @@
  *             array of ISO keys plus optional inclusive min/max bounds.
  */
 
-namespace Aegis\Ui\Components;
+namespace Rail\Ui\Components;
 
-use Aegis\Ui\Concerns\HasSize;
-use Aegis\Ui\Concerns\HasColor;
-use Aegis\Ui\Concerns\HasDisabled;
-use Aegis\Ui\Concerns\HasUnstyled;
-use Aegis\Ui\Concerns\HasValidation;
-use Aegis\Ui\Concerns\InteractsWithWire;
+use Rail\Ui\Concerns\HasSize;
+use Rail\Ui\Concerns\HasColor;
+use Rail\Ui\Concerns\HasDisabled;
+use Rail\Ui\Concerns\HasUnstyled;
+use Rail\Ui\Concerns\HasValidation;
+use Rail\Ui\Concerns\InteractsWithWire;
 
 class DatePicker extends BaseComponent
 {

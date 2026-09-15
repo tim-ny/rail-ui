@@ -6,12 +6,12 @@
  * @props      padding, shadow, border, href, overflow, unstyled
  * @slots      $media, $header, $default, $footer, $avatar
  * @decisions  Flexible layout container. Supports default, horizontal, and profile
- *             layouts via slots. Resolves defaults via config/aegis-ui.php.
+ *             layouts via slots. Resolves defaults via config/rail-ui.php.
  */
 
-namespace Aegis\Ui\Components;
+namespace Rail\Ui\Components;
 
-use Aegis\Ui\Concerns\HasUnstyled;
+use Rail\Ui\Concerns\HasUnstyled;
 
 class Card extends BaseComponent
 {

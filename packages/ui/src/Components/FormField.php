@@ -8,10 +8,10 @@
  * @decisions  Wrapper component for grouping label, input control, and feedback text.
  */
 
-namespace Aegis\Ui\Components;
+namespace Rail\Ui\Components;
 
-use Aegis\Ui\Concerns\HasUnstyled;
-use Aegis\Ui\Concerns\HasValidation;
+use Rail\Ui\Concerns\HasUnstyled;
+use Rail\Ui\Concerns\HasValidation;
 
 class FormField extends BaseComponent
 {

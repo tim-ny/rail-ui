@@ -1,8 +1,8 @@
 <?php
 
-namespace Aegis\Ui\Components;
+namespace Rail\Ui\Components;
 
-use Aegis\Ui\Concerns\HasUnstyled;
+use Rail\Ui\Concerns\HasUnstyled;
 
 class DropdownHeader extends BaseComponent
 {

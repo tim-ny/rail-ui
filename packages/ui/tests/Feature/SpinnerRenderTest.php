@@ -1,6 +1,6 @@
 <?php
 
-namespace Aegis\Ui\Tests\Feature;
+namespace Rail\Ui\Tests\Feature;
 
 use Illuminate\Support\Facades\Blade;
 
@@ -30,7 +30,7 @@ it('renders the size class from the size prop', function () {
 });
 
 it('uses the configured loading icon by default', function () {
-    config()->set('aegis-ui.loading.icon', 'loader-2');
+    config()->set('rail-ui.loading.icon', 'loader-2');
 
     $rendered = Blade::render('<x-spinner />');
 
@@ -38,7 +38,7 @@ it('uses the configured loading icon by default', function () {
 });
 
 it('renders the built-in svg spinner when icons are disabled', function () {
-    config()->set('aegis-ui.features.icons', false);
+    config()->set('rail-ui.features.icons', false);
 
     $rendered = Blade::render('<x-spinner label="Waiting" />');
 

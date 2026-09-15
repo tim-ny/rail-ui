@@ -1,8 +1,8 @@
 <?php
 
-namespace Aegis\Ui\Tests\Unit;
+namespace Rail\Ui\Tests\Unit;
 
-use Aegis\Ui\Components\Select;
+use Rail\Ui\Components\Select;
 use InvalidArgumentException;
 
 it('resolves default classes for select', function () {

@@ -1,8 +1,8 @@
 <?php
 
-namespace Aegis\Ui\Tests\Unit;
+namespace Rail\Ui\Tests\Unit;
 
-use Aegis\Ui\Components\DatePicker;
+use Rail\Ui\Components\DatePicker;
 use InvalidArgumentException;
 
 it('resolves default classes for datepicker', function () {

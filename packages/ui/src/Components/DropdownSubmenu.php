@@ -1,9 +1,9 @@
 <?php
 
-namespace Aegis\Ui\Components;
+namespace Rail\Ui\Components;
 
-use Aegis\Ui\Concerns\HasDisabled;
-use Aegis\Ui\Concerns\HasUnstyled;
+use Rail\Ui\Concerns\HasDisabled;
+use Rail\Ui\Concerns\HasUnstyled;
 
 class DropdownSubmenu extends BaseComponent
 {

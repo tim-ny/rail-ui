@@ -1,8 +1,8 @@
 <?php
 
-namespace Aegis\Ui\Tests\Unit;
+namespace Rail\Ui\Tests\Unit;
 
-use Aegis\Ui\Components\Checkbox;
+use Rail\Ui\Components\Checkbox;
 use InvalidArgumentException;
 
 it('resolves default classes for checkbox', function () {

@@ -8,10 +8,10 @@
  * @decisions  Renders collapsible item. Uses Str::slug for title-based IDs, Str::random for fallback.
  */
 
-namespace Aegis\Ui\Components;
+namespace Rail\Ui\Components;
 
-use Aegis\Ui\Concerns\HasDisabled;
-use Aegis\Ui\Concerns\HasUnstyled;
+use Rail\Ui\Concerns\HasDisabled;
+use Rail\Ui\Concerns\HasUnstyled;
 use Illuminate\Support\Str;
 
 class AccordionItem extends BaseComponent

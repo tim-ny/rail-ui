@@ -1,5 +1,5 @@
 // ─────────────────────────────────────────────────────────────────────────────
-// Aegis UI docs — page generator.
+// Rail UI docs — page generator.
 //
 // Builds every route (index.html, button.html, …) from:
 //   - a shared layout (head, mobile/desktop sidebar, header) defined below
@@ -53,67 +53,67 @@ const NAV = [
 // "On this page" anchor menu (the only place anchor links are used).
 const PAGES = [
   { src: 'home', out: 'index', navKey: 'index', toc: false,
-    title: 'Aegis UI — Documentation',
+    title: 'Rail UI — Documentation',
     description: 'A token-driven Blade + Livewire component library for Laravel 13, Livewire 4, Alpine 3 and Tailwind CSS 4.' },
   { src: 'about', out: 'about', navKey: 'about', toc: false,
-    title: 'About — Aegis UI Docs',
-    description: 'The story, the stack and the design principles behind Aegis UI.' },
+    title: 'About — Rail UI Docs',
+    description: 'The story, the stack and the design principles behind Rail UI.' },
   { src: 'installation', out: 'installation', navKey: 'installation', toc: false,
-    title: 'Installation — Aegis UI Docs',
-    description: 'Add Aegis UI to any Laravel 13 project: install, publish config and assets, import the stylesheet.' },
+    title: 'Installation — Rail UI Docs',
+    description: 'Add Rail UI to any Laravel 13 project: install, publish config and assets, import the stylesheet.' },
   { src: 'theming', out: 'theming', navKey: 'theming', toc: false,
-    title: 'Theming & Customization — Aegis UI Docs',
+    title: 'Theming & Customization — Rail UI Docs',
     description: 'Every visual value is a --ui-* token. Change the tokens, rebrand the library.' },
   { src: 'components', out: 'components', navKey: 'components', toc: false,
-    title: 'Components — Aegis UI Docs',
+    title: 'Components — Rail UI Docs',
     description: 'Every component page documents each prop and customization option.' },
   { src: 'banner', out: 'banner', navKey: 'banner', toc: true,
-    title: 'Banner — Aegis UI Docs',
+    title: 'Banner — Rail UI Docs',
     description: 'Banner component: announcement bar with transitions, dismiss, auto-hide and action slots.' },
   { src: 'button', out: 'button', navKey: 'button', toc: true,
-    title: 'Button — Aegis UI Docs',
+    title: 'Button — Rail UI Docs',
     description: 'Button component: variants, sizes, colors, icons, links, loading and block.' },
   { src: 'card', out: 'card', navKey: 'card', toc: true,
-    title: 'Card — Aegis UI Docs',
+    title: 'Card — Rail UI Docs',
     description: 'Card component: flexible content container with media, header, body, footer and avatar slots.' },
   { src: 'input', out: 'input', navKey: 'input', toc: true,
-    title: 'Input — Aegis UI Docs',
+    title: 'Input — Rail UI Docs',
     description: 'Input component: variants, sizes, leading/trailing icons, validation and loading.' },
   { src: 'textarea', out: 'textarea', navKey: 'textarea', toc: true,
-    title: 'Textarea — Aegis UI Docs',
+    title: 'Textarea — Rail UI Docs',
     description: 'Textarea component: variants, sizes, auto-resize, character count and validation.' },
   { src: 'toggle', out: 'toggle', navKey: 'toggle', toc: true,
-    title: 'Toggle — Aegis UI Docs',
+    title: 'Toggle — Rail UI Docs',
     description: 'Toggle component: on/off switch with sizes, colors, labels and accessible role.' },
   { src: 'checkbox', out: 'checkbox', navKey: 'checkbox', toc: true,
-    title: 'Checkbox — Aegis UI Docs',
+    title: 'Checkbox — Rail UI Docs',
     description: 'Checkbox component: radius levels, sizes, colors, indeterminate and block/card mode.' },
   { src: 'radio', out: 'radio', navKey: 'radio', toc: true,
-    title: 'Radio Group — Aegis UI Docs',
+    title: 'Radio Group — Rail UI Docs',
     description: 'Radio Group component: card-style radios with sizes, colors, descriptions and selection state.' },
   { src: 'select', out: 'select', navKey: 'select', toc: true,
-    title: 'Select — Aegis UI Docs',
+    title: 'Select — Rail UI Docs',
     description: 'Select component: single/multiple selection, search, icons, images, keyboard navigation.' },
   { src: 'datepicker', out: 'datepicker', navKey: 'datepicker', toc: true,
-    title: 'Date Picker — Aegis UI Docs',
+    title: 'Date Picker — Rail UI Docs',
     description: 'Date Picker component: 7 modes, formats, presets, week numbers, disabled dates and ranges.' },
   { src: 'alert', out: 'alert', navKey: 'alert', toc: true,
-    title: 'Alert — Aegis UI Docs',
+    title: 'Alert — Rail UI Docs',
     description: 'Alert component: variants, colors, auto icons and dismissible.' },
   { src: 'accordion', out: 'accordion', navKey: 'accordion', toc: true,
-    title: 'Accordion — Aegis UI Docs',
+    title: 'Accordion — Rail UI Docs',
     description: 'Accordion component: single or multi-open, variants and leading icons.' },
   { src: 'dropdown', out: 'dropdown', navKey: 'dropdown', toc: true,
-    title: 'Dropdown — Aegis UI Docs',
+    title: 'Dropdown — Rail UI Docs',
     description: 'Dropdown component: contextual menus with items, headers, dividers, checkboxes and submenus.' },
   { src: 'spinner', out: 'spinner', navKey: 'spinner', toc: true,
-    title: 'Spinner — Aegis UI Docs',
+    title: 'Spinner — Rail UI Docs',
     description: 'Spinner component: sizes, colors and loading states.' },
   { src: 'icon', out: 'icon', navKey: 'icon', toc: true,
-    title: 'Icon — Aegis UI Docs',
+    title: 'Icon — Rail UI Docs',
     description: 'Icon component: any Tabler icon, sizes, color and aria labels.' },
   { src: 'form-field', out: 'form-field', navKey: 'form-field', toc: true,
-    title: 'Form Field — Aegis UI Docs',
+    title: 'Form Field — Rail UI Docs',
     description: 'Form Field wrapper: label, required marker, hint, error and valid feedback.' },
 ];
 
@@ -187,7 +187,7 @@ function shell({ title, description, activeKey, content, pageScript }) {
             <span class="flex h-7 w-7 items-center justify-center rounded-md bg-primary text-primary-foreground">
               <i class="ti ti-shield text-sm"></i>
             </span>
-            <span class="text-sm font-bold tracking-tight">Aegis UI</span>
+            <span class="text-sm font-bold tracking-tight">Rail UI</span>
           ${mobile ? '</div>' : '</a>'}`;
 
   return `<!doctype html>
@@ -243,7 +243,7 @@ function shell({ title, description, activeKey, content, pageScript }) {
           >
             <i class="ti ti-menu-2 text-lg"></i>
           </button>
-          <span class="text-sm font-medium text-muted-foreground lg:hidden">Aegis UI</span>
+          <span class="text-sm font-medium text-muted-foreground lg:hidden">Rail UI</span>
         </div>
         <div class="flex items-center gap-2">
           <span class="version-chip"><i class="ti ti-shield text-xs text-foreground"></i> v1.0.0</span>

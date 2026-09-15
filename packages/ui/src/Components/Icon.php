@@ -9,7 +9,7 @@
  *             passing to underlying Blade Icons component to prevent double prefix.
  */
 
-namespace Aegis\Ui\Components;
+namespace Rail\Ui\Components;
 
 class Icon extends BaseComponent
 {

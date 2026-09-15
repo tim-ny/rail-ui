@@ -1,8 +1,8 @@
 <?php
 
-namespace Aegis\Ui\Tests\Feature;
+namespace Rail\Ui\Tests\Feature;
 
-use Aegis\Ui\UiServiceProvider;
+use Rail\Ui\UiServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
 
 abstract class TestCase extends Orchestra

@@ -24,7 +24,7 @@ Create the following structure exactly. Do not add directories not listed here.
 packages/ui/
 ├── composer.json
 ├── config/
-│   └── aegis-ui.php
+│   └── rail-ui.php
 ├── src/
 │   ├── UiServiceProvider.php
 │   ├── Components/
@@ -118,7 +118,7 @@ class UiServiceProvider extends ServiceProvider
 {
     public function register(): void
     {
-        $this->mergeConfigFrom(__DIR__ . '/../config/aegis-ui.php', 'aegis-ui');
+        $this->mergeConfigFrom(__DIR__ . '/../config/rail-ui.php', 'rail-ui');
     }
 
     public function boot(): void
@@ -126,7 +126,7 @@ class UiServiceProvider extends ServiceProvider
         $this->loadViewsFrom(__DIR__ . '/../resources/views', 'ui');
 
         $this->publishes([
-            __DIR__ . '/../config/aegis-ui.php' => config_path('aegis-ui.php'),
+            __DIR__ . '/../config/rail-ui.php' => config_path('rail-ui.php'),
         ], 'ui-config');
 
         $this->publishes([
@@ -134,11 +134,11 @@ class UiServiceProvider extends ServiceProvider
         ], 'ui-css');
 
         $this->publishes([
-            __DIR__ . '/../config/aegis-ui.php'        => config_path('aegis-ui.php'),
+            __DIR__ . '/../config/rail-ui.php'        => config_path('rail-ui.php'),
             __DIR__ . '/../resources/css/ui.css' => resource_path('css/ui.css'),
         ], 'ui-assets');
 
-        $prefix = config('aegis-ui.prefix', '');
+        $prefix = config('rail-ui.prefix', '');
 
         // Register Blade-only components
         // Add each component here as it is built
@@ -155,7 +155,7 @@ class UiServiceProvider extends ServiceProvider
 
         // Register Livewire components
         // Add each component here as it is built
-        if (config('aegis-ui.features.livewire', true)) {
+        if (config('rail-ui.features.livewire', true)) {
             $livewireComponents = [
                 'modal'    => \PACKAGE_NAMESPACE\Ui\Livewire\Modal::class,
                 'combobox' => \PACKAGE_NAMESPACE\Ui\Livewire\Combobox::class,
@@ -171,7 +171,7 @@ class UiServiceProvider extends ServiceProvider
 
 ---
 
-## 5. config/aegis-ui.php
+## 5. config/rail-ui.php
 
 ```php
 <?php
@@ -537,19 +537,19 @@ abstract class BaseComponent extends Component
 {
     /**
      * Must return the config key for this component, e.g. 'button'.
-     * Used to resolve defaults from config/aegis-ui.php.
+     * Used to resolve defaults from config/rail-ui.php.
      */
     abstract protected static function componentConfigKey(): string;
 
     /**
      * Resolve a prop default via:
      * 1. inline prop (handled by Blade before this runs)
-     * 2. published config/aegis-ui.php
+     * 2. published config/rail-ui.php
      * 3. package fallback
      */
     protected function resolveDefault(string $component, string $prop, mixed $fallback): mixed
     {
-        return config("aegis-ui.defaults.{$component}.{$prop}", $fallback);
+        return config("rail-ui.defaults.{$component}.{$prop}", $fallback);
     }
 
     /**
@@ -635,7 +635,7 @@ class Button extends BaseComponent
         public ?string $leadingIcon  = null,
         public ?string $trailingIcon = null,
     ) {
-        // Apply config/aegis-ui.php defaults if props were not passed inline
+        // Apply config/rail-ui.php defaults if props were not passed inline
         $this->size    = $this->resolveDefault('button', 'size', $size);
         $this->variant = $this->resolveDefault('button', 'variant', $variant);
         $this->color   = $this->resolveDefault('button', 'color', $color);
@@ -792,7 +792,7 @@ it('resolves solid primary md classes by default', function () {
 
 ### Step 6 — Register the component
 
-Add the component to `UiServiceProvider.php` in the appropriate array (`$bladeComponents` or `$livewireComponents`). Add its default config to `config/aegis-ui.php` under `defaults`.
+Add the component to `UiServiceProvider.php` in the appropriate array (`$bladeComponents` or `$livewireComponents`). Add its default config to `config/rail-ui.php` under `defaults`.
 
 ### Step 7 — Add a demo page
 
@@ -992,7 +992,7 @@ Livewire components follow the same contract but with additional rules:
 
 Build in this order. Each item depends on the previous being complete and tested.
 
-1. **Scaffolding** — monorepo structure, `composer.json`, `package.json`, `phpunit.xml`, `UiServiceProvider.php`, `config/aegis-ui.php`, `BaseComponent.php`, all four Concerns, `ui.css` skeleton.
+1. **Scaffolding** — monorepo structure, `composer.json`, `package.json`, `phpunit.xml`, `UiServiceProvider.php`, `config/rail-ui.php`, `BaseComponent.php`, all four Concerns, `ui.css` skeleton.
 2. **Design tokens** — populate `@theme {}` with the provided design language. Do not build any component until tokens are complete.
 3. **Button** — the simplest component. Validates the full pipeline (class → view → CSS → test).
 4. **Badge** — uses `HasVariant`, `HasColor`, `HasSize`. No interactivity.
@@ -1069,7 +1069,7 @@ Every Blade view must begin with:
 - [ ] CSS appended to `ui.css` under a named section
 - [ ] All CSS values use `--ui-*` tokens
 - [ ] Component registered in `UiServiceProvider.php`
-- [ ] Defaults added to `config/aegis-ui.php`
+- [ ] Defaults added to `config/rail-ui.php`
 - [ ] Unit test: valid props, invalid props, config defaults
 - [ ] Feature test: rendered HTML, attribute forwarding, unstyled mode
 - [ ] Demo page added in `apps/docs/`
@@ -1254,7 +1254,7 @@ When a component accepts `leadingIcon` or `trailingIcon`, render them via `<x-ic
 
 ### Icon caching
 
-Enable Blade Icons caching in production. Add to `config/aegis-ui.php` under `features`:
+Enable Blade Icons caching in production. Add to `config/rail-ui.php` under `features`:
 
 ```php
 'icon_cache' => env('UI_ICON_CACHE', false),
@@ -1263,7 +1263,7 @@ Enable Blade Icons caching in production. Add to `config/aegis-ui.php` under `fe
 In `UiServiceProvider::boot()`, after registering components:
 
 ```php
-if (config('aegis-ui.features.icon_cache')) {
+if (config('rail-ui.features.icon_cache')) {
     \BladeUI\Icons\Factory::cache();
 }
 ```
@@ -1291,10 +1291,10 @@ Build this before `Button`. It is a dependency of every loading state.
  * @props      size, color, label, icon
  * @decisions  Renders the Tabler "loader-2" icon by default so every loading state
  *             shares one visual language. The icon is configurable via
- *             config('aegis-ui.loading.icon') (or the `icon` prop) and accepts optional
+ *             config('rail-ui.loading.icon') (or the `icon` prop) and accepts optional
  *             "tabler-" / "ti-" prefixes. The spin animation is applied to the
  *             icon SVG itself via the ui-spinner class. Falls back to the built-in
- *             SVG when config('aegis-ui.features.icons') is disabled. Inherits the
+ *             SVG when config('rail-ui.features.icons') is disabled. Inherits the
  *             current text colour via currentColor by default.
  */
 
@@ -1328,12 +1328,12 @@ class Spinner extends BaseComponent
 
     public function usesTablerIcon(): bool
     {
-        return config('aegis-ui.features.icons', true);
+        return config('rail-ui.features.icons', true);
     }
 
     public function resolveIcon(): string
     {
-        $icon = trim(preg_replace('/^(ti-|tabler-)/i', '', $this->icon ?? config('aegis-ui.loading.icon', 'loader')) ?? 'loader');
+        $icon = trim(preg_replace('/^(ti-|tabler-)/i', '', $this->icon ?? config('rail-ui.loading.icon', 'loader')) ?? 'loader');
 
         if ($icon === '') {
             throw new \InvalidArgumentException('Spinner icon must be a non-empty Tabler icon name.');
@@ -2009,7 +2009,7 @@ Tokens: `YYYY`/`MM`/`DD` are zero-padded numeric; `M` short month; `MMMM` full m
 ### Config defaults
 
 ```php
-// config/aegis-ui.php
+// config/rail-ui.php
 'datepicker' => [
     'mode'   => 'single',
     'format' => 'M d, Y',
@@ -2193,7 +2193,7 @@ Replace Section 18's checklist with this one. Every item is required before a co
 
 **Registration**
 - [ ] Added to `UiServiceProvider` in the correct array
-- [ ] Default props added to `config/aegis-ui.php` under `defaults`
+- [ ] Default props added to `config/rail-ui.php` under `defaults`
 - [ ] Icon dependency registered if component uses icons
 
 **Tests**
@@ -2219,12 +2219,12 @@ Replace Section 18's checklist with this one. Every item is required before a co
 ## Installation & Publishing
 
 Consumers install the package with Composer. All package defaults live in
-`config/aegis-ui.php` and can be overridden per-application after publishing.
+`config/rail-ui.php` and can be overridden per-application after publishing.
 
 **1. Install**
 
 ```bash
-composer require aegis/ui
+composer require rail/ui
 ```
 
 **2. Publish the config**
@@ -2233,7 +2233,7 @@ composer require aegis/ui
 php artisan vendor:publish --tag=ui-config
 ```
 
-This copies `config/aegis-ui.php` to the app's `config/` directory. Every default
+This copies `config/rail-ui.php` to the app's `config/` directory. Every default
 (component prefixes, per-component defaults, the loading icon, feature flags)
 is editable from there — inline component props always win, then the published
 config, then the package fallback.
@@ -2248,7 +2248,7 @@ Copies `resources/css/ui.css` to `resource_path('css/ui.css')` so the app can
 own and adjust the design tokens. Publish everything at once with:
 
 ```bash
-php artisan vendor:publish --provider="Aegis\Ui\UiServiceProvider"
+php artisan vendor:publish --provider="Rail\Ui\UiServiceProvider"
 ```
 
 or `--tag=ui-assets`.
@@ -2257,7 +2257,7 @@ or `--tag=ui-assets`.
 
 | Tag         | Publishes                                          |
 |-------------|----------------------------------------------------|
-| `ui-config` | `config/aegis-ui.php` → `config_path('aegis-ui.php')`          |
+| `ui-config` | `config/rail-ui.php` → `config_path('rail-ui.php')`          |
 | `ui-css`    | `resources/css/ui.css` → `resource_path('css/ui.css')` |
 | `ui-assets` | Both of the above                                  |
 

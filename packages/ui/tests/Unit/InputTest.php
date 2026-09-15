@@ -1,8 +1,8 @@
 <?php
 
-namespace Aegis\Ui\Tests\Unit;
+namespace Rail\Ui\Tests\Unit;
 
-use Aegis\Ui\Components\Input;
+use Rail\Ui\Components\Input;
 use InvalidArgumentException;
 
 it('resolves default classes for input', function () {

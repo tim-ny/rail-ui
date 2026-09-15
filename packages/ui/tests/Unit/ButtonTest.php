@@ -1,8 +1,8 @@
 <?php
 
-namespace Aegis\Ui\Tests\Unit;
+namespace Rail\Ui\Tests\Unit;
 
-use Aegis\Ui\Components\Button;
+use Rail\Ui\Components\Button;
 use InvalidArgumentException;
 
 it('resolves solid primary md classes by default', function () {
